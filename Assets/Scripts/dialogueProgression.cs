@@ -7,7 +7,6 @@ using System.Linq;
 public class dialogueProgression : MonoBehaviour {
 
 	public GameObject dialogueOptionsPrefab;
-	public dialogueOptionContainerScript dialogueOptionsFull;
 
 	GameObject curDialogueOptions;
 
@@ -37,13 +36,15 @@ public class dialogueProgression : MonoBehaviour {
 		dialMan.response = Instantiate (dialMan.responsePrefab,dialMan.responsePos.transform.position,dialMan.responsePos.transform.rotation) as GameObject;
 		dialMan.thoughts = Instantiate (dialMan.thoughtsPrefab,dialMan.thoughtsPos.transform.position,dialMan.thoughtsPos.transform.rotation) as GameObject;
 		
-		dialMan.response.transform.parent = dialMan.responsePos.transform;
-		dialMan.thoughts.transform.parent = dialMan.thoughtsPos.transform;
+		dialMan.response.transform.SetParent (dialMan.responsePos.transform);
+		dialMan.thoughts.transform.SetParent (dialMan.thoughtsPos.transform);
 		dialMan.response.GetComponent<RectTransform> ().localScale = Vector3.one;
 		dialMan.thoughts.GetComponent<RectTransform> ().localScale = Vector3.one;
 		
 		dialMan.response.GetComponent<textRoll> ().textToDisplay = curInst.response;
 		dialMan.thoughts.GetComponent<textRoll> ().textToDisplay = curInst.thoughts;
+		dialMan.response.GetComponent<textRoll> ().del = curInst.responseSpeed;
+		dialMan.thoughts.GetComponent<textRoll> ().startDel = curInst.thoughtsDelay;
 
 		StartCoroutine (SpawnButtons(curInst.optionDelay));
 
@@ -59,7 +60,7 @@ public class dialogueProgression : MonoBehaviour {
 
 		curDialogueOptions = Instantiate (dialogueOptionsPrefab,this.transform.position,this.transform.rotation) as GameObject;
 		
-		curDialogueOptions.transform.parent = dialogueManager.instance.dialogueCanvas.transform;
+		curDialogueOptions.transform.SetParent (dialogueManager.instance.dialogueCanvas.transform);
 		curDialogueOptions.GetComponent<RectTransform> ().localScale = Vector3.one;
 		curDialogueOptions.GetComponent<RectTransform> ().anchoredPosition3D = new Vector3(-115,150,0);
 		

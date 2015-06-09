@@ -9,9 +9,7 @@ public class textRoll : MonoBehaviour {
 	public float startDel = 0;
 	bool hasStartedRolling = false;
 
-	int curPos = 0;
 	public float del;
-	float time = 0;
 
 	public string textToDisplay;
 	// Use this for initialization

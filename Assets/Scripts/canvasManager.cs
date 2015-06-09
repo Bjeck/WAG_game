@@ -7,14 +7,17 @@ using UnityEngine.UI;
 public class canvasManager : MonoBehaviour {
 
 	public static canvasManager instance { get; private set; }
-
 	
 	public Canvas houseCanvas;
 	public Canvas villageCanvas;
 	public Canvas dialogueCanvas;
 	public Canvas bootCanvas;
+	public Canvas overlayCanvas;
 	List<Canvas> canvases = new List<Canvas> ();
+
 	public Canvas curCanvas;
+	GameObject enterDialogueButton;
+	public GameObject EnterDialogueButtonPrefab;
 	
 	void Awake()
 	{
@@ -33,17 +36,9 @@ public class canvasManager : MonoBehaviour {
 		canvases.Add (dialogueCanvas);
 		canvases.Add (bootCanvas);
 
-		foreach (Canvas c in canvases) {
-				c.gameObject.SetActive(c==curCanvas);
-		}
+		ActivateCanvas (curCanvas);
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 
 	public void ActivateCanvas(Canvas c){
 		c.gameObject.SetActive (true);
@@ -53,19 +48,50 @@ public class canvasManager : MonoBehaviour {
 			}
 		}
 		curCanvas = c;
+		if (enterDialogueButton != null) {
+			Debug.Log (enterDialogueButton.name + " deactivate");
+			Destroy (enterDialogueButton);
+			enterDialogueButton = null;
+		}
+		Story.instance.OnCanvasChange (c);
 	}
 
 	public void DeactivateCanvas(Canvas c){
+
 		c.gameObject.SetActive (false);
 	}
 
 	public void ChangeDialogueCanvas(bool f){
 		dialogueCanvas.gameObject.SetActive (f);
 		curCanvas.gameObject.SetActive (!f);
+		if (!f && enterDialogueButton != null) {
+			Debug.Log (enterDialogueButton.name + " deactivate");
+			Destroy (enterDialogueButton);
+			enterDialogueButton = null;
+		}
+
 	}
 
 	public void SetCurCanvas(Canvas c){
 		curCanvas = c;
+	}
+
+	public void TurnOnOverlay(){
+		overlayCanvas.gameObject.SetActive (true);
+	}
+
+	public void TurnOffOverlay(){
+		overlayCanvas.gameObject.SetActive (false);
+	}
+
+	public void ActivateDialogueButton(Canvas c, string s, string desc){
+		enterDialogueButton = Instantiate(EnterDialogueButtonPrefab) as GameObject;
+		enterDialogueButton.transform.SetParent(c.transform);
+		enterDialogueButton.GetComponent<RectTransform> ().anchoredPosition3D = new Vector3 (364, -134, 0);
+		enterDialogueButton.GetComponent<RectTransform> ().localScale = new Vector3(1.642344f,1.642344f,1.642344f);
+		enterDialogueButton.GetComponent<Button>().onClick.AddListener(() => dialogueManager.instance.EnterDialogue(s,enterDialogueButton));
+		enterDialogueButton.GetComponentInChildren<Text> ().text = desc;
+		MC.instance.UpdateBool (s);
 	}
 
 
