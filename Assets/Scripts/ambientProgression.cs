@@ -30,9 +30,19 @@ public class ambientProgression : MonoBehaviour {
 		dialMan.thoughts.transform.SetParent (dialMan.ambientThPos.transform);
 		dialMan.response.GetComponent<RectTransform> ().localScale = Vector3.one;
 		dialMan.thoughts.GetComponent<RectTransform> ().localScale = Vector3.one;
+
+
+
+		if(curInst.altResp.shouldAlter)
+			dialMan.response.GetComponent<textRoll> ().textToDisplay = curInst.altResp.altResp;
+		else
+			dialMan.response.GetComponent<textRoll> ().textToDisplay = curInst.response;
 		
-		dialMan.response.GetComponent<textRoll> ().textToDisplay = curInst.response;
-		dialMan.thoughts.GetComponent<textRoll> ().textToDisplay = curInst.thoughts;
+		if(curInst.altThou.shouldAlter)
+			dialMan.thoughts.GetComponent<textRoll> ().textToDisplay = curInst.altThou.altResp;
+		else
+			dialMan.thoughts.GetComponent<textRoll> ().textToDisplay = curInst.thoughts;
+
 		dialMan.response.GetComponent<textRoll> ().startDel = curInst.ambDelay;
 		dialMan.thoughts.GetComponent<textRoll> ().startDel = curInst.thoughtsDelay;
 		dialMan.response.GetComponent<textRoll> ().del = curInst.responseSpeed;

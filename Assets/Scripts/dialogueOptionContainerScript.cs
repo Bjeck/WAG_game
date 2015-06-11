@@ -3,6 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 
 
+public class Alternate{
+	public string altResp;
+	public bool shouldAlter = false;
+
+	public Alternate (){shouldAlter = false;}
+	public Alternate(string s, bool b){
+		altResp = s;
+		shouldAlter = b;
+	}
+
+
+
+}
+
+public class NextToTrigger{
+	public string name;
+	public bool shouldTrigger = false;
+	public bool isDialogue;
+
+	public NextToTrigger(){shouldTrigger = false;}
+	public NextToTrigger(string n, bool a, bool b){
+		name = n;
+		shouldTrigger = a;
+		isDialogue = b;
+	}
+}
+
 public class Inst {
 	public int id;
 	public bool disengage = false;
@@ -12,6 +39,26 @@ public class Inst {
 	public float responseSpeed = 0.02f;
 	public float thoughtsSpeed = 0.03f;
 	public float thoughtsDelay = 0;
+	public NextToTrigger nextToTrigger = new NextToTrigger();
+	public void NextTrigger(string n, bool b){
+		nextToTrigger.name = n;
+		nextToTrigger.shouldTrigger = true;
+		nextToTrigger.isDialogue = b;
+	}
+
+	public Alternate altResp = new Alternate();
+	public void AlterResp(string n){
+		altResp.altResp = n;
+		altResp.shouldAlter = true;
+	}
+
+	public Alternate altThou = new Alternate();
+	public void AlterThoughts(string n){
+		altThou.altResp = n;
+		altThou.shouldAlter = true;
+	}
+
+
 }
 
 
@@ -57,6 +104,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		momIntroGreet.ResponseNrs.Add (3);
 		momIntroGreet.ResponseNrs.Add (4);
 		momIntroGreet.optionDelay = 4.1f;
+		momIntroGreet.NextTrigger ("",false);
 		dialogueContainer.Add (momIntroGreet);
 
 		DialogueInst momIntroStraight = new DialogueInst ();

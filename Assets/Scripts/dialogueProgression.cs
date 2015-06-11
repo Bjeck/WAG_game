@@ -40,9 +40,17 @@ public class dialogueProgression : MonoBehaviour {
 		dialMan.thoughts.transform.SetParent (dialMan.thoughtsPos.transform);
 		dialMan.response.GetComponent<RectTransform> ().localScale = Vector3.one;
 		dialMan.thoughts.GetComponent<RectTransform> ().localScale = Vector3.one;
-		
-		dialMan.response.GetComponent<textRoll> ().textToDisplay = curInst.response;
-		dialMan.thoughts.GetComponent<textRoll> ().textToDisplay = curInst.thoughts;
+
+		if(curInst.altResp.shouldAlter)
+			dialMan.response.GetComponent<textRoll> ().textToDisplay = curInst.altResp.altResp;
+		else
+			dialMan.response.GetComponent<textRoll> ().textToDisplay = curInst.response;
+
+		if(curInst.altThou.shouldAlter)
+			dialMan.thoughts.GetComponent<textRoll> ().textToDisplay = curInst.altThou.altResp;
+		else
+			dialMan.thoughts.GetComponent<textRoll> ().textToDisplay = curInst.thoughts;
+
 		dialMan.response.GetComponent<textRoll> ().del = curInst.responseSpeed;
 		dialMan.thoughts.GetComponent<textRoll> ().startDel = curInst.thoughtsDelay;
 
