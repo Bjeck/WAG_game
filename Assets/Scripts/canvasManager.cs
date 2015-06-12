@@ -36,7 +36,18 @@ public class canvasManager : MonoBehaviour {
 		canvases.Add (dialogueCanvas);
 		canvases.Add (bootCanvas);
 
-		ActivateCanvas (curCanvas);
+		if (Story.instance.StartDial != "" && Story.instance.StartDial != null) {
+			if (dialogueOptionContainerScript.instance.allDialogues.ContainsKey (Story.instance.StartDial)) {
+				//ActivateCanvas (dialogueCanvas);
+				dialogueManager.instance.EnterDialogue (Story.instance.StartDial, null);
+			}
+			if (ambientVoiceContainer.instance.allAmbients.ContainsKey (Story.instance.StartDial)) {
+				//ActivateCanvas (dialogueCanvas);
+				dialogueManager.instance.EnterAmbient (Story.instance.StartDial, null);
+			}
+		} else {
+			ActivateCanvas (curCanvas);
+		}
 	
 	}
 

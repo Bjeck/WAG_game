@@ -10,6 +10,7 @@ public class textRoll : MonoBehaviour {
 	bool hasStartedRolling = false;
 
 	public float del;
+	bool isColored = false;
 
 	public string textToDisplay;
 	// Use this for initialization
@@ -38,10 +39,26 @@ public class textRoll : MonoBehaviour {
 
 	}
 
-
 	IEnumerator RollText(){
 		foreach (char c in textToDisplay) {
-			text.text += c;
+			if(c == '<'){
+				text.text += "<color=#0f0f0fff>"+"</color>";
+				isColored = true;
+			}
+			else if(isColored){
+				text.text = text.text.Substring(0,text.text.Length-8);
+				if(c == '>'){
+					isColored = false;
+					text.text += "</color>";
+				}
+				else{
+					text.text += c+"</color>";
+				}
+			}
+			else{
+				text.text += c;
+			}
+
 			yield return new WaitForSeconds(del);
 		}
 	}

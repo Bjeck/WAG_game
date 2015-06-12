@@ -3,8 +3,9 @@ using System.Collections;
 
 public class MC : MonoBehaviour {
 	public static MC instance { get; private set; }
-
-	public bool wentHungryToSchool;
+	
+	public bool CearaCursed;
+	public bool toldAboutSmell;
 
 	void Awake()
 	{

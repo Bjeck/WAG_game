@@ -50,18 +50,22 @@ public class dialogueManager : MonoBehaviour {
 	}
 
 	public void EnterDialogue(string dialName, GameObject b){
+		Debug.Log ("Entering Dialogue "+dialName);
 		CurDialogueObject = Instantiate (DialoguePrefab,this.transform.position,this.transform.rotation) as GameObject;
 		CurDialogueObject.transform.parent = dialogueCanvas.transform;
 		CurDialogueObject.GetComponent<dialogueProgression> ().dialName = dialName;
+		ambientButton.SetActive (false);
 		canvasManager.instance.ChangeDialogueCanvas (true);
 		buttonThatActivatedThisDialogue = b;
 	}
 
 	public void ExitDialogue(){
+		Debug.Log ("exit dialogue");
 		Destroy (CurDialogueObject);
 		Destroy (response.gameObject);
 		Destroy (thoughts.gameObject);
 		dialoguePosition = 0;
+		ambientButton.SetActive (false);
 		canvasManager.instance.ChangeDialogueCanvas (false);
 		if (buttonThatActivatedThisDialogue != null) {
 			Destroy (buttonThatActivatedThisDialogue);
@@ -76,21 +80,41 @@ public class dialogueManager : MonoBehaviour {
 		Destroy (response.gameObject);
 		Destroy (thoughts.gameObject);
 
+		//Debug.Log("trigger next");
+
+		if (dialoguePosition == 0) {
+			Story.instance.OnDialogueTrigger (CurDialogueObject.GetComponent<dialogueProgression>().dialName,dialoguePosition);
+		}
 		dialoguePosition = int.Parse (but.GetComponent<Button>().name);
+
 		Story.instance.OnDialogueTrigger (CurDialogueObject.GetComponent<dialogueProgression>().dialName,dialoguePosition);
 
 		if (dialogueOptionContainerScript.instance.allDialogues [CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == dialogueManager.instance.dialoguePosition).disengage == true) {
 
 			//If dialogue or should trigger on exit of this one... do this
+			Debug.Log("is disengaging");
 			if(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == dialogueManager.instance.dialoguePosition).nextToTrigger.shouldTrigger){
-				if(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == dialogueManager.instance.dialoguePosition).nextToTrigger.isDialogue){
-					EnterDialogue(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == dialogueManager.instance.dialoguePosition).nextToTrigger.name,null);
+				int pos = dialogueManager.instance.dialoguePosition;
+				if(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == pos).nextToTrigger.isDialogue){
+					Debug.Log("dialogue");
+					ExitDialogue ();
+					EnterDialogue(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == pos).nextToTrigger.name,null);
 				}
 				else{
-					EnterAmbient(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == dialogueManager.instance.dialoguePosition).nextToTrigger.name,null);
+					Debug.Log("ambient");
+					ExitDialogue ();
+					Debug.Log(CurDialogueObject.name);
+					Debug.Log(CurDialogueObject.GetComponent<dialogueProgression> ().dialName+" "+pos);
+					Debug.Log(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName]);
+					Debug.Log(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == pos));
+					Debug.Log(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == pos).nextToTrigger.name);
+					EnterAmbient(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == pos).nextToTrigger.name,null);
 				}
 			}
-			ExitDialogue ();
+			else{
+				Debug.Log("No NextTrigger exists");
+				ExitDialogue ();
+			}
 		} else {
 			CurDialogueObject.GetComponent<dialogueProgression> ().TriggerNextInstance ();
 		}
@@ -101,6 +125,7 @@ public class dialogueManager : MonoBehaviour {
 // AMBIENT
 
 	public void EnterAmbient(string name, GameObject b){
+		Debug.Log ("Entering Ambient "+name);
 		CurDialogueObject = Instantiate (AmbientPrefab,this.transform.position,this.transform.rotation) as GameObject;
 		CurDialogueObject.transform.parent = dialogueCanvas.transform;
 		CurDialogueObject.GetComponent<ambientProgression> ().ambientName = name;
@@ -110,6 +135,7 @@ public class dialogueManager : MonoBehaviour {
 	}
 
 	public void ExitAmbient(){
+		Debug.Log ("Exiting Ambient");
 		Destroy (CurDialogueObject);
 		Destroy (response.gameObject);
 		Destroy (thoughts.gameObject);
@@ -127,34 +153,43 @@ public class dialogueManager : MonoBehaviour {
 		Destroy (response.gameObject);
 		Destroy (thoughts.gameObject);
 
+		if (dialoguePosition == 0) {
+			Story.instance.OnDialogueTrigger (CurDialogueObject.GetComponent<ambientProgression>().ambientName,dialoguePosition);
+		}
+
 		dialoguePosition++;
-		
+
+		Story.instance.OnDialogueTrigger (CurDialogueObject.GetComponent<ambientProgression>().ambientName,dialoguePosition);
+
+		//Debug.Log (CurDialogueObject.GetComponent<ambientProgression> ().ambientName+" "+dialogueManager.instance.dialoguePosition);
+		//Debug.Log (ambientVoiceContainer.instance.allAmbients [CurDialogueObject.GetComponent<ambientProgression> ().ambientName]);
+		//Debug.Log (ambientVoiceContainer.instance.allAmbients [CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == dialogueManager.instance.dialoguePosition).disengage);
+
+
+
 		if (ambientVoiceContainer.instance.allAmbients [CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == dialogueManager.instance.dialoguePosition).disengage == true) {
-			//Disengage Dialogue
+			Debug.Log("is disengaging");
 			//If dialogue or should trigger on exit of this one... do this
 			if(ambientVoiceContainer.instance.allAmbients[CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == dialogueManager.instance.dialoguePosition).nextToTrigger.shouldTrigger){
-				if(ambientVoiceContainer.instance.allAmbients[CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == dialogueManager.instance.dialoguePosition).nextToTrigger.isDialogue){
-					EnterDialogue(ambientVoiceContainer.instance.allAmbients[CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == dialogueManager.instance.dialoguePosition).nextToTrigger.name,null);
+				int pos = dialogueManager.instance.dialoguePosition;
+				if(ambientVoiceContainer.instance.allAmbients[CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == pos).nextToTrigger.isDialogue){
+					Debug.Log("dialogue");
+					ExitAmbient ();
+					EnterDialogue(ambientVoiceContainer.instance.allAmbients[CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == pos).nextToTrigger.name,null);
 				}
 				else{
-					EnterAmbient(ambientVoiceContainer.instance.allAmbients[CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == dialogueManager.instance.dialoguePosition).nextToTrigger.name,null);
+					Debug.Log("ambient");
+					ExitAmbient ();
+					EnterAmbient(ambientVoiceContainer.instance.allAmbients[CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == pos).nextToTrigger.name,null);
 				}
 			}
+			else{
+				ExitAmbient ();
+			}
 
-
-
-			ExitAmbient ();
-			
 		} else {
 			CurDialogueObject.GetComponent<ambientProgression> ().TriggerNextInstance ();
 		}
 	}
-
-
-
-
-
-
-
 
 }
