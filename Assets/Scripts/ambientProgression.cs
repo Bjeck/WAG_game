@@ -16,7 +16,7 @@ public class ambientProgression : MonoBehaviour {
 	void Start () {
 		dialMan = dialogueManager.instance;
 		TriggerNextInstance ();
-		
+		GlitchManager.instance.OnChangingText();
 	}
 	
 	public void TriggerNextInstance(){
@@ -46,6 +46,7 @@ public class ambientProgression : MonoBehaviour {
 		dialMan.response.GetComponent<textRoll> ().startDel = curInst.ambDelay;
 		dialMan.thoughts.GetComponent<textRoll> ().startDel = curInst.thoughtsDelay;
 		dialMan.response.GetComponent<textRoll> ().del = curInst.responseSpeed;
+		dialMan.thoughts.GetComponent<textRoll> ().del = curInst.thoughtsSpeed;
 
 	}
 

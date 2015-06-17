@@ -21,7 +21,7 @@ public class dialogueProgression : MonoBehaviour {
 	void Start () {
 		dialMan = dialogueManager.instance;
 		TriggerNextInstance ();
-
+		GlitchManager.instance.OnChangingText();
 	}
 	
 	// Update is called once per frame
@@ -52,6 +52,7 @@ public class dialogueProgression : MonoBehaviour {
 			dialMan.thoughts.GetComponent<textRoll> ().textToDisplay = curInst.thoughts;
 
 		dialMan.response.GetComponent<textRoll> ().del = curInst.responseSpeed;
+		dialMan.thoughts.GetComponent<textRoll> ().del = curInst.thoughtsSpeed;
 		dialMan.thoughts.GetComponent<textRoll> ().startDel = curInst.thoughtsDelay;
 
 		StartCoroutine (SpawnButtons(curInst.optionDelay));

@@ -241,7 +241,7 @@ public class ambientVoiceContainer : MonoBehaviour {
 		ambientInst pull5 = new ambientInst ();
 		pull5.id = 5;
 		pull5.response = "";
-		pull5.thoughts = "I approached her slowly.   ¤‘Are you okay?";
+		pull5.thoughts = "<I approached her slowly.>   ¤Are you okay?";
 		ambientContainer.Add (pull5);
 
 		ambientInst pullEx = new ambientInst ();
@@ -296,10 +296,89 @@ public class ambientVoiceContainer : MonoBehaviour {
 		ambientInst cursedGoBackToInnExit = new ambientInst ();
 		cursedGoBackToInnExit.id = 5;
 		cursedGoBackToInnExit.disengage = true;
-		pullEx.NextTrigger("innCurseIntro",true);
+		cursedGoBackToInnExit.NextTrigger("innCurseIntro",true);
 		ambientContainer.Add (pullEx);
 		
 		allAmbients.Add ("cursedGoBackToInn", ambientContainer);
+		ambientContainer = new List<ambientInst> ();
+		#endregion
+
+		#region outsideInn
+		List<ambientInst> outsideInnList = new List<ambientInst> ();
+		outsideInnList.Add(new ambientInst());
+		outsideInnList [0].id = 0;
+		outsideInnList [0].response = "";
+		outsideInnList [0].thoughts = "I led them outside, the Sage right behind me, and Ceara following carefully, making sure not to touch anyone.    ¤I began walking towards the pond, almost half the village in tow when I looked at the grass.";
+		ambientContainer.Add (outsideInnList [0]);
+
+		outsideInnList.Add(new ambientInst());
+		outsideInnList [1].id = 1;
+		outsideInnList [1].response = "";
+		outsideInnList [1].thoughts = "It was spreading up from the pond. Moving with the flowers. I hadn’t noticed it before, so it must have been moving fast. Really fast. I stared, horrified at the new color the tiny pathway had gotten, once leading down to the pond with small tufts of yellow flowers along neatly downtrodden grass.";
+		ambientContainer.Add (outsideInnList [1]);
+
+		outsideInnList.Add(new ambientInst());
+		outsideInnList [2].id = 2;
+		outsideInnList [2].response = "What the hell…      ¤Was this here before? <the Sage asked, getting a worried expression.>     ¤No <I say.>";
+		outsideInnList [2].thoughts = "Now, it was covered in purple-green, striped splashes in uneven patterns that made everything worse.";
+		outsideInnList [2].ambDelay = 1.5f;
+		ambientContainer.Add (outsideInnList [2]);
+
+		outsideInnList.Add(new ambientInst());
+		outsideInnList [3].id = 3;
+		outsideInnList [3].response = "Shit. That’s not good.  ¤<He turned around and looked at Ceara again.>   ¤How are you feeling?   ¤Fine, she said again.";
+		outsideInnList [3].thoughts = "I didn’t know what to do.";
+		outsideInnList [3].thoughtsDelay = 1.5f;
+		ambientContainer.Add (outsideInnList [3]);
+
+		outsideInnList.Add(new ambientInst());
+		outsideInnList [4].id = 4;
+		outsideInnList [4].response = "What is it? Can you fix it? <The mother asked.>";
+		outsideInnList [4].thoughts = "He didn’t respond for some time, all of us staring at him in incredulity, afraid to go forward and unwilling to go back.";
+		outsideInnList [4].thoughtsDelay = 1.0f;
+		ambientContainer.Add (outsideInnList [4]);
+
+		outsideInnList.Add(new ambientInst());
+		outsideInnList [5].id = 5;
+		outsideInnList [5].response = "It looks like an infestation, a spread of a disease. Never seen something like this spread this fast, though. Nor go from plants to humans.   ¤<He paused again.>      ¤Okay, listen. I’m going to need some equipment. Don’t have anything here, because I didn’t expect to solve a curse here, but I can investigate the nature of this. Unfortunately, I might have to go to Caudden to get specific help.";
+		outsideInnList [5].thoughts = "";
+		outsideInnList [5].thoughtsDelay = 1.0f;
+		ambientContainer.Add (outsideInnList [5]);
+
+		outsideInnList.Add(new ambientInst());
+		outsideInnList [6].id = 6;
+		outsideInnList [6].response = "With all respect, sir, doesn’t look like we have that kind of time, if it spreads that fast.";
+		outsideInnList [6].thoughts = "It was moving closer. It was hard to see the actual movement, but it now touched some plants it did not before. I’m sure of it.";
+		ambientContainer.Add (outsideInnList [6]);
+
+		outsideInnList.Add(new ambientInst());
+		outsideInnList [7].id = 7;
+		outsideInnList [7].response = "What do you need? <Ceara asks.> ¤A compass, fire, bones of a dead animal, preferably a mouse or cat, something made of iron, a casket or pan or something, and a sample of a flower with the infection on it.";
+		outsideInnList [7].thoughts = "We looked around at each other, considering the list of ingredients.";
+		outsideInnList [7].thoughtsDelay = 3f;
+		ambientContainer.Add (outsideInnList [7]);
+
+		outsideInnList.Add(new ambientInst());
+		outsideInnList [8].id = 8;
+		outsideInnList [8].response = "I can get the flower <Ceara said.> I’m already touched, right? What does it matter if I touch it again?  ¤<The Sage nodded.> Still, I would get some gloves.  ¤She nodded and started moving.";
+		outsideInnList [8].thoughts = "I was surprised at how calm Ceara took this. There was almost no hesitation, no fear in her voice.";
+		outsideInnList [8].thoughtsDelay = 3f;
+		ambientContainer.Add (outsideInnList [8]);
+
+		outsideInnList.Add(new ambientInst());
+		outsideInnList [9].id = 9;
+		outsideInnList [9].response = "<Ceara’s mother began looking at the others.> We need a fire! Anyone’s got a dead animal perchance? Or something we can slaughter?";
+		outsideInnList [9].thoughts = "Several voices rose up, started yelling at each other in a frantic language I could only understand if I paid close attention to one of the sounds—the rest were drowning out as noise in a [REDACTED].";
+		outsideInnList [9].thoughtsDelay = 1f;
+		ambientContainer.Add (outsideInnList [9]);
+
+		outsideInnList.Add (new ambientInst ());
+		outsideInnList [10].id = 10;
+		outsideInnList [10].disengage = true;
+		outsideInnList [10].NextTrigger("innCurseIntro",true);
+		ambientContainer.Add (outsideInnList[10]);
+		
+		allAmbients.Add ("outsideInn", ambientContainer);
 		ambientContainer = new List<ambientInst> ();
 		#endregion
 

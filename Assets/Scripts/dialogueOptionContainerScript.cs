@@ -644,11 +644,13 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		DialogueInst raceChoiceExit = new DialogueInst ();
 		raceChoiceExit.id = 1;
 		raceChoiceExit.disengage = true;
+		raceChoiceExit.NextTrigger("pullAmbient",false);
 		dialogueContainer.Add (raceChoiceExit);
 
 		DialogueInst raceChoiceExit2 = new DialogueInst ();
 		raceChoiceExit2.id = 2;
 		raceChoiceExit2.disengage = true;
+		raceChoiceExit2.NextTrigger("nonPullAmbient",false);
 		dialogueContainer.Add (raceChoiceExit2);
 		
 		allDialogues.Add ("raceChoice", dialogueContainer);
@@ -968,6 +970,62 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		allDialogues.Add ("innCurseIntro", dialogueContainer);
 		dialogueContainer = new List<DialogueInst> ();
 		#endregion
+
+		#region befRitualChoice
+		DialogueInst befRitualChoice = new DialogueInst ();
+		befRitualChoice.id = 0;
+		befRitualChoice.response = "<Ceara starts moving.>";
+		befRitualChoice.thoughts = "Man, Ceara looks determined...";
+		befRitualChoice.options.Add ("[Go with Ceara]");
+		befRitualChoice.options.Add ("[Stay here]");
+		befRitualChoice.ResponseNrs.Add (1);
+		befRitualChoice.ResponseNrs.Add (2);
+		dialogueContainer.Add (befRitualChoice);
+		
+		DialogueInst befRitualChoice1 = new DialogueInst ();
+		befRitualChoice1.id = 1;
+		befRitualChoice.response = "I ran after Ceara, expecting the others to take care of the rest. We have some flowers to collect.";
+		befRitualChoice.options.Add ("[Go]");
+		befRitualChoice.ResponseNrs.Add (3);
+		dialogueContainer.Add (befRitualChoice1);
+
+		DialogueInst befRitualChoice2 = new DialogueInst ();
+		befRitualChoice2.id = 2;
+		befRitualChoice2.disengage = true;
+		befRitualChoice2.NextTrigger("stayWithOthers",true);
+		dialogueContainer.Add (befRitualChoice2);
+
+		DialogueInst befRitualChoice3 = new DialogueInst ();
+		befRitualChoice3.id = 3;
+		befRitualChoice3.disengage = true;
+		befRitualChoice3.NextTrigger("followCearaToMom",true);
+		dialogueContainer.Add (befRitualChoice3);
+
+		allDialogues.Add ("befRitualChoice", dialogueContainer);
+		dialogueContainer = new List<DialogueInst> ();
+		#endregion
+
+		DialogueInst followCeara = new DialogueInst ();
+		followCeara.id = 0;
+		followCeara.response = "What are you doing here?";
+		followCeara.thoughts = "";
+		followCeara.options.Add ("Came to help");
+		followCeara.ResponseNrs.Add (1);
+		dialogueContainer.Add (followCeara);
+
+
+		DialogueInst followCearaExit = new DialogueInst ();
+		followCearaExit.id = 0;
+		followCearaExit.disengage = true;
+		dialogueContainer.Add (followCearaExit);
+		
+		allDialogues.Add ("followCeara", dialogueContainer);
+		dialogueContainer = new List<DialogueInst> ();
+		#endregion
+
+
+
+
 
 	}
 

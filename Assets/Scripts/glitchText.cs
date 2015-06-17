@@ -11,7 +11,7 @@ public class glitchText : MonoBehaviour {
 	public float timeToGlitchMax;
 	float timeToGlitch;
 	public float sustainGlitchTimeMin = 0.03f;
-	float sustainGlitchTimeMax = 0.4f;
+	public float sustainGlitchTimeMax = 0.4f;
 	Text text;
 
 	string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZqwertyuiopåasdfghjklæøzxcvbnm,.-<1234567890+½§!#¤%&/()=?*<>@£$€{[]}'*-/";
@@ -30,7 +30,7 @@ public class glitchText : MonoBehaviour {
 		}*/
 		listOfChars.AddRange(chars.ToCharArray ());
 		timeToGlitch = UnityEngine.Random.Range (timeToGlitchMin, timeToGlitchMax);
-		Debug.Log(timeToGlitch);
+		//Debug.Log(timeToGlitch);
 	}
 	
 	// Update is called once per frame
@@ -44,7 +44,6 @@ public class glitchText : MonoBehaviour {
 	}
 
 	public IEnumerator GlitchText(){
-		Debug.Log ("GLITCH");
 		timeToGlitch = UnityEngine.Random.Range (timeToGlitchMin, timeToGlitchMax);
 		char origChar = '&';
 		int charToGlitch = UnityEngine.Random.Range (0, text.text.Length);
@@ -74,9 +73,11 @@ public class glitchText : MonoBehaviour {
 			yield return 0;
 		}
 
-		StringBuilder sbo = new StringBuilder(text.text);
-		sbo[charToGlitch] = origChar;
-		text.text = sbo.ToString();
+		if (text.text.Length != 0) {
+			StringBuilder sbo = new StringBuilder(text.text);
+			sbo[charToGlitch] = origChar;
+			text.text = sbo.ToString();
+		}
 
 		yield return 0;
 	}

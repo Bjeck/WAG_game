@@ -9,6 +9,7 @@ public class Story : MonoBehaviour {
 	public bool hastalkedToCeara;
 	public bool wentToInn;
 	public bool talkedToIllijInInn;
+	public bool wentToPond;
 	public bool racedTree;
 	public bool wentBackToInn;
 
@@ -41,7 +42,7 @@ public class Story : MonoBehaviour {
 
 
 	public void OnExitDialogue(Canvas c){
-		if (c == racedTree && !wentBackToInn) {
+		/*if (c == racedTree && !wentBackToInn) {
 			Debug.Log("race over");
 			if(MC.instance.CearaCursed){
 				//TRIGGER PULL DIAL
@@ -53,7 +54,7 @@ public class Story : MonoBehaviour {
 				dialogueManager.instance.EnterAmbient("nonPullAmbient",null);
 			}
 			return;
-		}
+		}*/
 		if(c==canvasManager.instance.villageCanvas && wentToInn && !talkedToIllijInInn){
 			Debug.Log("illijIntro");
 			dialogueManager.instance.EnterDialogue("IllijIntro",null);
@@ -88,6 +89,13 @@ public class Story : MonoBehaviour {
 		}
 		if (dial == "innCurseIntro" && pos == 12) {
 			MC.instance.toldAboutSmell = true;
+		}
+		if(dial == "pondIntro" && pos == 0){
+			wentToPond = true;
+			GlitchManager.instance.ChangeGlitchTimings();
+		}
+		if (dial == "cCursed" && pos == 0) {
+			GlitchManager.instance.ChangeGlitchTimings();
 		}
 	}
 
