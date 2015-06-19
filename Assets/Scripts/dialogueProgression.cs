@@ -55,6 +55,14 @@ public class dialogueProgression : MonoBehaviour {
 		dialMan.thoughts.GetComponent<textRoll> ().del = curInst.thoughtsSpeed;
 		dialMan.thoughts.GetComponent<textRoll> ().startDel = curInst.thoughtsDelay;
 
+
+		if (dialName == "search") {
+			dialMan.response.GetComponent<Text>().fontSize = 24;
+			dialMan.response.GetComponent<Text>().color = new Color(0.34f,0.77f,0.14f);
+		}
+
+
+
 		StartCoroutine (SpawnButtons(curInst.optionDelay));
 
 
@@ -93,6 +101,10 @@ public class dialogueProgression : MonoBehaviour {
 		foreach (Button b in buttonList) {
 			buttonList[i].GetComponentInChildren<Text>().text = stringList[i];
 			buttonList[i].name = curInst.ResponseNrs[i].ToString();
+			if (dialName == "search") {
+				buttonList[i].GetComponentInChildren<Text>().color = new Color(0.34f,0.77f,0.14f);
+			}
+
 			i++;
 		}
 	}

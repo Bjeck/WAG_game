@@ -382,6 +382,90 @@ public class ambientVoiceContainer : MonoBehaviour {
 		ambientContainer = new List<ambientInst> ();
 		#endregion
 
+		#region cearaRitIntro
+		ambientInst cearaRitIntro = new ambientInst ();
+		cearaRitIntro.id = 0;
+		cearaRitIntro.response = "";
+		cearaRitIntro.thoughts = "We returned with the plant to see the rest of the village in disarray. Some were by the roadside, building a small fire, many were standing around in various clumps not doing anything, and two people were crying. The Sage wasn’t there.";
+		ambientContainer.Add (cearaRitIntro);
+
+		ambientInst cearaRitIntro1 = new ambientInst ();
+		cearaRitIntro1.id = 1;
+		cearaRitIntro1.response = "Ceara! <Mauge says, rushing to her daughter> Did you get the plant?   ¤Yeah. What’s happening? Did you finish?";
+		cearaRitIntro1.thoughts = "The looks of the others said enough. Some glanced up, shaking their head, rustled their feet, crossed their arms, but no one came to help. No one came to ask her if she was okay. Mikal’s wife Perna, who was crying, was watching some of the others hold a dead cat, throat slit.     ¤Oh.";
+		ambientContainer.Add (cearaRitIntro1);
+
+		ambientInst cearaRitIntro2 = new ambientInst ();
+		cearaRitIntro2.id = 2;
+		cearaRitIntro2.response = "";
+		cearaRitIntro2.thoughts = "";
+		ambientContainer.Add (cearaRitIntro2);
+
+		ambientInst cearaRitIntro3 = new ambientInst ();
+		cearaRitIntro3.id = 3;
+		cearaRitIntro3.response = "Do we have everything? <Ceara still doesn’t accept that. I can understand her perfectly well.>  ¤Yeah, we got everything. <Ceara looks back at Perna> You had to— ¤Yes! We had to. Look at it. <She points towards the pond. There is no reason to go down to see the purple anymore. It is close enough that it would hit the first houses soon enough.>";
+		cearaRitIntro3.thoughts = "I look at Ceara. She seems worried. There is something she isn’t telling us.";
+		ambientContainer.Add (cearaRitIntro3);
+
+		ambientInst cearaRitIntroExit = new ambientInst ();
+		cearaRitIntroExit.id = 4;
+		cearaRitIntroExit.disengage = true;
+		cearaRitIntroExit.NextTrigger("ritual",false);
+		ambientContainer.Add (cearaRitIntroExit);
+		
+		allAmbients.Add ("cearaRitIntro", ambientContainer);
+		ambientContainer = new List<ambientInst> ();
+		#endregion
+
+		#region stayRitIntro
+		ambientInst stayRitIntrow = new ambientInst ();
+		stayRitIntrow.id = 0;
+		stayRitIntrow.response = "";
+		stayRitIntrow.thoughts = "The atmosphere was weird when they left. The Sage wasn’t back either. Ceara was gone, Mauge was gone. Tripping, I was anxious, staring back the way Ceara left, wondering if I should have gone after her. Peopl glare with trepidation to the south, at the purple mess that is slowly moving closer. Maybe some of them are considering if they should run. I wouldn’t blame them.";
+		ambientContainer.Add (stayRitIntrow);
+
+		ambientInst stayRitIntrow1 = new ambientInst ();
+		stayRitIntrow1.id = 1;
+		stayRitIntrow1.response = "Illij comes back with a compass and holds it while he looks around, waiting with the rest of us.";
+		stayRitIntrow1.thoughts = "";
+		ambientContainer.Add (stayRitIntrow1);
+
+		ambientInst stayRitIntrow2 = new ambientInst ();
+		stayRitIntrow2.id = 2;
+		stayRitIntrow2.response = "Perna comes with with a dead cat, crying, with Mikal supporting her as they walk. Damn, that hurts more than I expected to. They slit its throat, clean, but with blood running down Perna’s arms.";
+		stayRitIntrow2.thoughts = "Shit...";
+		ambientContainer.Add (stayRitIntrow2);
+
+		ambientInst stayRitIntro = new ambientInst ();
+		stayRitIntro.id = 4;
+		stayRitIntro.response = "Hey Tari.  ¤Are you okay? <I settle with.>";
+		stayRitIntro.thoughts = "Ceara returns with a plant in her hand shortly after. I go over to her and thought of fifteen things to say but none of them fit.>";
+		stayRitIntro.ambDelay = 3f;
+		ambientContainer.Add (stayRitIntro);
+
+		ambientInst stayRitIntro1 = new ambientInst ();
+		stayRitIntro1.id = 5;
+		stayRitIntro1.response = "Ceara! <Mauge says before I get an answer, pan in hand> Did you get the plant?  ¤Yeah. What’s happening? Did you get the rest?";
+		stayRitIntro1.thoughts = "Ceara spots Perna and Mikal and her face becomes stern, but she doesn’t say anything. No one answers her.";
+		ambientContainer.Add (stayRitIntro1);
+
+		ambientInst stayRitIntro2 = new ambientInst ();
+		stayRitIntro2.id = 6;
+		stayRitIntro2.response = "Do we have everything? <She repeats.>  ¤Yeah, we got everything. <Ceara looks at Perna> You had to— ¤Yes! We had to. Look at it. <She points towards the pond. There is no reason to go down to see the purple anymore. It is close enough that it would hit the first houses soon enough.>";
+		stayRitIntro2.thoughts = "";
+		ambientContainer.Add (stayRitIntro2);
+
+		ambientInst stayRitIntroEx = new ambientInst ();
+		stayRitIntroEx.id = 7;
+		stayRitIntroEx.disengage = true;
+		stayRitIntroEx.NextTrigger("ritual",false);
+		ambientContainer.Add (stayRitIntroEx);
+		
+		allAmbients.Add ("stayRitIntro", ambientContainer);
+		ambientContainer = new List<ambientInst> ();
+		#endregion
+
+
 
 	}
 

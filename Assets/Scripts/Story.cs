@@ -12,6 +12,8 @@ public class Story : MonoBehaviour {
 	public bool wentToPond;
 	public bool racedTree;
 	public bool wentBackToInn;
+	public bool gotGloves;
+	public bool ritualStart;
 
 	public string StartDial;
 
@@ -42,6 +44,15 @@ public class Story : MonoBehaviour {
 
 
 	public void OnExitDialogue(Canvas c){
+		if (c == canvasManager.instance.villageCanvas && ritualStart) {
+			dialogueManager.instance.EnterDialogue("IllijIntro",null);
+			return;
+		}
+		if(c==canvasManager.instance.villageCanvas && gotGloves && !ritualStart){
+			dialogueManager.instance.EnterDialogue("cearaAgree",null);
+			ritualStart = true;
+			return;
+		}
 		/*if (c == racedTree && !wentBackToInn) {
 			Debug.Log("race over");
 			if(MC.instance.CearaCursed){
@@ -96,6 +107,15 @@ public class Story : MonoBehaviour {
 		}
 		if (dial == "cCursed" && pos == 0) {
 			GlitchManager.instance.ChangeGlitchTimings();
+		}
+		if(dial == "followCeara" && pos == 8){
+			MC.instance.toldCearaAboutSageBeingWeird = true;
+		}
+		if(dial == "followCeara" && pos == 15){
+			gotGloves = true;
+			if(!MC.instance.toldCearaAboutSageBeingWeird){
+				ritualStart = true;
+			}
 		}
 	}
 

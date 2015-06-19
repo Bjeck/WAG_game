@@ -8,13 +8,15 @@ public class textRoll : MonoBehaviour {
 
 	public float startDel = 0;
 	bool hasStartedRolling = false;
+	public bool shouldStopRolling = false;
 
 	public float del;
 	bool isColored = false;
 
 	public string textToDisplay;
 	// Use this for initialization
-	void Start () {
+	public void Start () {
+		Debug.Log ("START "+gameObject.name);
 		text = GetComponent<Text> ();
 		textToDisplay = textToDisplay.Replace("¤", System.Environment.NewLine);
 
@@ -39,8 +41,38 @@ public class textRoll : MonoBehaviour {
 
 	}
 
-	IEnumerator RollText(){
-		foreach (char c in textToDisplay) {
+	public IEnumerator RollText(){
+		int i = 0;
+		while (i< textToDisplay.Length) {
+		//	if(shouldStopRolling){
+		//		Debug.Log("STOP");
+		//		return true;
+		//	}
+			if(textToDisplay[i] == '<'){
+				text.text += "<color=#0f0f0fff>"+"</color>";
+				isColored = true;
+			}
+			else if(isColored){
+				text.text = text.text.Substring(0,text.text.Length-8);
+				if(textToDisplay[i] == '>'){
+					isColored = false;
+					text.text += "</color>";
+				}
+				else{
+					text.text += textToDisplay[i]+"</color>";
+				}
+			}
+			else{
+				text.text += textToDisplay[i];
+			}
+			i++;
+			yield return new WaitForSeconds(del);
+		}
+		/*foreach (char c in textToDisplay) {
+			if(shouldStopRolling){
+				Debug.Log("STOP");
+				return true;
+			}
 			if(c == '<'){
 				text.text += "<color=#0f0f0fff>"+"</color>";
 				isColored = true;
@@ -58,9 +90,10 @@ public class textRoll : MonoBehaviour {
 			else{
 				text.text += c;
 			}
+			Debug.Log("ROLL TEXT "+textToDisplay+" "+c);
 
 			yield return new WaitForSeconds(del);
-		}
+		}*/
 	}
 
 

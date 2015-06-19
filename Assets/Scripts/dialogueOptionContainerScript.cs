@@ -998,13 +998,14 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		DialogueInst befRitualChoice3 = new DialogueInst ();
 		befRitualChoice3.id = 3;
 		befRitualChoice3.disengage = true;
-		befRitualChoice3.NextTrigger("followCearaToMom",true);
+		befRitualChoice3.NextTrigger("followCeara",true);
 		dialogueContainer.Add (befRitualChoice3);
 
 		allDialogues.Add ("befRitualChoice", dialogueContainer);
 		dialogueContainer = new List<DialogueInst> ();
 		#endregion
 
+		#region followCeara
 		DialogueInst followCeara = new DialogueInst ();
 		followCeara.id = 0;
 		followCeara.response = "What are you doing here?";
@@ -1013,9 +1014,123 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		followCeara.ResponseNrs.Add (1);
 		dialogueContainer.Add (followCeara);
 
+		DialogueInst followCeara1 = new DialogueInst ();
+		followCeara1.id = 1;
+		followCeara1.response = "Why? Best leave me alone before you touch something too.";
+		followCeara1.thoughts = "";
+		followCeara1.options.Add ("Hey, that's not fair. I want to help, okay?");
+		followCeara1.options.Add ("I'm staying. I'm your friend. I want to help.");		
+		followCeara1.ResponseNrs.Add (2);
+		followCeara1.ResponseNrs.Add (2);
+		dialogueContainer.Add (followCeara1);
+
+		DialogueInst followCeara2 = new DialogueInst ();
+		followCeara2.id = 2;
+		followCeara2.response = "Have it your way. Help me find some gloves, then.";
+		followCeara2.thoughts = "";
+		followCeara2.options.Add ("Bet my mom's got some.");
+		followCeara2.ResponseNrs.Add (3);
+		dialogueContainer.Add (followCeara2);
+
+		DialogueInst followCeara3 = new DialogueInst ();
+		followCeara3.id = 3;
+		followCeara3.response = "Right. Let's go there.";
+		followCeara3.thoughts = "";
+		followCeara3.options.Add ("[Walk]");
+		followCeara3.ResponseNrs.Add (4);
+		dialogueContainer.Add (followCeara3);
+
+		DialogueInst followCeara4 = new DialogueInst ();
+		followCeara4.id = 4;
+		followCeara4.response = "<We arrive at my house and knock the door. Mom’s still in there, working.>      ¤Tari? Already home?";
+		followCeara4.thoughts = "";
+		followCeara4.options.Add ("Sorry, it's an emergency.");
+		followCeara4.options.Add ("We need gloves.");
+		followCeara4.ResponseNrs.Add (5);
+		followCeara4.ResponseNrs.Add (6);
+		dialogueContainer.Add (followCeara4);
+
+		DialogueInst followCeara5 = new DialogueInst ();
+		followCeara5.id = 5;
+		followCeara5.response = "What’s wrong? Oh, gods, what happened to Ceara? Are you okay, dear?";
+		followCeara5.thoughts = "";
+		followCeara5.options.Add ("Yes, exactly. We need some gloves.");
+		followCeara5.ResponseNrs.Add (7);
+		dialogueContainer.Add (followCeara5);
+
+		DialogueInst followCeara6 = new DialogueInst ();
+		followCeara6.id = 6;
+		followCeara6.response = "What for? Oh, god, what happened to Ceara? Are you okay, dear?";
+		followCeara6.thoughts = "";
+		followCeara6.options.Add ("Yes, exactly. That's why we need some gloves.");
+		followCeara6.ResponseNrs.Add (7);
+		dialogueContainer.Add (followCeara6);
+
+		DialogueInst followCeara7 = new DialogueInst ();
+		followCeara7.id = 7;
+		followCeara7.response = "What are they going to help?    ¤There’s a Sage.. He wants to help Ceara <I say, then pause, looking at Ceara again.>";
+		followCeara7.thoughts = "Why’s the Sage here again?";
+		followCeara7.thoughtsDelay = 2.5f;
+		followCeara7.options.Add ("Wait... Ceara? Don't you think it's a little suspicious that the Sage arrives exactly as this shows up?");
+		followCeara7.options.Add ("He needs gloves. To... figure out what it is, I guess.");
+		followCeara7.ResponseNrs.Add (8);
+		followCeara7.ResponseNrs.Add (9);
+		dialogueContainer.Add (followCeara7);
+
+		DialogueInst followCeara8 = new DialogueInst ();
+		followCeara8.id = 8;
+		followCeara8.response = "Don’t worry about that now! If there’s a small chance he can help, that’s great. If not, then we’ll figure it out on our own.";
+		followCeara8.thoughts = "";
+		followCeara8.options.Add ("But what if he's...");
+		followCeara8.options.Add ("You're right.");
+		followCeara8.ResponseNrs.Add (10);
+		followCeara8.ResponseNrs.Add (9);
+		dialogueContainer.Add (followCeara8);
+
+		DialogueInst followCeara10 = new DialogueInst ();
+		followCeara10.id = 10;
+		followCeara10.response = "Tari <my mom says>, who’s this Sage?   ¤His name is Derec something <Ceara interrupts>, Illij vouched for him. Said he helped in his previous village.  ¤I see <my mom says.> I would probably trust him, then.";
+		followCeara10.thoughts = "";
+		followCeara10.options.Add ("You sure?");
+		followCeara10.options.Add ("You're right.");
+		followCeara10.ResponseNrs.Add (11);
+		followCeara10.ResponseNrs.Add (10);
+		dialogueContainer.Add (followCeara10);
+
+		DialogueInst followCeara11 = new DialogueInst ();
+		followCeara11.id = 11;
+		followCeara11.response = "No time to not be. Ceara needs help, right? Here are the gloves.";
+		followCeara11.thoughts = "";
+		followCeara11.options.Add ("Thanks");
+		followCeara11.ResponseNrs.Add (15);
+		dialogueContainer.Add (followCeara11);
+
+		DialogueInst followCeara12 = new DialogueInst ();
+		followCeara12.id = 12;
+		followCeara12.response = "Here are the gloves. No go, get help. I'll try to be there.";
+		followCeara12.thoughts = "";
+		followCeara12.options.Add ("Thanks");
+		followCeara12.ResponseNrs.Add (15);
+		dialogueContainer.Add (followCeara12);
+
+		DialogueInst followCeara9 = new DialogueInst ();
+		followCeara9.id = 9;
+		followCeara9.response = "Who's this Sage?";
+		followCeara9.thoughts = "";
+		followCeara9.options.Add ("Someone from the south. Illij said he knows him.");
+		followCeara9.ResponseNrs.Add (13);
+		dialogueContainer.Add (followCeara9);
+
+		DialogueInst followCeara13 = new DialogueInst ();
+		followCeara13.id = 12;
+		followCeara13.response = "Alright. Two seconds <she says, and searches a bit.> Here are the gloves. No go, get help. I'll try to be there.";
+		followCeara13.thoughts = "";
+		followCeara13.options.Add ("Thanks");
+		followCeara13.ResponseNrs.Add (15);
+		dialogueContainer.Add (followCeara13);
 
 		DialogueInst followCearaExit = new DialogueInst ();
-		followCearaExit.id = 0;
+		followCearaExit.id = 15;
 		followCearaExit.disengage = true;
 		dialogueContainer.Add (followCearaExit);
 		
@@ -1023,8 +1138,193 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		dialogueContainer = new List<DialogueInst> ();
 		#endregion
 
+		#region cearaAgree
+		DialogueInst cearaAgree = new DialogueInst ();
+		cearaAgree.id = 0;
+		cearaAgree.response = "<On the way back, Ceara spoke up.>   ¤Hey, about that thing you said. About the Sage being suspicious… Maybe you’re right. But what else are we going to do?";
+		cearaAgree.thoughts = "";
+		cearaAgree.options.Add ("You’re right.");
+		cearaAgree.options.Add ("I'm not sure this is a good idea.");
+		cearaAgree.ResponseNrs.Add (1);
+		cearaAgree.ResponseNrs.Add (2);
+		dialogueContainer.Add (cearaAgree);
+
+		DialogueInst cearaAgree1 = new DialogueInst ();
+		cearaAgree1.id = 1;
+		cearaAgree1.response = "Let’s hope it works. But don’t worry, if he tells me to drink horse’s blood or something, I’ll refuse.";
+		cearaAgree1.thoughts = "";
+		cearaAgree1.options.Add ("You really sure it doesn’t hurt?");
+		cearaAgree1.ResponseNrs.Add (3);
+		dialogueContainer.Add (cearaAgree1);
+
+		DialogueInst cearaAgree2 = new DialogueInst ();
+		cearaAgree2.id = 2;
+		cearaAgree2.response = "Maybe not... But don’t worry, if he tells me to drink horse’s blood or something, I’ll refuse.";
+		cearaAgree2.thoughts = "";
+		cearaAgree2.options.Add ("You really sure it doesn’t hurt?");
+		cearaAgree2.ResponseNrs.Add (3);
+		dialogueContainer.Add (cearaAgree2);
+
+		DialogueInst cearaAgree3 = new DialogueInst ();
+		cearaAgree3.id = 3;
+		cearaAgree3.response = "Yeah, it’s weird. My vision is a little jumpy. Like I’m seeing things that aren’t there, but not really.";
+		cearaAgree3.thoughts = "";
+		cearaAgree3.options.Add ("Man, I really hope this works.");
+		cearaAgree3.ResponseNrs.Add (4);
+		dialogueContainer.Add (cearaAgree3);
+
+		DialogueInst cearaAgree4 = new DialogueInst ();
+		cearaAgree4.id = 4;
+		cearaAgree4.response = "Me too. Tari… <she says and stops, looks at me with a wanting look> If it doesn’t… please—";
+		cearaAgree4.thoughts = "";
+		cearaAgree4.options.Add ("Stop. You don't have to say anything.");
+		cearaAgree4.ResponseNrs.Add (5);
+		dialogueContainer.Add (cearaAgree4);
+
+		DialogueInst cearaAgree5 = new DialogueInst ();
+		cearaAgree5.id = 5;
+		cearaAgree5.response = "… Thanks. <she smiles weakly, and begins walking again.>";
+		cearaAgree5.thoughts = "";
+		cearaAgree5.options.Add ("Follow her.");
+		cearaAgree5.ResponseNrs.Add (5);
+		dialogueContainer.Add (cearaAgree5);
+
+		DialogueInst cearaAgreeExit = new DialogueInst ();
+		cearaAgreeExit.id = 10;
+		cearaAgreeExit.disengage = true;
+		cearaAgreeExit.NextTrigger("cearaRitIntro",false);
+		dialogueContainer.Add (cearaAgreeExit);
+
+		allDialogues.Add ("cearaAgree", dialogueContainer);
+		dialogueContainer = new List<DialogueInst> ();
+		#endregion
+
+		//OH WAIT I AHVE TO GE THE PLANT TOO?????????????????
 
 
+		#region stayWithOthers
+
+		DialogueInst stayWithOthers = new DialogueInst ();
+		stayWithOthers.id = 0;
+		stayWithOthers.response = "<I see Ceara wander off. She can do that by herself.>   ¤We need wood! Where does the fire need to be? ¤Outside. It needs to burn the air <the Sage says>. I’m going to get my equipment. Try to start a fire in the meantime.  ¤<Several people begin to gather wood back and forth. But most still stand and do nothing.>";
+		stayWithOthers.options.Add ("[Wait and see what happens]");
+		stayWithOthers.options.Add ("What can I help with?");
+		stayWithOthers.ResponseNrs.Add (1);
+		stayWithOthers.ResponseNrs.Add (2);
+		dialogueContainer.Add (stayWithOthers);
+
+		DialogueInst stayWithOthers1 = new DialogueInst ();
+		stayWithOthers1.id = 1;
+		stayWithOthers1.response = "Are we really going to kill a cat, Mauge? <another person said.>   ¤What else are we going to do? Do you have any other animal bones?  ¤No, but why do we need them?  ¤Because the sage said so!";
+		stayWithOthers1.options.Add ("Can we trust him?");
+		stayWithOthers1.options.Add ("It’s for Ceara. Who knows what’ll happen to her.");
+		stayWithOthers1.ResponseNrs.Add (3);
+		stayWithOthers1.ResponseNrs.Add (4);
+		dialogueContainer.Add (stayWithOthers1);
+
+		DialogueInst stayWithOthers2 = new DialogueInst ();
+		stayWithOthers2.id = 2;
+		stayWithOthers2.response = "You can help with the fire. Or go find some iron. <Ceara’s mother says.> unless you happen to have some cat’s bones lying around.  ¤Are we really going to kill a cat, Mauge? <another person said.>   ¤What else are we going to do? Do you have any other animal bones?  ¤No, but why do we need them?  ¤Because the sage said so!";
+		stayWithOthers2.options.Add ("Can we trust him?");
+		stayWithOthers2.options.Add ("It’s for Ceara. Who knows what’ll happen to her.");
+		stayWithOthers2.ResponseNrs.Add (3);
+		stayWithOthers2.ResponseNrs.Add (4);
+		dialogueContainer.Add (stayWithOthers2);
+
+		DialogueInst stayWithOthers3 = new DialogueInst ();
+		stayWithOthers3.id = 3;
+		stayWithOthers3.response = "Do we have a choice?  ¤No, no. Wait, the girl might be right <Mikal says> The guy just showed up today, right? Just as this stuff starts appearing down south.  ¤Oh please <Mauge says> he’s a Sage, not a sorcerer. ¤So what? ¤Sorcerers can’t even do this if they wanted, much less a Sage <Illij says, the first words from him out here.> ¤What do you know about that? <Mikal says, but it’s obvious that the crowd is already against him there. Everyone knows that Eastern folk know about magic.>";
+		stayWithOthers3.options.Add ("[Listen]");
+		stayWithOthers3.options.Add ("What cat, then?");
+		stayWithOthers3.ResponseNrs.Add (6);
+		stayWithOthers3.ResponseNrs.Add (7);
+		dialogueContainer.Add (stayWithOthers3);
+
+		DialogueInst stayWithOthers4 = new DialogueInst ();
+		stayWithOthers4.id = 4;
+		stayWithOthers4.response = "Right! <Mauge says> If the Sage says this helps Ceara, we have to. Please.   ¤But whose cat would we kill? <Mikal says> My wife’s? Gerrec’s? Jean’s? Illij’s? Gods no, we ain’t doing any of that.  ¤We have to. Anyone, please… For Ceara…";
+		stayWithOthers4.thoughts = "I don’t have a cat. Mom wouldn’t allow it.";
+		stayWithOthers4.options.Add ("[Listen]");
+		stayWithOthers4.ResponseNrs.Add (5);
+		dialogueContainer.Add (stayWithOthers4);
+
+		DialogueInst stayWithOthers6 = new DialogueInst ();
+		stayWithOthers6.id = 6;
+		stayWithOthers6.response = "Right. Whose cat would we kill? <Mikal says> My wife’s? Gerrec’s? Jean’s? Gods no, we ain’t doing any of that.  ¤<Mauge looks around at the people> We have to. Anyone, please… For Ceara…";
+		stayWithOthers6.options.Add ("[Listen]");
+		stayWithOthers6.ResponseNrs.Add (5);
+		dialogueContainer.Add (stayWithOthers6);
+
+		DialogueInst stayWithOthers7 = new DialogueInst ();
+		stayWithOthers7.id = 7;
+		stayWithOthers7.response = "Anyway, whose cat would we kill? <Mikal says> My wife’s? Gerrec’s? Jean’s? Gods no, we ain’t doing any of that.  ¤<Mauge looks around at the people> We have to. Anyone, please… For Ceara…";
+		stayWithOthers7.options.Add ("[Listen]");
+		stayWithOthers7.ResponseNrs.Add (5);
+		dialogueContainer.Add (stayWithOthers7);
+
+		DialogueInst stayWithOthers5 = new DialogueInst ();
+		stayWithOthers5.id = 5;
+		stayWithOthers5.response = "You can take mine <someone says. We all turn around and see Mikal’s wife Perna standing in the corner looking at the rest of us.>   ¤Perna… <Mikal says> What are you doing?   ¤It’s fine, Mikal. She’s old. Ceara needs it.   ¤<Mikal stares at her for a while, stepping closer, beginning to pull a hand to her wife but stopping again.>     ¤Fine.  ¤Thank you, thank you! <Mauge says, rushing over to hug Perna>.";
+		stayWithOthers5.options.Add ("What else did we need?");
+		stayWithOthers5.ResponseNrs.Add (8);
+		dialogueContainer.Add (stayWithOthers5);
+
+		DialogueInst stayWithOthers8 = new DialogueInst ();
+		stayWithOthers8.id = 8;
+		stayWithOthers8.response = "A compass, right? And a pan.   ¤Iron pan <Illij corrected. That was apparently important.> I can get the compass.   ¤Just a pan, right? I’ll get that <Mauge says and rushes home after thanking Perna once again>.";
+		stayWithOthers8.options.Add ("[Wait]");
+		stayWithOthers8.ResponseNrs.Add (9);
+		dialogueContainer.Add (stayWithOthers8);
+
+		DialogueInst stayWithOthersEx = new DialogueInst ();
+		stayWithOthersEx.id = 9;
+		stayWithOthersEx.disengage = true;
+		stayWithOthersEx.NextTrigger("stayRitIntro",false);
+		dialogueContainer.Add (stayWithOthersEx);
+
+		
+		allDialogues.Add ("stayWithOthers", dialogueContainer);
+		dialogueContainer = new List<DialogueInst> ();
+
+		#endregion
+
+
+
+
+		#region Search
+		DialogueInst search = new DialogueInst ();
+		search.id = 0;
+		search.response = "The skies have lost the signs of the early epidemic, the early clouds that gather everywhere. It has been here a long time, at this stage. We are too late.     ¤Still, we must investigate, find out what we can, understand the curse as it struck here. Fortunately, Eravola leaves many traces of what happened before.  ¤¤¤The signs are crossed out. No one who lives here anymore.";
+		search.thoughts = "/Initiate---Module C5F.04. V. 5.4";
+		search.options.Add ("Next");
+		search.ResponseNrs.Add (1);
+		dialogueContainer.Add (search);
+
+		DialogueInst search1 = new DialogueInst ();
+		search1.id = 1;
+		search1.response = "The grass is purple, the skies are blue. Houses that are surprisingly intact are scattered along the overgrown roadside, not burnt down, not rioted or looted—just abandoned.     ¤¤Vines peer out of the broken windows, creeping up the walls and twisting around the doorframes where the door has long since rotted away.     ¤¤Cutlery, plates, and tools are all left in their places, scattered around on tables without anything in them; as if the town was inhabited by ghosts that didn’t eat or work. All food, all drinks are gone or poisoned, devoured away by the purple, decrepit force that took over.";
+		search1.thoughts = "";
+		search1.options.Add ("Investigate the Inn");
+		search1.options.Add ("Investigate the Pond.");
+		search1.options.Add ("Investigate the Houses.");
+		search1.options.Add ("Investigate the Stables.");
+		search1.options.Add ("Investigate the Roadside.");
+		search1.ResponseNrs.Add (2);
+		search1.ResponseNrs.Add (3);
+		search1.ResponseNrs.Add (4);
+		search1.ResponseNrs.Add (5);
+		search1.ResponseNrs.Add (6);
+		dialogueContainer.Add (search1);
+
+		DialogueInst searchExit = new DialogueInst ();
+		cearaAgreeExit.id = 10;
+		cearaAgreeExit.disengage = true;
+		dialogueContainer.Add (cearaAgreeExit);
+		
+		allDialogues.Add ("search", dialogueContainer);
+		dialogueContainer = new List<DialogueInst> ();
+
+		#endregion
 
 
 	}
