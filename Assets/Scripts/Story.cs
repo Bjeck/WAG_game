@@ -14,6 +14,9 @@ public class Story : MonoBehaviour {
 	public bool wentBackToInn;
 	public bool gotGloves;
 	public bool ritualStart;
+	public bool rebootGo;
+	public bool shouldExit;
+	public bool shouldRestart;
 
 	public string StartDial;
 
@@ -44,6 +47,17 @@ public class Story : MonoBehaviour {
 
 
 	public void OnExitDialogue(Canvas c){
+		if(shouldExit){
+			Application.Quit();
+			return;
+		}
+		if (shouldRestart) {
+			//SHOULD RESTART
+		}
+		if(rebootGo){
+			BootScript.instance.ActivateSearchMode();
+			return;
+		}
 		if (c == canvasManager.instance.villageCanvas && ritualStart) {
 			dialogueManager.instance.EnterDialogue("IllijIntro",null);
 			return;
@@ -116,6 +130,30 @@ public class Story : MonoBehaviour {
 			if(!MC.instance.toldCearaAboutSageBeingWeird){
 				ritualStart = true;
 			}
+		}
+		if(dial == "ritChoice" && pos == 5){
+			MC.instance.wentToCaudden = true;
+		}
+		if (dial == "goesToCaudden" || dial == "goesNorth" && pos == 2) {
+			rebootGo = true;
+		}
+		if(dial == "search" && pos == 4){
+			if(!MC.instance.wentToCaudden){
+				dialogueOptionContainerScript.instance.allDialogues["search"].Find(x=>x.id==4).altResp.shouldAlter = true;
+				dialogueOptionContainerScript.instance.allDialogues["search"].Find(x=>x.id==44).altResp.shouldAlter = true;
+			}
+		}
+		if (dial == "search" && pos == 98) {
+			//           ------------------------------      GLITCHING
+		}
+		if (dial == "search" && pos == 101) {
+			shouldExit = true;
+		}
+		if (dial == "search" && pos == 95) {
+			//       ----------------------------------      GLITCHING
+		}
+		if (dial == "search" && pos == 102) {
+			shouldRestart = true;
 		}
 	}
 

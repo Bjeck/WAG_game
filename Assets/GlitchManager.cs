@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class GlitchManager : MonoBehaviour {
 	public static GlitchManager instance { get; private set; }
@@ -16,6 +17,7 @@ public class GlitchManager : MonoBehaviour {
 	public bool shouldUpdateGlitchTiming;
 	[SerializeField]
 	int GlitchProgression = 0;
+	bool firsttime = true;
 
 	public GlitchEffect glEf;
 	public float glitchIntensity;
@@ -24,6 +26,9 @@ public class GlitchManager : MonoBehaviour {
 	float timeToGlitch;
 	public float glitchSustainMin;
 	public float glitchSustainMax;
+
+	public AudioSource[] noiseSounds;
+	public AudioMixer mixer;
 
 
 	//0.01, 0.02, 0.005, 0.015
@@ -47,10 +52,21 @@ public class GlitchManager : MonoBehaviour {
 	}
 
 	public IEnumerator GlitchScreen(){
-		glEf.enabled = true;
-		timeToGlitch = UnityEngine.Random.Range (glitchTimeMin, glitchTimeMax);
-		float time = UnityEngine.Random.Range (glitchSustainMin, glitchSustainMax);
-		glEf.intensity = glitchIntensity*Random.Range(0.5f,1.5f);
+		float time;
+		if (firsttime) {
+			glEf.enabled = true;
+			timeToGlitch = UnityEngine.Random.Range (glitchTimeMin, glitchTimeMax);
+			time = 1f;
+			glEf.intensity = glitchIntensity ;
+			firsttime = false;
+		} else {
+			glEf.enabled = true;
+			timeToGlitch = UnityEngine.Random.Range (glitchTimeMin, glitchTimeMax);
+			time = UnityEngine.Random.Range (glitchSustainMin, glitchSustainMax);
+			glEf.intensity = glitchIntensity * Random.Range (0.5f, 1.5f);
+		}
+
+		//PlayGlitchSound ();
 		
 		while (time > 0) {
 			time -= Time.deltaTime;
@@ -58,6 +74,9 @@ public class GlitchManager : MonoBehaviour {
 		}
 		glEf.intensity = 0;
 		glEf.enabled = false;
+		if (BootScript.instance.panel.activeSelf) {
+			BootScript.instance.panel.SetActive(false);
+		}
 		yield return 0;
 	}
 
@@ -102,6 +121,26 @@ public class GlitchManager : MonoBehaviour {
 		}
 
 		GlitchProgression++;
+	}
+
+
+	public void PlayGlitchSound(int c){
+		int soundChooser;
+		switch (c) {
+		case 0 :
+			soundChooser = Random.Range (0, noiseSounds.Length);
+			mixer.SetFloat("drymix",Random.Range(0,1f));
+			mixer.SetFloat ("wetmix", Random.Range (0, 1f));
+			mixer.SetFloat("rate",Random.Range(0,20));
+			mixer.SetFloat("lowpassCut",22000f);
+			noiseSounds [soundChooser].Play ();
+			break;
+		case 1 :
+			soundChooser = Random.Range (0, noiseSounds.Length);
+			mixer.SetFloat("lowpassCut",Random.Range(100f,20000f));
+			noiseSounds [soundChooser].Play ();
+			break;
+		}
 
 	}
 

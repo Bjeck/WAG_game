@@ -49,13 +49,11 @@ public class Inst {
 	public Alternate altResp = new Alternate();
 	public void AlterResp(string n){
 		altResp.altResp = n;
-		altResp.shouldAlter = true;
 	}
 
 	public Alternate altThou = new Alternate();
 	public void AlterThoughts(string n){
 		altThou.altResp = n;
-		altThou.shouldAlter = true;
 	}
 
 
@@ -1288,6 +1286,70 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		#endregion
 
+		#region afterRitChoice
+
+		DialogueInst ritChoice = new DialogueInst ();
+		ritChoice.id = 0;
+		ritChoice.response = "Yeah, I see it too <the Sage says, looking at me staring upwards while people are running away. I’m surprised he hasn’t run too>.";
+		ritChoice.options.Add ("Should we go?");
+		ritChoice.options.Add ("What is it?");
+		ritChoice.ResponseNrs.Add (1);
+		ritChoice.ResponseNrs.Add (2);
+		dialogueContainer.Add (ritChoice);
+
+		DialogueInst ritChoice1 = new DialogueInst ();
+		ritChoice1.id = 1;
+		ritChoice1.response = "Yes, we should.";
+		ritChoice1.options.Add ("To Caudden?");
+		ritChoice1.options.Add ("I want to go north.");
+		ritChoice1.ResponseNrs.Add (3);
+		ritChoice1.ResponseNrs.Add (4);
+		dialogueContainer.Add (ritChoice1);
+
+		DialogueInst ritChoice2 = new DialogueInst ();
+		ritChoice2.id = 2;
+		ritChoice2.response = "Something really big. I have never seen a weatherhex be this huge. And I don’t know how it connects to the purple infestation. We need to get away from here before we find out the way your friend did, though.";
+		ritChoice2.options.Add ("To Caudden? You want to go towards it?");
+		ritChoice1.options.Add ("I want to go north.");
+		ritChoice2.ResponseNrs.Add (3);
+		ritChoice2.ResponseNrs.Add (4);
+		dialogueContainer.Add (ritChoice2);
+
+		DialogueInst ritChoice3 = new DialogueInst ();
+		ritChoice3.id = 3;
+		ritChoice3.response = "Yes. It's a slim chance, but we need to.";
+		ritChoice3.options.Add ("Ok, let’s go.");
+		ritChoice3.options.Add ("No, I.. I'm going north.");
+		ritChoice3.ResponseNrs.Add (5);
+		ritChoice3.ResponseNrs.Add (4);
+		dialogueContainer.Add (ritChoice3);
+
+		DialogueInst ritChoice4 = new DialogueInst ();
+		ritChoice4.id = 4;
+		ritChoice4.response = "You go north then. I’m going to Caudden.";
+		ritChoice4.options.Add ("Hmm.. ok, nevermind. I'm going with you.");
+		ritChoice4.options.Add ("Good luck");
+		ritChoice4.ResponseNrs.Add (5);
+		ritChoice4.ResponseNrs.Add (6);
+		dialogueContainer.Add (ritChoice4);
+
+		DialogueInst ritChoice5 = new DialogueInst ();
+		ritChoice5.id = 5;
+		ritChoice5.disengage = true;
+		ritChoice5.NextTrigger("goesToCaudden",false);
+		dialogueContainer.Add (ritChoice5);
+		
+		DialogueInst ritChoiceEx = new DialogueInst ();
+		ritChoiceEx.id = 6;
+		ritChoiceEx.disengage = true;
+		ritChoiceEx.NextTrigger("goesNorth",false);
+		dialogueContainer.Add (ritChoiceEx);
+		
+		
+		allDialogues.Add ("ritChoice", dialogueContainer);
+		dialogueContainer = new List<DialogueInst> ();
+
+		#endregion
 
 
 
@@ -1297,29 +1359,230 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		search.response = "The skies have lost the signs of the early epidemic, the early clouds that gather everywhere. It has been here a long time, at this stage. We are too late.     ¤Still, we must investigate, find out what we can, understand the curse as it struck here. Fortunately, Eravola leaves many traces of what happened before.  ¤¤¤The signs are crossed out. No one who lives here anymore.";
 		search.thoughts = "/Initiate---Module C5F.04. V. 5.4";
 		search.options.Add ("Next");
-		search.ResponseNrs.Add (1);
+		search.ResponseNrs.Add (9);
 		dialogueContainer.Add (search);
 
 		DialogueInst search1 = new DialogueInst ();
-		search1.id = 1;
+		search1.id = 9;
 		search1.response = "The grass is purple, the skies are blue. Houses that are surprisingly intact are scattered along the overgrown roadside, not burnt down, not rioted or looted—just abandoned.     ¤¤Vines peer out of the broken windows, creeping up the walls and twisting around the doorframes where the door has long since rotted away.     ¤¤Cutlery, plates, and tools are all left in their places, scattered around on tables without anything in them; as if the town was inhabited by ghosts that didn’t eat or work. All food, all drinks are gone or poisoned, devoured away by the purple, decrepit force that took over.";
 		search1.thoughts = "";
 		search1.options.Add ("Investigate the Inn");
 		search1.options.Add ("Investigate the Pond.");
 		search1.options.Add ("Investigate the Houses.");
-		search1.options.Add ("Investigate the Stables.");
-		search1.options.Add ("Investigate the Roadside.");
+		search1.options.Add ("Move.");
+		search1.ResponseNrs.Add (1);
 		search1.ResponseNrs.Add (2);
 		search1.ResponseNrs.Add (3);
-		search1.ResponseNrs.Add (4);
-		search1.ResponseNrs.Add (5);
-		search1.ResponseNrs.Add (6);
+		search1.ResponseNrs.Add (9);
 		dialogueContainer.Add (search1);
 
-		DialogueInst searchExit = new DialogueInst ();
-		cearaAgreeExit.id = 10;
-		cearaAgreeExit.disengage = true;
-		dialogueContainer.Add (cearaAgreeExit);
+		DialogueInst search2 = new DialogueInst ();
+		search2.id = 8;
+		search2.response = "";
+		search2.thoughts = "";
+		search2.options.Add ("Investigate the Stables");
+		search2.options.Add ("Investigate the Roadside.");
+		search2.options.Add ("Return.");
+		search2.options.Add ("Leave.");
+		search2.ResponseNrs.Add (4);
+		search2.ResponseNrs.Add (5);
+		search2.ResponseNrs.Add (9);
+		search2.ResponseNrs.Add (99);
+		dialogueContainer.Add (search2);
+
+		DialogueInst searchinn = new DialogueInst ();
+		searchinn.id = 1;
+		searchinn.response = "The Inn was the gathering hall for the village when it was inhabited. The evidence of this is clear, the many chairs, the many empty tankards and plates, the large kitchen with a stove and oven enough to feed twenty men.   ¤¤There are trails of a conversation here. Words that linger in the air. But none of them are clear enough that we can hear them.  ¤¤By the doorside, there are a lot of footsteps, as if the entire village shuffled in and out of the inn at once. Something big must have happened that day   ¤¤This was one of the first places the curse hit, see the coloration of the plants in here have a darker gradient, starting to crumble. It’s far south, so the plague must have hit from the south.";
+		searchinn.thoughts = "";
+		searchinn.options.Add ("Investigate Further");
+		searchinn.options.Add ("Go Back");
+		searchinn.ResponseNrs.Add (11);
+		searchinn.ResponseNrs.Add (9);
+		dialogueContainer.Add (searchinn);
+
+		DialogueInst searchinn2 = new DialogueInst ();
+		searchinn2.id = 11;
+		searchinn2.response = "There are scraps of a journal in a withered bag that is porous from the infestation. Scanning the note, we see the following:        ¤¤<I will arrive tomorrow. Still no sign of any curse. The weather is acting up, though, clouds circling. The town I’m going to is supposed to have an inn, so I can hopefully rest there a while. This has been a long journey, and I’m not looking forward to seeing those pompous idiots from Caudden one bit.>                 ¤¤Lucky the note was preserved so well, the bag has helped keep it safe.     ¤¤There’s nothing else here.";
+		searchinn2.thoughts = "";
+		searchinn2.options.Add ("Go Back");
+		searchinn2.ResponseNrs.Add (9);
+		dialogueContainer.Add (searchinn2);
+
+		DialogueInst searchpond = new DialogueInst ();
+		searchpond.id = 2;
+		searchpond.response = "The little pond to the south of the village would have been a pleasant spot to relax pre-curse. A once magnificent willowtree lies bent over, crashed into the pond, mushy and deteriorated by the eating curse.    ¤¤There are signs of moving plants around the pond.  That’s why it spread so fast from Caudden. The moving plants have carried it down here, and then up to the village with a scary pace. The villagers must have been completely defenseless.       ¤¤There are marks of a girl landing here, underneath where the willowtree should have been. And footsteps leading back to the village. There are also a set of footsteps leading towards Caudden.";
+		searchpond.thoughts = "";
+		searchpond.options.Add ("Follow the other Footsteps");
+		searchpond.options.Add ("Go Back");
+		searchpond.ResponseNrs.Add (22);
+		searchpond.ResponseNrs.Add (9);
+		dialogueContainer.Add (searchpond);
+
+		DialogueInst searchpond2 = new DialogueInst ();
+		searchpond2.id = 22;
+		searchpond2.response = "They stagger and stumble across a small path, in the beginning following a regular, but fast, rhythm, then slowly sagging and becoming haphazard.     ¤¤Eventually, long down the road, but only halfway to Cauddden, lies a skeleton peeking out from the ground. The purple mold has almost enveloped it fully, but you can still see a little edge of a cranium and some scattered bones lying.          ¤¤The bones come from a human, a woman in her forties, carrying a small box of jewels. Why she decided to run this way is beyond our understanding. ¤[WHO IS SHE? THIS I CAN CUT IF NEEDED]";
+		searchpond2.thoughts = "";
+		searchpond2.options.Add ("Go Back");
+		searchpond2.ResponseNrs.Add (9);
+		dialogueContainer.Add (searchpond2);
+
+		DialogueInst searchhouses = new DialogueInst ();
+		searchhouses.id = 3;
+		searchhouses.response = "There are many houses in the village, each covered in the purple plants. Most of them are empty and without much of interest.   ¤We found two that might have something interesting, though.";
+		searchhouses.thoughts = "";
+		searchhouses.options.Add ("Go to the Leatherdyer's house.");
+		searchhouses.options.Add ("Go to the house around the corner");
+		searchhouses.ResponseNrs.Add (33);
+		searchhouses.ResponseNrs.Add (335);
+		dialogueContainer.Add (searchhouses);
+
+		DialogueInst searchhouses2 = new DialogueInst ();
+		searchhouses2.id = 33;
+		searchhouses2.response = "Half devoted as a living area, half devoted to a leatherworker’s practice, the smell of the dyeing process is still stained in the wooden walls, even as they are purple.    ¤¤The house is small, with only one room with two tiny beds, and a small kitchen with one table and two chairs. The rest the leatherworking space, with purple, cursed leather stretched out on tables and vats full of dye that interestingly aren’t contaminated. Note that down: The dye, even though it’s from something living, has not been infested by Eravola. This should be investigated further.             ¤¤Other than that, there are remnants of a conversation here.";
+		searchhouses2.thoughts = "";
+		searchhouses2.options.Add ("Listen");
+		searchhouses2.options.Add ("Go Back");
+		searchhouses2.ResponseNrs.Add (331);
+		searchhouses2.ResponseNrs.Add (9);
+		dialogueContainer.Add (searchhouses2);
+
+		DialogueInst searchhouses3 = new DialogueInst ();
+		searchhouses3.id = 331;
+		searchhouses3.response = "Loading Conversation c_LW_01… Done.      ¤¤‘Hold it’  ¤‘What?’    ¤‘Stop it with your high and mighty attitude, girl. I’m working days and nights off, and you think none of it matters, do you?’   ¤‘Gods, mom, can’t you relax a little? We didn’t get close to the city.’   ¤‘Don’t you go and excuse this as something little. I don’t want you going there! It’s dangerous!’    ¤	*END*	";
+		searchhouses3.thoughts = "";
+		searchhouses3.options.Add ("Go Back");
+		searchhouses3.ResponseNrs.Add (9);
+		dialogueContainer.Add (searchhouses3);
+
+		DialogueInst searchhouses4 = new DialogueInst ();
+		searchhouses4.id = 335;
+		searchhouses4.response = "The lone house on the hill is different from the rest of them. It’s further away from the main road than most of them, it’s built in a different time, judging by the wood, and it’s built with a different set of tools.       ¤¤Inside, however, you see the most profound differences. Instead of the regular decorum in most houses in this area, there are no golden circles on the walls, no unburnt candles beside the door. A foreigner lived here.       ¤¤A well-kept skeleton lies in the middle of the living room. Male, late thirties. He must have stayed home when he saw the spread, hoping it wouldn’t get in here. It took a while, too, the stone slabs around his house and ceramic oven slowed the onslaught significantly, but it wasn’t enough. Poor guy.";
+		searchhouses4.thoughts = "";
+		searchhouses4.options.Add ("Go Back");
+		searchhouses4.ResponseNrs.Add (9);
+		dialogueContainer.Add (searchhouses4);
+
+		DialogueInst searchstables = new DialogueInst ();
+		searchstables.id = 4;
+		searchstables.response = "Many footsteps lead to the stables, where there are signs of horses being kept; around six, we estimate. They were torn away from their stalls, the saddles still hanging on the walls. There one skeleton here. Man, middle-aged. Got a few broken bones. Horses must have trampled him to death. The Eravola did the rest.      ¤¤There are signs of blood on the doorframe. Someone scraped by there, wounding themselves. Badly enough, it seems, to leave a faint trail going out of the stable, toward Caudden.";
+		searchstables.thoughts = "";
+		searchstables.AlterResp("Many footsteps lead to the stables, where there are signs of horses being kept; around six, we estimate. They were torn away from their stalls, the saddles still hanging on the walls. There was quite a rustle here, many footsteps leading in all directions, hoof prints pressed down on top of each other, where the new plants haven’t covered them up completely.       ¤¤Remnants of two people lie on the ground, skeletons that have almost completely disappeared beneath the overgrowth. Difficult to assess properties. Perhaps both male, perhaps one male and one female. Adults.      ¤¤In the corner lies a lone horseshoe with blood spattered on it.");
+		searchstables.options.Add ("Investigate");
+		searchstables.options.Add ("Go Back");
+		searchstables.ResponseNrs.Add (44);
+		searchstables.ResponseNrs.Add (9);
+		dialogueContainer.Add (searchstables);
+
+		DialogueInst searchstables2 = new DialogueInst ();
+		searchstables2.id = 44;
+		searchstables2.response = "The trail leads down beside the village, as if the rider was trying to avoid the village at first. It curves around in a gentle bow until it stops and goes straight for another short length, then there’s a skeleton. But not a human one: A horse skeleton. Must have tripped. Or struck by limb-paralysis from the Eravola.     ¤¤There are scatterings of downtrodden purple plants, of shuffling feet, of someone scrambling along the plants, but they were probably already infested at this point.      ¤¤The rider lies just a little further down the road. It’s a child, too. Can’t be more than seventeen. Girl.";
+		searchstables2.thoughts = "";
+		searchstables2.AlterResp("Following them takes a while, as they get quite far. The take a detour around the village, possibly to avoid the plants that were encroaching. The rider managed to get far, too. Got out of the village and went towards Caudden. [END OF SITE REACHED]      ¤¤Unclear whether they are the ones who brought the plague into Caudden. However, since it came from the south, Caudden might have been infested already.");
+		searchstables2.options.Add ("Go Back");
+		searchstables2.ResponseNrs.Add (9);
+		dialogueContainer.Add (searchstables2);
+
+		DialogueInst searchRoadside = new DialogueInst ();
+		searchRoadside.id = 5;
+		searchRoadside.response = "Something peculiar’s by the roadside. Specks of ash, of burnt coal. Someone made a fire here. Seems, odd, though. There are no marks of a regular fireplace, no stone circle.      ¤¤Beside it, there are marks of someone lying, and, judging by the darker purple, it was an Eravola victim. To the left of that, another person sat. There are flakes of iron and bone in the dirt. Maybe they did a curse-analysis. They must not have had a lot of time for that, though, if it is true that the one beside was infected already.         ¤¤However, performing such a thing means that there was a Sage present. This is not present in any of the previous records. A Caudden Sage would have known what it was, too, and wouldn’t have needed to perform an analysis.       ¤¤There are several footsteps leading away, one leading over to the stables, but another, heavier set, leading north.";
+		searchRoadside.thoughts = "";
+		searchRoadside.options.Add ("Go to the Stables");
+		searchRoadside.options.Add ("Follow the other set of footsteps");
+		searchRoadside.options.Add ("Go Back");
+		searchRoadside.ResponseNrs.Add (4);
+		searchRoadside.ResponseNrs.Add (55);
+		searchRoadside.ResponseNrs.Add (9);
+		dialogueContainer.Add (searchRoadside);
+
+		DialogueInst searchRoadside2 = new DialogueInst ();
+		searchRoadside2.id = 55;
+		searchRoadside2.response = "Either this was a heavy person, or they were carrying something heavy, since they are considerably deeper than other footsteps here. They lead north, toward the forest in a hurried pace.       ¤¤However, there is something uncomfortable about them. They stutter and start again, becomes slow and erratic.     ¤Outside the village, they split into two sets, but both stop almost immediately and return back to each other. Signs point to one of them lying there again, but then walking a bit farther.         ¤¤Eventually they both stop. They must have been infected. At least one of them. Their pace is too strange for anything else to be the case. The stopping could also have been caused by hyper function of motor abilities, one of them forcing their way from the other, or pushing them into the ground.";
+		searchRoadside2.thoughts = "";
+		searchRoadside2.options.Add ("Go Back");
+		searchRoadside2.ResponseNrs.Add (9);
+		dialogueContainer.Add (searchRoadside2);
+
+		DialogueInst searchleave = new DialogueInst ();
+		searchhouses3.id = 10;
+		searchhouses3.response = "             ¤Area excavated.     ¤Amount of information gained from staying is negligible.           ¤Path south found. Venture forth?";
+		searchhouses3.thoughts = "";
+		searchhouses3.options.Add ("Go");
+		searchhouses3.options.Add ("Exit Program");
+		searchhouses3.ResponseNrs.Add (99);
+		searchhouses3.ResponseNrs.Add (91);
+		dialogueContainer.Add (searchhouses3);
+
+		DialogueInst searchleave2 = new DialogueInst ();
+		searchleave2.id = 99;
+		searchleave2.response = "The outbreak is worse here. Origin is definitely sure.      ¤The city of Caudden grows larger as we get closer, the chimneys lining the sky rise up above it all, in patterns of frozen grass.     ¤It’s clear that the city is dead already. The Eravola is everywhere, purple grass bedding the fields, vines and crooked flowers greet us as we inch closer.";
+		searchleave2.thoughts = "";
+		searchleave2.options.Add ("Investigate");
+		searchleave2.ResponseNrs.Add (98);
+		dialogueContainer.Add (searchleave2);
+
+		DialogueInst searchleave3 = new DialogueInst ();
+		searchleave3.id = 98;
+		searchleave3.response = "We doubt we can get closer. We’re getting out of reach, signal is faltering.    ¤The walls of the city are becoming overgrown, too, climbing plants curl up their sides, seething into the stone.";
+		searchleave3.thoughts = "";
+		searchleave3.options.Add ("Investigate");
+		searchleave3.ResponseNrs.Add (97);
+		dialogueContainer.Add (searchleave3);
+
+		DialogueInst searchleave4 = new DialogueInst ();
+		searchleave4.id = 97;
+		searchleave4.response = "Finally, just before we lose connection, there’s one more thing. A movement inside. Something’s disturbing our view through the gate. Like it’s being blocked. ";
+		searchleave4.thoughts = "";
+		searchleave4.options.Add ("Investigate");
+		searchleave4.ResponseNrs.Add (96);
+		dialogueContainer.Add (searchleave4);
+
+		DialogueInst searchleave5 = new DialogueInst ();
+		searchleave5.id = 96;
+		searchleave5.response = "There’s something living in there… How can it… What—No_ItC                ¤¤ --- ERROR ---     ¤SIGNAL LOST.  ¤ATTEMPTING REBOOT…              ¤…              ¤Reboot failed. AT---**********     ¤¤Hello. I’m… here?  ¤I made it. Wow. Hello there.  ¤Caution, what you are about to hear is extraordinary. ¤I have survived. There is something else in here. There is something spreading this. I think I have seen what it is but I haven’t been able to get close.  ¤Sorry for hijacking your signal, but I had to get this message out. I hope you find it well. I hope you can save me.";
+		searchleave5.thoughts = "";
+		searchleave5.options.Add ("Investigate");
+		searchleave5.ResponseNrs.Add (95);
+		dialogueContainer.Add (searchleave5);
+
+		DialogueInst searchleave6 = new DialogueInst ();
+		searchleave6.id = 95;
+		searchleave6.response = "SIGNAL LOST ………………………………………                ¤SIGNAL LOST ………………………………………                ¤SIGNAL LOST ………………………………………                 ¤SIGNAL LOST ………………………………………                                  ¤Probe left transmission area.         ¤Shutting down Natural Language Interface… Done  ¤Exiting search… Done";
+		searchleave6.thoughts = "";
+		searchleave6.options.Add ("Investigate");
+		searchleave6.ResponseNrs.Add (100);
+		dialogueContainer.Add (searchleave6);
+
+		DialogueInst searchleave7 = new DialogueInst ();
+		searchleave7.id = 91;
+		searchleave7.response = "Sending Probe Home... Done.              ¤Shutting down Natural Language Interface… Done  ¤Exiting search… Done";
+		searchleave7.thoughts = "";
+		searchleave7.options.Add ("Investigate");
+		searchleave7.ResponseNrs.Add (100);
+		dialogueContainer.Add (searchleave7);
+
+		DialogueInst searchEx = new DialogueInst ();
+		searchEx.id = 100;
+		searchEx.response = "Area Search Over.               ¤Uploading Results… Done.    ¤Amount of information: 5.4  ¤Relevance: 78%  ¤Further research possibilities: 2  ¤Score: 8  ¤Expected survivability of Area: 0.4 minutes.  ¤Origin: South.  ¤Spread: North, East.   ¤Area categorized: Hazardous.            ¤¤Thank you.                          ¤¤¤¤                         -- Together, we can stop the spread --";
+		searchEx.thoughts = "";
+		searchEx.options.Add ("Restart");
+		searchEx.options.Add ("Exit");
+		searchEx.ResponseNrs.Add (102);
+		searchEx.ResponseNrs.Add (101);
+		dialogueContainer.Add (searchEx);
+
+		DialogueInst searchEx2 = new DialogueInst ();
+		searchEx2.id = 101;
+		searchEx2.response = "";
+		searchEx2.thoughts = "";
+		searchEx2.disengage = true;
+		dialogueContainer.Add (searchEx2);
+
+		DialogueInst searchEx3 = new DialogueInst ();
+		searchEx3.id = 102;
+		searchEx3.response = "";
+		searchEx3.thoughts = "";
+		searchEx3.disengage = true;
+		dialogueContainer.Add (searchEx3);
 		
 		allDialogues.Add ("search", dialogueContainer);
 		dialogueContainer = new List<DialogueInst> ();

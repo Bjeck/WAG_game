@@ -465,7 +465,193 @@ public class ambientVoiceContainer : MonoBehaviour {
 		ambientContainer = new List<ambientInst> ();
 		#endregion
 
+		#region ritual
+		ambientInst rit = new ambientInst ();
+		rit.id = 0;
+		rit.response = "";
+		rit.thoughts = "";
+		ambientContainer.Add (rit);
 
+		ambientInst rit1 = new ambientInst ();
+		rit1.id = 1;
+		rit1.response = "Is everything ready? Come here with the plant. <he says> ";
+		rit1.thoughts = "We hear rustling footsteps coming from the inn again. It’s the Sage, looking at us with morbid eyes. ";
+		rit1.ambDelay = 2f;
+		ambientContainer.Add (rit1);
+
+		ambientInst rit2 = new ambientInst ();
+		rit2.id = 2;
+		rit2.response = "";
+		rit2.thoughts = "Mauge wretches the dead cat out of the hands of Mikal and leads Ceara there too. Illij steps up with a compass and Trenner gives him an iron pan. The Sage nods to himself as he sees the items, and bends down by the fire.";
+		ambientContainer.Add (rit2);
+
+		ambientInst rit3 = new ambientInst ();
+		rit3.id = 3;
+		rit3.response = "";
+		rit3.thoughts = "It takes a long time before anything happens. He works there, in the middle of the road, where we had slapdashed a fire together, and the rest of us stands around in small circles, looking at the strange clouds and the purple get closer and closer. None of us panic. We don’t know if we need to. We don’t understand what’s happening.";
+		ambientContainer.Add (rit3);
+
+		ambientInst rit4 = new ambientInst ();
+		rit4.id = 4;
+		rit4.response = "";
+		rit4.thoughts = "I lean over to Ceara, but before I say anything I notice how she’s standing. One leg limp and not using any force, the other completely straight and leaning against the wall. None of her hands touch the wall. She’s just leaning with her shoulder, her arms a dead limp.";
+		ambientContainer.Add (rit4);
+
+		ambientInst rit5 = new ambientInst ();
+		rit5.id = 5;
+		rit5.response = "Shit, are you okay? <I ask.>    ¤<She doesn’t respond.> ¤Gods, are you… Ceara!";
+		rit5.thoughts = "I lean in close to see her face, but she’s... Her eyes are sheets of white, her face more covered up the last time than the last time I saw it—reminding me she was hiding her face on the way back here.";
+		ambientContainer.Add (rit5);
+
+		ambientInst rit6 = new ambientInst ();
+		rit6.id = 6;
+		rit6.response = "Mauge! <I scream, but then I hear muffled sounds.>   ¤No, no… it’s.. I’m…  ¤<but she never finishes that sentence before Mauge gets here.> ¤Oh, gods <she says and raises her hands to her mouth.> Sage! Please! She’s gotten worse!";
+		rit6.thoughts = "Worse doesn’t even describe it. Mauge cracks into tears as she speaks, Ceara barely answers.";
+		rit6.thoughtsDelay = 5f;
+		ambientContainer.Add (rit6);
+
+		ambientInst rit7 = new ambientInst ();
+		rit7.id = 7;
+		rit7.response = "<The Sage looks at her and furrows his brow immediately.>   ¤Can she get over here?   ¤Can you walk? <Me and Mauge both say, in both our ways>, and Ceara starts shuffling along.>";
+		rit7.thoughts = "I almost instinctually lean in to help her but remember myself and stop. Seeing her like this makes me doubly careful.";
+		ambientContainer.Add (rit7);
+
+		ambientInst rit8 = new ambientInst ();
+		rit8.id = 8;
+		rit8.response = "";
+		rit8.thoughts = "Ceara scrapes herself by, the entire village watching in fear as they realize what happened to her—how real it is. Most of them glance down south one extra time, whispering to each other. I glance down there too, checking my legs and arms one extra time for any purple marks.";
+		ambientContainer.Add (rit8);
+
+		ambientInst rit9 = new ambientInst ();
+		rit9.id = 9;
+		rit9.response = "<She collapses in front of the Sage, right beside his fire and he immediately use a small duster to roll the plant beside him.>  ¤How are you? Is there a fever? Do you feel numb? Like you’re about to fall asleep?  ¤<Ceara doesn’t even have time to answer all the questions. And the Sage doesn’t wait either.>";
+		rit9.thoughts = "";
+		ambientContainer.Add (rit);
+
+		ambientInst rit10 = new ambientInst ();
+		rit10.id = 10;
+		rit10.response = "";
+		rit10.thoughts = "He takes the bones and, lays them in the pan, then begins grinding them out, as if in a mortar and pestle. He lays the compass beside, seeing it bend nicely towards the pan as he does. When most of the pan is covered in a layer of bone dust, he picks up the plants and grinds that in with the rest. While he sets the pan on the fire he pulls something from out of his pouch I don’t quite see what is, but looks like small yellow flakes, that he pours on top as well.";
+		ambientContainer.Add (rit10);
+
+		ambientInst rit11 = new ambientInst ();
+		rit11.id = 11;
+		rit11.response = "It’s… <the Sage says.> But no? It’s… <he pauses again.>";
+		rit11.thoughtsDelay = 1.5f;
+		rit11.thoughts = "The entire village is watching in tension. The wind is blowing heavily, more heavily than it did a minute ago.";
+		ambientContainer.Add (rit11);
+
+		ambientInst rit12 = new ambientInst ();
+		rit12.id = 12;
+		rit12.response = "Shit <he says.>";
+		rit12.thoughts = "That’s all. That’s all he says for a long time.    ¤The compass arrow is running amok, pointing everywhere every second it can.";
+		rit12.thoughtsDelay = 1.5f;
+		ambientContainer.Add (rit12);
+
+		ambientInst rit13 = new ambientInst ();
+		rit13.id = 13;
+		rit13.response = "What is it? Can you cure her?   ¤<The Sage looks up, as if from a long slumber.> Only tend her. I can’t cure her completely. This is something I have never seen before. They might help us in Caudden, if it’s not there already, considering it spread from that direction. Whatever it is, it’s bad. Really bad.";
+		rit13.thoughts = "";
+		ambientContainer.Add (rit13);
+
+		ambientInst rit14 = new ambientInst ();
+		rit14.id = 14;
+		rit14.response = "...";
+		rit14.thoughtsDelay = 1.5f;
+		rit14.thoughts = "It takes a long time before anyone does anything. It feels like an hour. It looks like an eternity.                ¤¤Then it’s as if everyone starts shouting at once.";
+		ambientContainer.Add (rit14);
+
+		ambientInst rit15 = new ambientInst ();
+		rit15.id = 15;
+		rit15.responseSpeed = 0.005f;
+		rit15.response = "What do we do? ¤Do we have to run? Where can we go? ¤Is it over? What about Ceara? ¤I can’t leave here! It’s my home.";
+		rit15.thoughts = "Ceara looks terrible. She lies down beside the fire, as if with a fever, but all stricken across her face in that purple, dreadful color. The streaks of green are starting to show more clearly.    ¤Panic takes over. The Sage barely has time to respond to anything. The infestation or whatever the fuck it is, is really, really close now. We’re running out of options here.";
+		ambientContainer.Add (rit15);
+
+		ambientInst rit16 = new ambientInst ();
+		rit16.id = 16;
+		rit16.response = "We need to get to Caudden <the Sage says> there they might have a cure.  ¤Caudden?! <Mauge says> They’ll never take us in in Caudden. We’re shut out, like we always are. And what if it’s in there too, as you said?  ¤We have to take that chance.";
+		rit16.thoughts = "I feel a rumbling in my stomach, some low, crunching feeling that something’s wrong. Of course it is, I think, our entire village is about to be consumed by some weird purple shit that’s killing Ceara, but there’s something else too. A worry that this goes  [REDACTED].";
+		ambientContainer.Add (rit16);
+
+		ambientInst rit17 = new ambientInst ();
+		rit17.id = 17;
+		rit17.response = "Nevermind <Mauge says> we’re bloody leaving now. Come on, Ceara, let’s get out of here.  ¤<She rushes towards Ceara and bends down to pick her up> No, don’t! <the Sage says, but Mauge isn’t listening>.";
+		rit17.thoughts = "Mauge’s skin turns purple immediately, but she picks her child up and carries her. She starts crying as soon as she steps away from the fire, looking down at her daughter. ";
+		ambientContainer.Add (rit17);
+
+		ambientInst rit18 = new ambientInst ();
+		rit18.id = 18;
+		rit18.response = "Her skin is… soft <she says.>";
+		rit18.thoughts = "Her skin transforms, begins to look like the purple mush that Ceara has as well.    ¤¤People are running now. In all directions, home to their houses, shutting themselves in or running to the stables to grab a horse, or just running north, into the forest.";
+		ambientContainer.Add (rit18);
+
+		ambientInst rit19 = new ambientInst ();
+		rit19.id = 19;
+		rit19.response = "";
+		rit19.thoughts = "Mauge tries to run as well, but with Ceara in her arms, she can only stumble along, her body already giving way to the stuff, as she clearly can’t rest on her left leg either. I almost begin to run as well, but stop.";
+		ambientContainer.Add (rit19);
+
+		ambientInst rit20 = new ambientInst ();
+		rit20.id = 20;
+		rit20.response = "";
+		rit20.thoughts = "There it is. I notice it. The clouds aren’t just moving weird. They aren’t just picking up speed and circling unnaturally. They’re… close. And they’re tiny, so they look like they are as far away as usual. The entire village is enveloped in it, not really noticeable since it isn’t fog.  ¤[[Should it get dark?]]";
+		ambientContainer.Add (rit20);
+
+		ambientInst ritEx = new ambientInst ();
+		ritEx.id = 21;
+		ritEx.disengage = true;
+		ritEx.NextTrigger("ritChoice",true);
+		ambientContainer.Add (ritEx);
+		
+		allAmbients.Add ("ritual", ambientContainer);
+		ambientContainer = new List<ambientInst> ();
+		#endregion
+
+
+		#region goesToCaudden
+		ambientInst goesToCaudden = new ambientInst ();
+		goesToCaudden.id = 0;
+		goesToCaudden.response = "";
+		goesToCaudden.thoughts = "The Sage sets off but immediately as he starts walking I realize the infestation has caught up to us. It’s right there, on the grass beneath us, only about two feet away. He rushes to the right, and I go with him, running now, to get away from a thing we can’t see moving—only taking leaps to where we are.";
+		ambientContainer.Add (goesToCaudden);
+
+		ambientInst goesToCaudden1 = new ambientInst ();
+		goesToCaudden1.id = 0;
+		goesToCaudden1.response = "";
+		goesToCaudden1.thoughts = "We run towards the stables, where he says he has a horse. I doubt it’s still there anymore.";
+		ambientContainer.Add (goesToCaudden1);
+
+		ambientInst goesToCauddenEx = new ambientInst ();
+		goesToCauddenEx.id = 2;
+		goesToCauddenEx.disengage = true;
+		ambientContainer.Add (goesToCauddenEx);
+		
+		allAmbients.Add ("goesToCaudden", ambientContainer);
+		ambientContainer = new List<ambientInst> ();
+		#endregion
+
+		#region goesNorth
+		ambientInst goesNorth = new ambientInst ();
+		goesNorth.id = 0;
+		goesNorth.response = "";
+		goesNorth.thoughts = "The Sage sets off but immediately as he starts walking I realize the infestation has caught up to us. It’s right there, on the grass beneath us, only about two feet away. He rushes to the right, and I run north, to get away from a thing we can’t see moving—only taking leaps to where we are.";
+		ambientContainer.Add (goesNorth);
+		
+		ambientInst goesNorth1 = new ambientInst ();
+		goesNorth1.id = 1;
+		goesNorth1.response = "";
+		goesNorth1.thoughts = "I don’t see where he goes but I just continue to run away, running away from the sun and everything I know.";
+		ambientContainer.Add (goesNorth1);
+		
+		ambientInst goesNorthEx = new ambientInst ();
+		goesNorthEx.id = 2;
+		goesNorthEx.disengage = true;
+		ambientContainer.Add (goesNorthEx);
+		
+		allAmbients.Add ("goesNorth", ambientContainer);
+		ambientContainer = new List<ambientInst> ();
+		#endregion
 
 	}
 

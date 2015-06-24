@@ -11,6 +11,9 @@ public class BootScript : MonoBehaviour {
 	public textRoll t;
 	public textRoll buttonText;
 	public GameObject button;
+	public GameObject panel;
+	float bootWaitTime = 1f;
+	bool haveplayedBootSound;
 
 	float passDel;
 	public GameObject bootCanvas;
@@ -24,7 +27,7 @@ public class BootScript : MonoBehaviour {
 
 	public bool inSearchMode = false;
 
-
+	//
 	void Awake()
 	{
 		if (instance != null && instance != this) {
@@ -36,31 +39,43 @@ public class BootScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		t.del = 0.01f;
-		passDel = text.gameObject.GetComponent<textRoll> ().textToDisplay.Length * text.gameObject.GetComponent<textRoll> ().del+0.5f;
+		t.del = 0.05f;
+		passDel = text.gameObject.GetComponent<textRoll> ().textToDisplay.Length * text.gameObject.GetComponent<textRoll> ().del+2f;
+		button.SetActive (false);
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+		if (!haveplayedBootSound) {
+			if (bootWaitTime > 0) {
+				bootWaitTime -= Time.deltaTime;
+			} else {
+				SoundManager.instance.PlayBootSound ();
+				haveplayedBootSound = true;
+			}
+		}
 
 
 
 		if (!inSearchMode) {
-			if (rollTime > 0) {
-				rollTime -= Time.deltaTime;
-			} else if(!buttonShouldSpawn && !buttonHasSpawned) {
-				buttonShouldSpawn = true;
-				buttonHasSpawned = false;
+
+			if(hasBooted){
+				if (rollTime > 0) {
+					rollTime -= Time.deltaTime;
+				} else if(!buttonShouldSpawn && !buttonHasSpawned) {
+					buttonShouldSpawn = true;
+					buttonHasSpawned = false;
+				}
+				
+				if (buttonShouldSpawn && !buttonHasSpawned) {
+					button.SetActive(true);
+					WriteButtonText();
+					buttonHasSpawned = true;
+				}
 			}
-			
-			if (buttonShouldSpawn && !buttonHasSpawned) {
-				button.SetActive(true);
-				WriteButtonText();
-				buttonHasSpawned = true;
-			}
-			
+
 			
 			if (!hasBooted) {
 				if (passDel <= 0) {
@@ -126,6 +141,7 @@ public class BootScript : MonoBehaviour {
 	public void ActivateSearchMode(){
 		inSearchMode = true;
 		ClearBootText ();
+		canvasManager.instance.ActivateCanvas (canvasManager.instance.bootCanvas);
 		dialogueManager.instance.EnterDialogue ("search",null);
 	}	
 
@@ -184,6 +200,8 @@ public class BootScript : MonoBehaviour {
 			bootCanvas.SetActive(false);
 			ipf.gameObject.SetActive(false);
 			hasBooted = true;
+			SoundManager.instance.ChangeComputerMixerValue("volume",-5f);
+			SoundManager.instance.PlayClickSound();
 			canvasManager.instance.ActivateCanvas(canvasManager.instance.houseCanvas);
 		}
 	}
