@@ -77,6 +77,34 @@ public class GlitchManager : MonoBehaviour {
 		if (BootScript.instance.panel.activeSelf) {
 			BootScript.instance.panel.SetActive(false);
 		}
+		SoundManager.instance.master.SetFloat ("volume", 0);
+		foreach (AudioSource a in noiseSounds) {
+			a.Stop();		
+		}
+		yield return 0;
+	}
+
+	public void GlitchScreenOnCommand(float t){
+		StartCoroutine (GlitchScreenOC (t));
+	}
+
+	IEnumerator GlitchScreenOC(float time){
+
+		glEf.enabled = true;
+		glEf.intensity = glitchIntensity * Random.Range (0.5f, 1.5f);
+		
+		//PlayGlitchSound ();
+		
+		while (time > 0) {
+			time -= Time.deltaTime;
+			yield return 0;
+		}
+		glEf.intensity = 0;
+		glEf.enabled = false;
+		SoundManager.instance.master.SetFloat ("volume", 0);
+		foreach (AudioSource a in noiseSounds) {
+			a.Stop();		
+		}
 		yield return 0;
 	}
 
@@ -106,9 +134,9 @@ public class GlitchManager : MonoBehaviour {
 
 	}
 
-	public void ChangeGlitchTimings(){
+	public void ChangeGlitchTimings(){ //timeToGlitchMin = 1f; timeToGlitchMax = 4f; sustainGlitchTimeMin = 0.03f; sustainGlitchTimeMax = 0.08f;
 		if (GlitchProgression == 0) {
-			timeToGlitchMin = 1f; timeToGlitchMax = 4f; sustainGlitchTimeMin = 0.03f; sustainGlitchTimeMax = 0.08f;
+			timeToGlitchMin = 1f; timeToGlitchMax = 4f; sustainGlitchTimeMin = 0.03f; sustainGlitchTimeMax = 0.08f; 
 		}
 		if (GlitchProgression == 1) {
 			timeToGlitchMin = 0.1f; timeToGlitchMax = 4f; sustainGlitchTimeMin = 0.05f; sustainGlitchTimeMax = 0.1f;
@@ -125,22 +153,45 @@ public class GlitchManager : MonoBehaviour {
 
 
 	public void PlayGlitchSound(int c){
-		int soundChooser;
+		int soundChooser = 0;
 		switch (c) {
 		case 0 :
-			soundChooser = Random.Range (0, noiseSounds.Length);
+			soundChooser = Random.Range (0, noiseSounds.Length+1);
+			if(soundChooser == 2){
+				soundChooser += Random.Range(-2,1);
+			}
 			mixer.SetFloat("drymix",Random.Range(0,1f));
 			mixer.SetFloat ("wetmix", Random.Range (0, 1f));
 			mixer.SetFloat("rate",Random.Range(0,20));
 			mixer.SetFloat("lowpassCut",22000f);
-			noiseSounds [soundChooser].Play ();
+			if(soundChooser < noiseSounds.Length){
+				noiseSounds [soundChooser].Play ();
+			}
 			break;
 		case 1 :
-			soundChooser = Random.Range (0, noiseSounds.Length);
+			soundChooser = Random.Range (0, noiseSounds.Length+1);
+			if(soundChooser == 2){
+				soundChooser += Random.Range(-1,1);
+			}
 			mixer.SetFloat("lowpassCut",Random.Range(100f,20000f));
-			noiseSounds [soundChooser].Play ();
+			if(soundChooser < noiseSounds.Length){
+				noiseSounds [soundChooser].Play ();
+			}
+			break;
+		case 2 :
+			mixer.SetFloat("drymix",Random.Range(0,1f));
+			mixer.SetFloat ("wetmix", Random.Range (0, 1f));
+			mixer.SetFloat("rate",Random.Range(0,20));
+			mixer.SetFloat("lowpassCut",22000f);
+			noiseSounds [2].Play ();
 			break;
 		}
+		if (soundChooser == noiseSounds.Length) {
+			foreach (AudioSource a in noiseSounds) {
+				a.Stop();		
+			}
+		}
+		SoundManager.instance.master.SetFloat ("volume", -80);
 
 	}
 

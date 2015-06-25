@@ -97,6 +97,7 @@ public class BootScript : MonoBehaviour {
 		hasBooted = true;
 
 		ClearBootText ();
+		GlitchManager.instance.StartCoroutine (GlitchManager.instance.GlitchScreen ());
 
 		switch (bootSeq) {
 		case 0:
@@ -196,13 +197,13 @@ public class BootScript : MonoBehaviour {
 	public void CheckPassword(){
 		string passInp = ipf.text.ToLower();
 		if(passInp.Length > 0){
-			Debug.Log("YAY");
 			bootCanvas.SetActive(false);
 			ipf.gameObject.SetActive(false);
 			hasBooted = true;
 			SoundManager.instance.ChangeComputerMixerValue("volume",-5f);
-			SoundManager.instance.PlayClickSound();
+			SoundManager.instance.passWordSound.Play();
 			canvasManager.instance.ActivateCanvas(canvasManager.instance.houseCanvas);
+			dialogueManager.instance.EnterDialogue("momIntro", null);
 		}
 	}
 }

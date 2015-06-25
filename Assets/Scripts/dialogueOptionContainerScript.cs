@@ -36,8 +36,8 @@ public class Inst {
 	public string response;
 	public string thoughts;
 	public float optionDelay = 0f;
-	public float responseSpeed = 0.02f;
-	public float thoughtsSpeed = 0.03f;
+	public float responseSpeed = 0.015f;
+	public float thoughtsSpeed = 0.02f;
 	public float thoughtsDelay = 0;
 	public NextToTrigger nextToTrigger = new NextToTrigger();
 	public void NextTrigger(string n, bool b){
@@ -97,35 +97,34 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		momIntroGreet.options.Add ("Hey.");
 		momIntroGreet.options.Add("Morning.");
 		momIntroGreet.options.Add("[Grab some tea]");
-		momIntroGreet.options.Add("[Walk straight out]");
+		momIntroGreet.thoughtsDelay = 2.0f;
 		momIntroGreet.ResponseNrs.Add (1);
 		momIntroGreet.ResponseNrs.Add (1);
 		momIntroGreet.ResponseNrs.Add (3);
-		momIntroGreet.ResponseNrs.Add (4);
-		momIntroGreet.optionDelay = 4.1f;
+		momIntroGreet.optionDelay = 3.1f;
 		//momIntroGreet.NextTrigger ("",false);
 		dialogueContainer.Add (momIntroGreet);
 
 		DialogueInst momIntroStraight = new DialogueInst ();
 		momIntroStraight.id = 1;
-		momIntroStraight.response = "Got no food, though, so you need to head to the market if you want some.";
+		momIntroStraight.response = "Come on, get up. Don't look so sulky. I got up just fine.     ¤<Mom turns away and begins to work.>";
 		momIntroStraight.thoughts = "..Damn...";
-		momIntroStraight.options.Add ("Okay.");
-		momIntroStraight.options.Add("Really? There's nothing?");
+		momIntroStraight.options.Add ("Fine, fine. I'm up.");
+		momIntroStraight.options.Add("Any food?");
 		momIntroStraight.options.Add("[Grab some tea]");
 		momIntroStraight.options.Add("[Walk out of the room]");
-		momIntroStraight.ResponseNrs.Add (7);
+		momIntroStraight.ResponseNrs.Add (8);
 		momIntroStraight.ResponseNrs.Add (5);
-		momIntroStraight.ResponseNrs.Add (7);
+		momIntroStraight.ResponseNrs.Add (3);
 		momIntroStraight.ResponseNrs.Add (4);
 		dialogueContainer.Add (momIntroStraight);
 
 		DialogueInst momIntroTea = new DialogueInst ();
 		momIntroTea.id = 3;
-		momIntroTea.response = "Ran out of bread, unfortunately.  ¤So if you're hungry you need to go pick up some at the market.";
-		momIntroTea.thoughts = "Ugh, really?";
-		momIntroTea.options.Add ("Okay.");
-		momIntroTea.options.Add ("Really? No bread? No other food?");
+		momIntroTea.response = "It's good? I might have made it a little too strong for your tastes.     ¤<Mom turns away and begins to work.>";
+		momIntroTea.thoughts = "Ugh, it is strong..";
+		momIntroTea.options.Add ("Yeah, damn.");
+		momIntroTea.options.Add ("Any food?");
 		momIntroTea.options.Add ("See you, then [Walk out]");
 		momIntroTea.options.Add ("[Walk out of the room]");
 		momIntroTea.ResponseNrs.Add (7);
@@ -136,33 +135,37 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst momIntroTea2 = new DialogueInst ();
 		momIntroTea2.id = 7;
-		momIntroTea2.response = "You also have school today, right?.";
-		momIntroTea2.thoughts = "..right.. I am hungry, though.";
+		momIntroTea2.response = "It's not that bad. Get over yourself, girl.      ¤You also have school today, right?.";
+		momIntroTea2.thoughts = "...I'm hungry...";
+		momIntroTea2.options.Add ("Right.. I'm hungry, though");
 		momIntroTea2.options.Add ("Right. [Exit conversation]");
 		momIntroTea2.options.Add("[Walk out of the room]");
+		momIntroTea2.ResponseNrs.Add (5);
 		momIntroTea2.ResponseNrs.Add (4);
 		momIntroTea2.ResponseNrs.Add (4);
 		dialogueContainer.Add (momIntroTea2);
 
+		DialogueInst momIntro8 = new DialogueInst ();
+		momIntro8.id = 8;
+		momIntro8.response = "You also have school today, right?.";
+		momIntro8.thoughts = "...I'm hungry...";
+		momIntro8.options.Add ("Right.. I'm hungry, though");
+		momIntro8.options.Add ("Right. [Exit conversation]");
+		momIntro8.options.Add("[Walk out of the room]");
+		momIntro8.ResponseNrs.Add (5);
+		momIntro8.ResponseNrs.Add (4);
+		momIntro8.ResponseNrs.Add (4);
+		dialogueContainer.Add (momIntro8);
+
 		DialogueInst momIntroOk = new DialogueInst ();
 		momIntroOk.id = 5;
-		momIntroOk.response = "Yes. There's nothing. Trust me.     ¤You still have school today, regardless, no?";
-		momIntroOk.thoughts = "I <i>am</i> hungry, though...";
+		momIntroOk.response = "Sorry, got nothing here... Deidre might have some, if you're lucky.";
+		momIntroOk.thoughts = "<..Sigh..>";
 		momIntroOk.options.Add ("Right. [Exit conversation]");
 		momIntroOk.options.Add ("[Walk away]");
 		momIntroOk.ResponseNrs.Add (4);
 		momIntroOk.ResponseNrs.Add (4);
 		dialogueContainer.Add (momIntroOk);
-
-		DialogueInst momHungry = new DialogueInst ();
-		momHungry.id = 6;
-		momHungry.response = "You're the hungry one. Besides, you have school, right?";
-		momHungry.thoughts = "I <i>am</i> hungry...";
-		momHungry.options.Add ("Fine. [Exit conversation]");
-		momHungry.options.Add ("[Walk away]");
-		momHungry.ResponseNrs.Add (4);
-		momHungry.ResponseNrs.Add (4);
-		dialogueContainer.Add (momHungry);
 
 		DialogueInst exitConv = new DialogueInst ();
 		exitConv.id = 4;
@@ -198,6 +201,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		c2.id = 2;
 		c2.response = "You didn't hear? There's a Sage coming today.";
 		c2.thoughts = "...?";
+		c2.thoughtsDelay = 0.5f;
 		c2.options.Add ("What? What for?");
 		c2.options.Add ("From Caudden?");
 		c2.options.Add ("That seems unnecessary");
@@ -210,6 +214,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		c3.id = 3;
 		c3.response = "There's a Sage coming today.";
 		c3.thoughts = "...?";
+		c3.thoughtsDelay = 0.5f;
 		c3.options.Add ("What for?");
 		c3.options.Add ("From Caudden?");
 		c3.options.Add ("That seems unnecessary");
@@ -256,7 +261,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst c7 = new DialogueInst ();
 		c7.id = 7;
-		c7.response = "True. Though, I'm afraid all half the town's already lost in their tales about his greatness, though.";
+		c7.response = "True. Though, I'm afraid all half the town's already lost in tales about his greatness, though.";
 		c7.thoughts = "...Yeah. I can see that..";
 		c7.thoughtsDelay = 1.0f;
 		c7.options.Add ("They gathering here just to see him coming?");
@@ -298,7 +303,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst c12 = new DialogueInst ();
 		c12.id = 12;
-		c12.response = "He hopes, she says and winks.";
+		c12.response = "He hopes <she says and winks.>";
 		c12.thoughts = "";
 		c12.thoughtsDelay = 1.5f;
 		c12.options.Add ("Where's Illij?");
@@ -337,7 +342,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		DialogueInst c16 = new DialogueInst ();
 		c16.id = 16;
 		c16.response = "We could go down to the pond or something... but nah, let's go see what's up with this fellow. Say hi to Illij on the way.";
-		c16.thoughts = "Nah, let's go see what's happening.";
+		c16.thoughts = "Let's go see what's happening.";
 		c16.thoughtsDelay = 2.0f;
 		c16.options.Add ("Let's [Leave]");
 		c16.ResponseNrs.Add (17);
@@ -355,7 +360,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		#region illijIntro
 		DialogueInst IllijIntro = new DialogueInst ();
 		IllijIntro.id = 0;
-		IllijIntro.response = "That's our plan, says Ceara.   ¤Well, you're in for something at least. This guy's the real deal..";
+		IllijIntro.response = "That's our plan <says Ceara.>   ¤Well, you're in for something at least. This guy's the real deal..";
 		IllijIntro.thoughts = "He seems more excited than usual.";
 		IllijIntro.options.Add ("Who is he?");
 		IllijIntro.ResponseNrs.Add (2);
@@ -363,7 +368,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ci2 = new DialogueInst ();
 		ci2.id = 2;
-		ci2.response = "He's a Vraadii Sage.  ¤Vraadii? Ceara asks.    ¤Sages that deal with curses, ghosts, and demons.";
+		ci2.response = "He's a Vraadii Sage.  ¤Vraadii? <Ceara asks.>    ¤Sages who deal with curses and demons.";
 		ci2.thoughts = "";
 		ci2.options.Add ("What's he doing here?");
 		ci2.options.Add ("We don't have any of that here?");
@@ -375,7 +380,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ci4 = new DialogueInst ();
 		ci4.id = 4;
-		ci4.response = "We don't? You never really know until a Sage arrives. That's their other purpose: Spotting malicious elements in the first place.";
+		ci4.response = "We don't? You never really know until he's had a look around the place. They tend to spot things like that as the first folk, too.";
 		ci4.thoughts = "";
 		ci4.options.Add ("What's he doing here?");
 		ci4.options.Add ("Ceara said you know him?");
@@ -403,7 +408,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ci3 = new DialogueInst ();
 		ci3.id = 3;
-		ci3.response = "He's probably heading to Caudden, but Mikal said he'd stay here a few days for some reason. Maybe he wants to see the city from out here. Who knows.     ¤Is he a healer? Can he cure the Withered Pine? Ceara asks.";
+		ci3.response = "He's probably heading to Caudden, but Mikal said he'd stay here a few days for some reason. Maybe he wants to see the city from out here. Who knows.                         ¤Is he a healer? Can he cure the Withered Pine? <Ceara asks.>";
 		ci3.thoughts = "Always about that Pine...";
 		ci3.thoughtsDelay = 3.5f;
 		ci3.options.Add ("[Listen]");
@@ -424,7 +429,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ci6 = new DialogueInst ();
 		ci6.id = 6;
-		ci6.response = "Let her speak, Tari.    ¤Ceara glances at me with a sovereign smile.       ¤He might, but I don't know. Your mother already mentioned she was going to ask about it, but we'll see.";
+		ci6.response = "Let her speak, Tari.    ¤<Ceara glances at me with a sovereign smile.>       ¤He might, but I don't know. Your mother already mentioned she was going to ask about it, but we'll see.";
 		ci6.thoughts = "";
 		ci6.options.Add ("[Let Ceara ask something]");
 		ci6.options.Add ("What did Mikal say? Did he see him?");
@@ -434,7 +439,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ci7 = new DialogueInst ();
 		ci7.id = 7;
-		ci7.response = "My mother's gonna speak to him? Ceara asks.    ¤¤Says she's planning on it. But so's half the town, so don't exactly be surprised by that. You want to speak to him too, don't you?     ¤¤Well... Ceara is hesitating.";
+		ci7.response = "My mother's gonna speak to him? <Ceara asks.>    ¤¤Says she's planning on it. But so's half the town, so don't exactly be surprised by that. You want to speak to him too, don't you?            ¤¤Well... <Ceara is hesitating.>";
 		ci7.thoughts = "";
 		ci7.options.Add ("Of course");
 		ci7.options.Add ("Maybe");
@@ -446,8 +451,8 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ci8 = new DialogueInst ();
 		ci8.id = 8;
-		ci8.response = "Says he did, yeah. Out by Furrow, on his way back from a Courier trip.         ¤¤My mother's gonna speak to him? Ceara asks.   ¤¤Says she's planning on it. But so's half the town, so don't exactly be surprised by that. You want to speak to him too, don't you?        ¤¤Well... Ceara is hesitating.";
-		ci8.thoughts = "Something's happening! Of course I do.";
+		ci8.response = "Says he did, yeah. Out by Furrow, on his way back from a Courier trip.         ¤My mother's gonna speak to him? <Ceara asks.>       ¤Says she's planning on it. But so's half the town, so don't exactly be surprised by that. You want to speak to him too, don't you?                  ¤Well... <Ceara is hesitating.>";
+		ci8.thoughts = "Well...";
 		ci8.options.Add ("Of course");
 		ci8.options.Add ("Maybe");
 		ci8.options.Add ("Not really");
@@ -458,7 +463,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ci9 = new DialogueInst ();
 		ci9.id = 9;
-		ci9.response = "See? I get it, too. It's rare to see anyone like that out here, Illij says.  ¤¤Most of them dart directly into Caudden and never look back, Ceara says.   ¤¤Exactly. Why this one's staying is not clear to any of us, either, which makes it interesting.";
+		ci9.response = "See? I get it, too. It's rare to see anyone like that out here <Illij says.>  ¤¤Most of them dart directly into Caudden and never look back, <Ceara says.>   ¤¤Exactly. Why this one's staying is not clear to any of us, either, which makes it interesting.";
 		ci9.thoughtsDelay = 3f;
 		ci9.thoughts = "Apropos being excited...";
 		ci9.options.Add ("Where's Trenner?");
@@ -467,7 +472,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ci10 = new DialogueInst ();
 		ci10.id = 10;
-		ci10.response = "Hah, you know you want to. No reason to hide it from me. I don't care that you act all tough. It's rare to see anyone like that out here. It's only natural to have questions, Illij says.";
+		ci10.response = "Hah, you know you want to. No reason to hide it from me. I don't care that you act all tough. It's rare to see anyone like that out here. It's only natural to have questions <Illij says.>";
 		ci10.thoughtsDelay = 3f;
 		ci10.thoughts = "Apropos being excited...";
 		ci10.options.Add ("Where's Trenner?");
@@ -476,16 +481,16 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ci11 = new DialogueInst ();
 		ci11.id = 11;
-		ci11.response = "Hah, you little liar. Don't try to act tough around me, I can see right through that. No point in being so cross. You the same negativity, Ceara?       ¤¤I don't know, she says. Maybe.         ¤¤He shakes his head. Bunch of girls, you are.";
+		ci11.response = "Hah, you little liar. Don't try to act tough around me, I can see right through that. No point in being so cross. You the same negativity, Ceara?       ¤¤I don't know <she says.> Maybe.         ¤¤<He shakes his head.> Bunch of girls, you are.";
 		ci11.thoughtsDelay = 5f;
-		ci11.thoughts = "Let's... change the subject";
+		ci11.thoughts = "Whatever";
 		ci11.options.Add ("Where's Trenner?");
 		ci11.ResponseNrs.Add (12);
 		dialogueContainer.Add (ci11);
 
 		DialogueInst ci12 = new DialogueInst ();
 		ci12.id = 12;
-		ci12.response = "I don't get to ask that question. Ceara and Illij both look away from me.";
+		ci12.response = "<I don't get to ask that question. Ceara and Illij both look away from me.>"; 
 		ci12.thoughtsDelay = 1f;
 		ci12.thoughts = "..What's?";
 		ci12.options.Add ("[Look over]");
@@ -505,7 +510,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		#region shouldTalkToSage
 		DialogueInst sTalkNo = new DialogueInst ();
 		sTalkNo.id = 0;
-		sTalkNo.response = "I glance over at Ceara, who doesn’t seem to know what to do either.";
+		sTalkNo.response = "<I glance over at Ceara, who doesn’t seem to know what to do either.>";
 		sTalkNo.thoughts = "...Don't know if I want to listen to him.";
 		sTalkNo.options.Add ("Want to go talk to him?");
 		sTalkNo.options.Add ("Let’s just get out of here.");
@@ -515,7 +520,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst sTalkNo1 = new DialogueInst ();
 		sTalkNo1.id = 1;
-		sTalkNo1.response = "Not sure, <she says.> Can’t right now anyway. And this air is killing me.      ¤¤<She hesitates, then speaks again.> ¤No, let’s go outside.";;
+		sTalkNo1.response = "Not sure, <she says.> This air is killing me.      ¤¤<She hesitates, then speaks again.> ¤No, let’s go outside.";;
 		sTalkNo1.thoughts = "";
 		sTalkNo1.optionDelay = 3f;
 		sTalkNo1.options.Add ("Let's");
@@ -586,7 +591,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		treeBet3.response = "Oh no, you. I asked first.";
 		treeBet3.thoughtsDelay = 0.8f;
 		treeBet3.thoughts = "...Alright";
-		treeBet3.options.Add ("What an idiot");
+		treeBet3.options.Add ("He seemed like an idiot");
 		treeBet3.options.Add ("He didn't seem so bad.");
 		treeBet3.ResponseNrs.Add (1);
 		treeBet3.ResponseNrs.Add (2);
@@ -692,7 +697,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst cCursed4 = new DialogueInst ();
 		cCursed4.id = 4;
-		cCursed4.response = "<She slowly starts moving, and she does so with strain that seems greater than necessary. Then I see her face.     ¤Across it, in large, dark stripes, there some form of deformation in her face. It’s not exactly a wound, nor a scar, but it looks like…       ¤It looks like her skin has opened and rotten away the meat. There’s an odd smell, of a crass bloom, a raw plant-smell coming from her face, as if we had just cut a flower-stalk open and let it lie in the sun.";
+		cCursed4.response = "<She slowly starts moving, and she does so with strain that seems greater than necessary. Then I see her face.     ¤Across it, in large, dark-purple stripes, there some form of deformation in her face. It’s not exactly a wound, nor a scar, but it looks like…       ¤It looks like her skin has opened and rotten away the meat. There’s an odd smell, of a crass bloom, a raw plant-smell coming from her face, as if we had just cut a flower-stalk open and let it lie in the sun.";
 		cCursed4.thoughts = "Wh-- what the hell..";
 		cCursed4.options.Add ("What... happened?");
 		cCursed4.ResponseNrs.Add (5);
@@ -710,7 +715,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst cCursed6 = new DialogueInst ();
 		cCursed6.id = 6;
-		cCursed6.response = "Does it look like this?  ¤<She raises her hand and the same markings cross her hand. The same out-washed purple color, mixed with a bit of green.>";
+		cCursed6.response = "Does it look like this?  ¤<She raises her hand with the same markings across it. The same out-washed purple color, mixed with a bit of green.>";
 		cCursed6.thoughts = ".. It does";
 		cCursed6.thoughtsDelay = 2f;
 		cCursed6.options.Add ("Yes..");
@@ -734,7 +739,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		cCursed8.response = "You’re just saying that.. It looks like it right? I can see it in your face. It’s terrible.";
 		cCursed8.thoughts = "Dammit";
 		cCursed8.options.Add ("Does it hurt?");
-		cCursed7.options.Add ("What did this?");
+		cCursed8.options.Add ("What did this?");
 		cCursed8.ResponseNrs.Add (9);
 		cCursed8.ResponseNrs.Add (10);
 		dialogueContainer.Add (cCursed8);
@@ -749,7 +754,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst cCursed10 = new DialogueInst ();
 		cCursed10.id = 10;
-		cCursed10.response = "… think it was that.       ¤<She points at a flower just below her. It has… no, the entire flowerbed have the same marks. The same purplish deformation, stricken across them like they were dyed into the very fabric of the petals.>";
+		cCursed10.response = "… think it was that.       ¤<She points at a flower just below her. It has… no, the entire flowerbed have the same marks. The same purplish deformation, stricken across them like it was dyed into the very fabric of the petals.>";
 		cCursed10.thoughts = "It's everywhere";
 		cCursed10.options.Add ("We have to get back.");
 		cCursed10.ResponseNrs.Add (11);
@@ -937,7 +942,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst innCurseIntro14 = new DialogueInst ();
 		innCurseIntro14.id = 14;
-		innCurseIntro14.response = "What? You went to the pond!? <Ceara's mother immediately bursts out. Why didn't you say so?>";
+		innCurseIntro14.response = "What? You went to the pond!? <Ceara's mother immediately bursts out.> Why didn't you say so?";
 		innCurseIntro14.thoughts = "";
 		innCurseIntro14.options.Add ("I...");
 		innCurseIntro14.ResponseNrs.Add (15);
@@ -945,7 +950,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst innCurseIntro15 = new DialogueInst ();
 		innCurseIntro15.id = 15;
-		innCurseIntro15.response = "That's not important anymore, the Sage did not hesitate to stop the mother's angsty reply. Why aren't you allowed to go down there? Is it dangerous?    ¤¤Not... exactly, no. We don't want the kids to interfere with the fish and the moving flowers.   ¤¤You have moving flowers there? His tone changed for the worse.   ¤¤..Yes? the mother replied, unsure.    ¤¤And these were the flowers that had the marks?";
+		innCurseIntro15.response = "That's not important anymore, the Sage did not hesitate to stop the mother's angsty reply. Why aren't you allowed to go down there? Is it dangerous?    ¤¤Not... exactly, no. We don't want the kids to interfere with the fish and the moving flowers.   ¤You have moving flowers there? <His tone changed for the worse.>   ¤..Yes? <the mother replied, hesitant.>    ¤And these were the flowers that had the marks?";
 		innCurseIntro15.thoughts = "Oh.. Shit";
 		innCurseIntro15.thoughtsDelay = 9f;
 		innCurseIntro15.options.Add ("Yes");
@@ -1373,7 +1378,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		search1.ResponseNrs.Add (1);
 		search1.ResponseNrs.Add (2);
 		search1.ResponseNrs.Add (3);
-		search1.ResponseNrs.Add (9);
+		search1.ResponseNrs.Add (8);
 		dialogueContainer.Add (search1);
 
 		DialogueInst search2 = new DialogueInst ();
@@ -1470,7 +1475,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		searchstables.options.Add ("Investigate");
 		searchstables.options.Add ("Go Back");
 		searchstables.ResponseNrs.Add (44);
-		searchstables.ResponseNrs.Add (9);
+		searchstables.ResponseNrs.Add (8);
 		dialogueContainer.Add (searchstables);
 
 		DialogueInst searchstables2 = new DialogueInst ();
@@ -1479,7 +1484,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		searchstables2.thoughts = "";
 		searchstables2.AlterResp("Following them takes a while, as they get quite far. The take a detour around the village, possibly to avoid the plants that were encroaching. The rider managed to get far, too. Got out of the village and went towards Caudden. [END OF SITE REACHED]      ¤¤Unclear whether they are the ones who brought the plague into Caudden. However, since it came from the south, Caudden might have been infested already.");
 		searchstables2.options.Add ("Go Back");
-		searchstables2.ResponseNrs.Add (9);
+		searchstables2.ResponseNrs.Add (8);
 		dialogueContainer.Add (searchstables2);
 
 		DialogueInst searchRoadside = new DialogueInst ();
@@ -1491,7 +1496,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		searchRoadside.options.Add ("Go Back");
 		searchRoadside.ResponseNrs.Add (4);
 		searchRoadside.ResponseNrs.Add (55);
-		searchRoadside.ResponseNrs.Add (9);
+		searchRoadside.ResponseNrs.Add (8);
 		dialogueContainer.Add (searchRoadside);
 
 		DialogueInst searchRoadside2 = new DialogueInst ();
@@ -1499,18 +1504,18 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		searchRoadside2.response = "Either this was a heavy person, or they were carrying something heavy, since they are considerably deeper than other footsteps here. They lead north, toward the forest in a hurried pace.       ¤¤However, there is something uncomfortable about them. They stutter and start again, becomes slow and erratic.     ¤Outside the village, they split into two sets, but both stop almost immediately and return back to each other. Signs point to one of them lying there again, but then walking a bit farther.         ¤¤Eventually they both stop. They must have been infected. At least one of them. Their pace is too strange for anything else to be the case. The stopping could also have been caused by hyper function of motor abilities, one of them forcing their way from the other, or pushing them into the ground.";
 		searchRoadside2.thoughts = "";
 		searchRoadside2.options.Add ("Go Back");
-		searchRoadside2.ResponseNrs.Add (9);
+		searchRoadside2.ResponseNrs.Add (8);
 		dialogueContainer.Add (searchRoadside2);
 
 		DialogueInst searchleave = new DialogueInst ();
-		searchhouses3.id = 10;
-		searchhouses3.response = "             ¤Area excavated.     ¤Amount of information gained from staying is negligible.           ¤Path south found. Venture forth?";
-		searchhouses3.thoughts = "";
-		searchhouses3.options.Add ("Go");
-		searchhouses3.options.Add ("Exit Program");
-		searchhouses3.ResponseNrs.Add (99);
-		searchhouses3.ResponseNrs.Add (91);
-		dialogueContainer.Add (searchhouses3);
+		searchleave.id = 10;
+		searchleave.response = "             ¤Area excavated.     ¤Amount of information gained from staying is negligible.           ¤Path south found. Venture forth?";
+		searchleave.thoughts = "";
+		searchleave.options.Add ("Go");
+		searchleave.options.Add ("Exit Program");
+		searchleave.ResponseNrs.Add (99);
+		searchleave.ResponseNrs.Add (91);
+		dialogueContainer.Add (searchleave);
 
 		DialogueInst searchleave2 = new DialogueInst ();
 		searchleave2.id = 99;

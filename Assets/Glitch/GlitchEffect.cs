@@ -59,7 +59,8 @@ public class GlitchEffect : MonoBehaviour{
 				material.SetFloat("flip_up", Random.Range(0, 1f) * intensity);
 			else
 				material.SetFloat("flip_up", 0);
-			
+
+			GlitchManager.instance.PlayGlitchSound(2);
 			glitchup = 0;
 			glitchupTime = Random.value/10f;
 

@@ -16,7 +16,6 @@ public class textRoll : MonoBehaviour {
 	public string textToDisplay;
 	// Use this for initialization
 	public void Start () {
-		Debug.Log ("START "+gameObject.name);
 		text = GetComponent<Text> ();
 		textToDisplay = textToDisplay.Replace("¤", System.Environment.NewLine);
 
@@ -63,8 +62,13 @@ public class textRoll : MonoBehaviour {
 				}
 			}
 			else{
+
 				text.text += textToDisplay[i];
 			}
+			if(textToDisplay[i] != ' '){
+				SoundManager.instance.PlayTextSound();
+			}
+
 			i++;
 			yield return new WaitForSeconds(del);
 		}

@@ -95,11 +95,17 @@ public class Story : MonoBehaviour {
 			canvasManager.instance.ActivateDialogueButton(c,"cearaIntro", "Say hi to Ceara");
 			return;
 		}
+		if(c==canvasManager.instance.houseCanvas && !hasTalkedToMomIntro){
+
+			return;
+		}
 
 	}
 
 	public void OnDialogueTrigger(string dial, int pos){
-		Debug.Log ("ON DIALOGUE TRIGGER "+dial+" "+pos);
+		if (dial == "momIntro" && pos == 0) {
+			hasTalkedToMomIntro = true;	
+		}
 		if (dial == "cearaIntro" && pos == 17) {
 			hastalkedToCeara = true;
 		}
@@ -117,7 +123,13 @@ public class Story : MonoBehaviour {
 		}
 		if(dial == "pondIntro" && pos == 0){
 			wentToPond = true;
+		}
+		if(dial == "race" && pos == 0){
+			wentToPond = true;
 			GlitchManager.instance.ChangeGlitchTimings();
+		}
+		if (dial == "pullAmbient" && pos == 4) {
+			GlitchManager.instance.GlitchScreenOnCommand(2f);
 		}
 		if (dial == "cCursed" && pos == 0) {
 			GlitchManager.instance.ChangeGlitchTimings();
@@ -156,5 +168,22 @@ public class Story : MonoBehaviour {
 			shouldRestart = true;
 		}
 	}
+
+
+
+	public void ActivateSounds(string d){
+		if (d == "firstVillage") {
+			SoundManager.instance.PlayAmbient("village");
+		}
+		if(d == "innIntro"){
+			SoundManager.instance.PlayAmbient("inn");
+		}
+		if (d == "sageIntro") {
+			SoundManager.instance.StopAmbients();
+		}
+	}
+
+
+
 
 }

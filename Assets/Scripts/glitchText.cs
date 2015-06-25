@@ -48,6 +48,11 @@ public class glitchText : MonoBehaviour {
 		char origChar = '&';
 		int charToGlitch = UnityEngine.Random.Range (0, text.text.Length);
 		int i = 0;
+
+		if (UnityEngine.Random.Range (0, 2) == 0) {
+			SoundManager.instance.PlayTextGlitchSound ();
+		}
+
 		foreach (char c in text.text) {
 			if(i==charToGlitch){
 

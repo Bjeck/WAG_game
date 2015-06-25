@@ -59,6 +59,7 @@ public class dialogueManager : MonoBehaviour {
 		ambientButton.SetActive (false);
 		canvasManager.instance.ChangeDialogueCanvas (true);
 		buttonThatActivatedThisDialogue = b;
+		Story.instance.ActivateSounds (dialName);
 
 	}
 
@@ -101,14 +102,13 @@ public class dialogueManager : MonoBehaviour {
 			if(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == dialogueManager.instance.dialoguePosition).nextToTrigger.shouldTrigger){
 				int pos = dialogueManager.instance.dialoguePosition;
 				if(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == pos).nextToTrigger.isDialogue){
-					Debug.Log("is entering new dialogue");
 					ExitDialogue ();
+					Debug.Log("is entering new dialogue from dialogue ");
 					EnterDialogue(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == pos).nextToTrigger.name,null);
 				}
 				else{
-					Debug.Log("is entering new ambient");
 					ExitDialogue ();
-					Debug.Log(CurDialogueObject.name);
+					Debug.Log("is entering new ambient from dialogue ");
 					Debug.Log(CurDialogueObject.GetComponent<dialogueProgression> ().dialName+" "+pos);
 //					Debug.Log(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName]);
 //					Debug.Log(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == pos));
@@ -139,6 +139,7 @@ public class dialogueManager : MonoBehaviour {
 		canvasManager.instance.ChangeDialogueCanvas (true);
 		ambientButton.SetActive (true);
 		buttonThatActivatedThisDialogue = b;
+		Story.instance.ActivateSounds (name);
 
 	}
 
@@ -182,13 +183,14 @@ public class dialogueManager : MonoBehaviour {
 			if(ambientVoiceContainer.instance.allAmbients[CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == dialogueManager.instance.dialoguePosition).nextToTrigger.shouldTrigger){
 				int pos = dialogueManager.instance.dialoguePosition;
 				if(ambientVoiceContainer.instance.allAmbients[CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == pos).nextToTrigger.isDialogue){
-					Debug.Log("is entering new dialogue");
 					ExitAmbient ();
+					Debug.Log("is entering new dialogue from ambient");
 					EnterDialogue(ambientVoiceContainer.instance.allAmbients[CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == pos).nextToTrigger.name,null);
 				}
 				else{
-					Debug.Log("is entering new ambient");
 					ExitAmbient ();
+					Debug.Log("is entering new ambient from ambient");
+					Debug.Log(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == pos).nextToTrigger.name);
 					EnterAmbient(ambientVoiceContainer.instance.allAmbients[CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == pos).nextToTrigger.name,null);
 				}
 			}
