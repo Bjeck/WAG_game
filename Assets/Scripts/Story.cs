@@ -14,6 +14,7 @@ public class Story : MonoBehaviour {
 	public bool wentBackToInn;
 	public bool gotGloves;
 	public bool ritualStart;
+	public bool ritualHasStarted;
 	public bool rebootGo;
 	public bool shouldExit;
 	public bool shouldRestart;
@@ -58,8 +59,13 @@ public class Story : MonoBehaviour {
 			BootScript.instance.ActivateSearchMode();
 			return;
 		}
-		if (c == canvasManager.instance.villageCanvas && ritualStart) {
-			dialogueManager.instance.EnterDialogue("IllijIntro",null);
+		if (c == canvasManager.instance.villageCanvas && ritualStart && !ritualHasStarted) {
+			if(MC.instance.wentWithCearaForGloves){
+				dialogueManager.instance.EnterAmbient("cearaRitIntro",null);
+			}
+			else{
+				dialogueManager.instance.EnterAmbient("stayRitIntro",null);
+			}
 			return;
 		}
 		if(c==canvasManager.instance.villageCanvas && gotGloves && !ritualStart){
@@ -144,6 +150,11 @@ public class Story : MonoBehaviour {
 		if(dial == "cursedGoBackToInn" && pos == 5){
 			SoundManager.instance.StopAmbients();
 		}
+		if(dial == "followCeara" && pos == 4){
+			MC.instance.wentWithCearaForGloves = true;
+			SoundManager.instance.StopAmbients();
+		}
+
 		if(dial == "followCeara" && pos == 8){
 			MC.instance.toldCearaAboutSageBeingWeird = true;
 		}
@@ -153,6 +164,10 @@ public class Story : MonoBehaviour {
 				ritualStart = true;
 			}
 		}
+		if((dial == "cearaRitIntro" || dial == "stayRitIntro") && pos == 0){
+			ritualHasStarted = true;
+		}
+
 		if(dial == "ritChoice" && pos == 5){
 			MC.instance.wentToCaudden = true;
 		}
@@ -168,11 +183,19 @@ public class Story : MonoBehaviour {
 		if (dial == "search" && pos == 98) {
 			//           ------------------------------      GLITCHING
 		}
+		if (dial == "search" && pos == 96) {
+			SoundManager.instance.PlayMessageSound(1f);
+		}
 		if (dial == "search" && pos == 101) {
 			shouldExit = true;
 		}
 		if (dial == "search" && pos == 95) {
+			SoundManager.instance.StopSound(SoundManager.instance.messageSound);
 			//       ----------------------------------      GLITCHING
+		}
+
+		if (dial == "search" && pos == 100) {
+			SoundManager.instance.ShutDownComputer();
 		}
 		if (dial == "search" && pos == 102) {
 			shouldRestart = true;
@@ -192,6 +215,12 @@ public class Story : MonoBehaviour {
 			SoundManager.instance.StopAmbients();
 		}
 		if(d == "pondIntro"){
+			SoundManager.instance.PlayAmbient("village");
+		}
+		if(d == "outsideInn"){
+			SoundManager.instance.PlayAmbient("village");
+		}
+		if(d == "cearaAgree" || d == "cearaRitIntro"){
 			SoundManager.instance.PlayAmbient("village");
 		}
 	}

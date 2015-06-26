@@ -7,6 +7,7 @@ public class MC : MonoBehaviour {
 	public bool CearaCursed;
 	public bool toldAboutSmell;
 	public bool toldCearaAboutSageBeingWeird;
+	public bool wentWithCearaForGloves;
 	public bool wentToCaudden;
 
 	void Awake()

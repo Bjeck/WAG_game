@@ -131,7 +131,6 @@ public class GlitchManager : MonoBehaviour {
 			s.sustainGlitchTimeMax = sustainGlitchTimeMax;
 			s.sustainGlitchTimeMin = sustainGlitchTimeMin;
 		}
-
 	}
 
 	public void ChangeGlitchTimings(){ //timeToGlitchMin = 1f; timeToGlitchMax = 4f; sustainGlitchTimeMin = 0.03f; sustainGlitchTimeMax = 0.08f;

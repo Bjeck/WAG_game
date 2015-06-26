@@ -92,7 +92,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 	// ------ MOMINTRO
 		DialogueInst momIntroGreet = new DialogueInst ();
 		momIntroGreet.id = 0;
-		momIntroGreet.response = "'Morning, sleepyhead.                          ¤Tea's still fresh. It's in the kitchen, if you want.";
+		momIntroGreet.response = "'Morning, sleepyhead.                          ¤'Tea's still fresh. It's in the kitchen, if you want.'";
 		momIntroGreet.thoughts = "..What's...";
 		momIntroGreet.options.Add ("Hey.");
 		momIntroGreet.options.Add("Morning.");
@@ -107,7 +107,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst momIntroStraight = new DialogueInst ();
 		momIntroStraight.id = 1;
-		momIntroStraight.response = "Come on, get up. Don't look so sulky. I got up just fine.     ¤<Mom turns away and begins to work.>";
+		momIntroStraight.response = "'Come on, get up. Don't look so sulky. I got up just fine.'     ¤<Mom turns away and begins to work.>";
 		momIntroStraight.thoughts = "..Damn...";
 		momIntroStraight.options.Add ("Fine, fine. I'm up.");
 		momIntroStraight.options.Add("Any food?");
@@ -121,7 +121,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst momIntroTea = new DialogueInst ();
 		momIntroTea.id = 3;
-		momIntroTea.response = "It's good? I might have made it a little too strong for your tastes.     ¤<Mom turns away and begins to work.>";
+		momIntroTea.response = "'It's good? I might have made it a little too strong for your tastes.'     ¤<Mom turns away and begins to work.>";
 		momIntroTea.thoughts = "Ugh, it is strong..";
 		momIntroTea.options.Add ("Yeah, damn.");
 		momIntroTea.options.Add ("Any food?");
@@ -135,7 +135,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst momIntroTea2 = new DialogueInst ();
 		momIntroTea2.id = 7;
-		momIntroTea2.response = "It's not that bad. Get over yourself, girl.      ¤You also have school today, right?.";
+		momIntroTea2.response = "'It's not that bad. Get over yourself, girl.'      ¤You also have school today, right?";
 		momIntroTea2.thoughts = "...I'm hungry...";
 		momIntroTea2.options.Add ("Right.. I'm hungry, though");
 		momIntroTea2.options.Add ("Right. [Exit conversation]");
@@ -147,7 +147,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst momIntro8 = new DialogueInst ();
 		momIntro8.id = 8;
-		momIntro8.response = "You also have school today, right?.";
+		momIntro8.response = "'You also have school today, right?'";
 		momIntro8.thoughts = "...I'm hungry...";
 		momIntro8.options.Add ("Right.. I'm hungry, though");
 		momIntro8.options.Add ("Right. [Exit conversation]");
@@ -159,7 +159,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst momIntroOk = new DialogueInst ();
 		momIntroOk.id = 5;
-		momIntroOk.response = "Sorry, got nothing here... Deidre might have some, if you're lucky.";
+		momIntroOk.response = "'Sorry, got nothing here... Deidre might have some, if you're lucky.'";
 		momIntroOk.thoughts = "<..Sigh..>";
 		momIntroOk.options.Add ("Right. [Exit conversation]");
 		momIntroOk.options.Add ("[Walk away]");
@@ -283,7 +283,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst c10 = new DialogueInst ();
 		c10.id = 10;
-		c10.response = "'School's closed for the day. Trenner wants to talk to the Sage. 'Want to ask him about so many things!' he said.'";
+		c10.response = "'School's closed for the day. Trenner wants to talk to the Sage. \"Want to ask him about so many things!\" he said.'";
 		c10.thoughts = "...Wait, what?.";
 		c10.thoughtsDelay = 1.5f;
 		c10.options.Add ("Haha, really? Wow, would've liked to see that.");
@@ -417,7 +417,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ci5 = new DialogueInst ();
 		ci5.id = 5;
-		ci5.response = "Maybe, maybe not. Your mother already mentioned she was going to ask about it, but we'll see.";
+		ci5.response = "'Maybe, maybe not. Your mother already mentioned she was going to ask about it, but we'll see.'";
 		ci5.thoughts = "";
 		ci5.options.Add ("[Let Ceara ask something again]");
 		ci5.options.Add ("What did Mikal say? Did he see him?");
@@ -518,7 +518,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst sTalkNo1 = new DialogueInst ();
 		sTalkNo1.id = 1;
-		sTalkNo1.response = "Not sure, <she says.> This air is killing me.      ¤¤<She hesitates, then speaks again.> ¤No, let’s go outside.";;
+		sTalkNo1.response = "'Not sure' <she says.> 'This air is killing me.'      ¤¤<She hesitates, then speaks again.> ¤'No, let’s go outside.'";;
 		sTalkNo1.thoughts = "";
 		sTalkNo1.optionDelay = 3f;
 		sTalkNo1.options.Add ("Let's");
@@ -527,7 +527,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst sTalkNo2 = new DialogueInst ();
 		sTalkNo2.id = 2;
-		sTalkNo2.response = "Yeah, let’s go outside.";;
+		sTalkNo2.response = "'Yeah, let’s.'";;
 		sTalkNo2.thoughts = "";
 		sTalkNo2.options.Add ("Let's");
 		sTalkNo2.ResponseNrs.Add (4);
@@ -546,7 +546,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		#region treeBet
 		DialogueInst treeBet = new DialogueInst ();
 		treeBet.id = 0;
-		treeBet.response = "What did you think of him?";;
+		treeBet.response = "'What did you think of him?'";;
 		treeBet.thoughts = "..";
 		treeBet.options.Add ("What an idiot");
 		treeBet.options.Add ("He didn't seem so bad.");
@@ -558,7 +558,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst treeBet1 = new DialogueInst ();
 		treeBet1.id = 1;
-		treeBet1.response = "Yeah, right? Damn...     ¤‘I cnan sée you all have qu-estions.’ Man… just his voice alone.";
+		treeBet1.response = "'Yeah, right? Damn...'     ¤\"I can sée you all have qu-estions.\" Man... just his voice alone.'";
 		treeBet1.thoughts = "Wow, that impression was uncanny";
 		treeBet1.thoughtsDelay = 2f;
 		treeBet1.options.Add ("[Laugh]");
@@ -567,7 +567,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst treeBet2 = new DialogueInst ();
 		treeBet2.id = 2;
-		treeBet2.response = "What are you talking about? He seemed like a huge prick.";
+		treeBet2.response = "'What are you talking about? He seemed like a huge prick.'";
 		treeBet2.thoughts = "";
 		treeBet2.options.Add ("Sure, but we barely saw him.");
 		treeBet2.options.Add ("You're right.");
@@ -577,7 +577,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst treeBet4 = new DialogueInst ();
 		treeBet4.id = 4;
-		treeBet4.response = "'I cnan sée you allll have qu-estions.' Man… just his voice alone.";
+		treeBet4.response = "\"I cnan sée you allll have qu-estions.\" Man... just his voice alone.'";
 		treeBet4.thoughts = "Wow, that impression was uncanny";
 		treeBet4.thoughtsDelay = 2f;
 		treeBet4.options.Add ("[Laugh]");
@@ -586,7 +586,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst treeBet3 = new DialogueInst ();
 		treeBet3.id = 3;
-		treeBet3.response = "Oh no, you. I asked first.";
+		treeBet3.response = "'Oh no, you. I asked first.'";
 		treeBet3.thoughtsDelay = 0.8f;
 		treeBet3.thoughts = "...Alright";
 		treeBet3.options.Add ("He seemed like an idiot");
@@ -597,7 +597,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst treeBet5 = new DialogueInst ();
 		treeBet5.id = 5;
-		treeBet5.response = "Oh, well. Want to race up the willow?";
+		treeBet5.response = "'Oh, well. Want to race up the willow?'";
 		treeBet5.thoughts = "";
 		treeBet5.options.Add ("Wanna bet?");
 		treeBet5.ResponseNrs.Add (6);
@@ -605,7 +605,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst treeBet6 = new DialogueInst ();
 		treeBet6.id = 6;
-		treeBet6.response = "How much?";
+		treeBet6.response = "'How much?'";
 		treeBet6.thoughts = "I only have two shillings...";
 		treeBet6.options.Add ("Two shillings");
 		treeBet6.options.Add ("Three shillings");
@@ -615,7 +615,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst treeBet7 = new DialogueInst ();
 		treeBet7.id = 7;
-		treeBet7.response = "You're on.";
+		treeBet7.response = "'You're on.'";
 		treeBet7.thoughts = "Go!";
 		treeBet7.options.Add ("[RACE]");
 		treeBet7.ResponseNrs.Add (8);
@@ -634,7 +634,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		#region raceChoice
 		DialogueInst raceChoice = new DialogueInst ();
 		raceChoice.id = 0;
-		raceChoice.response = "Halfway flustered, I realize that the only way I can win this is by pulling her down, as I can just reach her shoe.";
+		raceChoice.response = "'Halfway flustered, I realize that the only way I can win this is by pulling her down, as I can just reach her shoe.'";
 		raceChoice.thoughts = "Shit.";
 		raceChoice.options.Add ("[Pull her down]");
 		raceChoice.options.Add ("[Let her win]");
@@ -845,7 +845,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		DialogueInst innCurseIntro3 = new DialogueInst ();
 		innCurseIntro3.id = 3;
 		innCurseIntro3.response = "'Let me see that' <we heard a voice coming from the other side of the inn.    ¤It was the Sage, I realized.   ¤¤He stands up and walked directly across the inn in a direct motion. His face is determined.>     ¤'What happened, you said?'";
-		innCurseIntro3.thoughts = "..Why does he want to help..";
+		innCurseIntro3.thoughts = "..Why does he want to help?";
 		innCurseIntro3.options.Add ("I don't know.");
 		innCurseIntro3.options.Add ("She touched a plant. With the same marks as she's got now.");
 		innCurseIntro3.ResponseNrs.Add (4);
@@ -867,7 +867,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		innCurseIntro6.response = "'I'm a Vraadii Sage. I might very well be able to help, if this is in fact what it looks like.'";
 		innCurseIntro6.thoughts = "";
 		innCurseIntro6.options.Add ("...She touched some plants that had the same marks");
-		innCurseIntro6.ResponseNrs.Add (7);
+		innCurseIntro6.ResponseNrs.Add (5);
 		dialogueContainer.Add (innCurseIntro6);
 
 		DialogueInst innCurseIntro5 = new DialogueInst ();
@@ -882,7 +882,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		innCurseIntro7.id = 7;
 		innCurseIntro7.response = "'That's... remarkably clever of you two. Well done. Don't touch her, anyone. Not until we know what this is.'";
 		innCurseIntro7.thoughts = "";
-		innCurseIntro7.options.Add ("You can find out?");
+		innCurseIntro7.options.Add ("You know?");
 		innCurseIntro7.ResponseNrs.Add (8);
 		dialogueContainer.Add (innCurseIntro7);
 
@@ -908,7 +908,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		innCurseIntro10.id = 10;
 		innCurseIntro10.response = "'I don't know' <he says. It was the most honest thing I had ever heard.    ¤It didn't help tear my guilt and worry away, though.>";
 		innCurseIntro10.thoughts = "";
-		innCurseIntro10.options.Add ("Let someone say something");
+		innCurseIntro10.options.Add ("[Listen]");
 		innCurseIntro10.ResponseNrs.Add (11);
 		dialogueContainer.Add (innCurseIntro10);
 
@@ -950,7 +950,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst innCurseIntro15 = new DialogueInst ();
 		innCurseIntro15.id = 15;
-		innCurseIntro15.response = "<The Sage does not hesitate to interrupt.> 'What wrong? Aren't they allowed to go down there? Is it dangerous?'    ¤¤'Not... exactly, no. We don't want the kids to interfere with the fish and the moving flowers.'   ¤'You have moving flowers there?' <His tone changes for the worse.>   ¤'..Yes?' <the mother replies, hesitant.>    ¤'And these were the flowers that had the marks?'";
+		innCurseIntro15.response = "<The Sage does not hesitate to interrupt.> 'What's wrong? Aren't they allowed to go down there? Is it dangerous?'    ¤¤'Not... exactly, no. We don't want the kids to interfere with the fish and the moving flowers.'   ¤'You have moving flowers there?' <His tone changes for the worse.>   ¤'..Yes?' <the mother replies, hesitant.>    ¤'And these were the flowers that had the marks?'";
 		innCurseIntro15.thoughts = "Oh.. Shit";
 		innCurseIntro15.thoughtsDelay = 9f;
 		innCurseIntro15.options.Add ("Yes");
@@ -968,6 +968,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		DialogueInst innCurseIntroExit = new DialogueInst ();
 		innCurseIntroExit.id = 17;
 		innCurseIntroExit.disengage = true;
+		innCurseIntroExit.NextTrigger("outsideInn",false);
 		dialogueContainer.Add (innCurseIntroExit);
 		
 		allDialogues.Add ("innCurseIntro", dialogueContainer);
@@ -987,9 +988,10 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		
 		DialogueInst befRitualChoice1 = new DialogueInst ();
 		befRitualChoice1.id = 1;
-		befRitualChoice.response = "I run after Ceara, expecting the others to take care of the rest. We have some flowers to collect.";
-		befRitualChoice.options.Add ("[Go]");
-		befRitualChoice.ResponseNrs.Add (3);
+		befRitualChoice1.response = "<I run after Ceara, expecting the others to take care of the rest. We have some flowers to collect.>";
+		befRitualChoice1.thoughts = "";
+		befRitualChoice1.options.Add ("[Go]");
+		befRitualChoice1.ResponseNrs.Add (3);
 		dialogueContainer.Add (befRitualChoice1);
 
 		DialogueInst befRitualChoice2 = new DialogueInst ();
@@ -1011,7 +1013,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		#region followCeara
 		DialogueInst followCeara = new DialogueInst ();
 		followCeara.id = 0;
-		followCeara.response = "'What are you doing here?'";
+		followCeara.response = "'What are you doing here?' <she says as she spots me.>";
 		followCeara.thoughts = "";
 		followCeara.options.Add ("Came to help");
 		followCeara.ResponseNrs.Add (1);
@@ -1019,7 +1021,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst followCeara1 = new DialogueInst ();
 		followCeara1.id = 1;
-		followCeara1.response = "'Why? Best leave me alone before you touch something too.'";
+		followCeara1.response = "'Why? Best leave me alone before you touch some part of me and get the same stuff over you.'";
 		followCeara1.thoughts = "";
 		followCeara1.options.Add ("Hey, that's not fair. I want to help, okay?");
 		followCeara1.options.Add ("I'm staying. I'm your friend. I want to help.");		
@@ -1063,7 +1065,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst followCeara6 = new DialogueInst ();
 		followCeara6.id = 6;
-		followCeara6.response = "'What for? Oh, god, what happened to Ceara? Are you okay, dear?'v";
+		followCeara6.response = "'What for? Oh, god, what happened to Ceara? Are you okay, dear?'";
 		followCeara6.thoughts = "";
 		followCeara6.options.Add ("Yes, exactly. That's why we need some gloves.");
 		followCeara6.ResponseNrs.Add (7);
@@ -1120,17 +1122,25 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		followCeara9.id = 9;
 		followCeara9.response = "'Who's this Sage?'";
 		followCeara9.thoughts = "";
-		followCeara9.options.Add ("[Someone from the south. Illij said he knows him.");
+		followCeara9.options.Add ("Someone from the south. Illij said he knows him.");
 		followCeara9.ResponseNrs.Add (13);
 		dialogueContainer.Add (followCeara9);
 
 		DialogueInst followCeara13 = new DialogueInst ();
-		followCeara13.id = 12;
-		followCeara13.response = "'Alright. Two seconds' <she says, and searches a bit.> 'Here are the gloves. Now go, get help. I'll try to be there.'";
+		followCeara13.id = 13;
+		followCeara13.response = "'His name is Derec something' <Ceara interrupts>.      ¤'I see' <my mom says.> 'I would probably trust him, then. If Illij knows him.'";
 		followCeara13.thoughts = "";
-		followCeara13.options.Add ("Thanks");
-		followCeara13.ResponseNrs.Add (15);
+		followCeara13.options.Add ("Right.");
+		followCeara13.ResponseNrs.Add (14);
 		dialogueContainer.Add (followCeara13);
+
+		DialogueInst followCeara14 = new DialogueInst ();
+		followCeara14.id = 14;
+		followCeara14.response = "'Alright. Two seconds' <she says, and searches a bit.> 'Here are the gloves. Now go, get help. I'll try to be there.'";
+		followCeara14.thoughts = "";
+		followCeara14.options.Add ("Thanks [Leave]");
+		followCeara14.ResponseNrs.Add (15);
+		dialogueContainer.Add (followCeara14);
 
 		DialogueInst followCearaExit = new DialogueInst ();
 		followCearaExit.id = 15;
@@ -1178,7 +1188,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst cearaAgree4 = new DialogueInst ();
 		cearaAgree4.id = 4;
-		cearaAgree4.response = "'Me too. Tari...' <she says and stops, looks at me with a wanting look> 'If it doesn’t… please—-'";
+		cearaAgree4.response = "'Me too. Tari...' <she says and stops, looks at me with a wanting look> 'If it doesn’t… please—'";
 		cearaAgree4.thoughts = "";
 		cearaAgree4.options.Add ("Stop. You don't have to say anything.");
 		cearaAgree4.ResponseNrs.Add (5);
@@ -1188,14 +1198,13 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		cearaAgree5.id = 5;
 		cearaAgree5.response = "'... Thanks.' <she smiles weakly, and begins walking again.>";
 		cearaAgree5.thoughts = "";
-		cearaAgree5.options.Add ("Follow her.");
-		cearaAgree5.ResponseNrs.Add (5);
+		cearaAgree5.options.Add ("[Follow her]");
+		cearaAgree5.ResponseNrs.Add (10);
 		dialogueContainer.Add (cearaAgree5);
 
 		DialogueInst cearaAgreeExit = new DialogueInst ();
 		cearaAgreeExit.id = 10;
 		cearaAgreeExit.disengage = true;
-		cearaAgreeExit.NextTrigger("cearaRitIntro",false);
 		dialogueContainer.Add (cearaAgreeExit);
 
 		allDialogues.Add ("cearaAgree", dialogueContainer);
@@ -1209,7 +1218,8 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst stayWithOthers = new DialogueInst ();
 		stayWithOthers.id = 0;
-		stayWithOthers.response = "<I see Ceara wander off. She can do that by herself.>   ¤We need wood! Where does the fire need to be? ¤Outside. It needs to burn the air <the Sage says>. I’m going to get my equipment. Try to start a fire in the meantime.  ¤<Several people begin to gather wood back and forth. But most still stand and do nothing.>";
+		stayWithOthers.response = "<I see Ceara wander off. She can do that by herself.>   ¤'We need wood! Where does the fire need to be?' ¤'Outside. It needs to burn the air' <the Sage says>. 'I’m going to get my equipment. Try to start a fire in the meantime.' ¤<Several people begin to gather wood back and forth. But most still stand and do nothing.>";
+		stayWithOthers.thoughts = "";
 		stayWithOthers.options.Add ("[Wait and see what happens]");
 		stayWithOthers.options.Add ("What can I help with?");
 		stayWithOthers.ResponseNrs.Add (1);
@@ -1218,7 +1228,8 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst stayWithOthers1 = new DialogueInst ();
 		stayWithOthers1.id = 1;
-		stayWithOthers1.response = "Are we really going to kill a cat, Mauge? <another person said.>   ¤What else are we going to do? Do you have any other animal bones?  ¤No, but why do we need them?  ¤Because the sage said so!";
+		stayWithOthers1.thoughts = "";
+		stayWithOthers1.response = "'Are we really going to kill a cat, Mauge?' <another person said.>   ¤'What else are we going to do? Do you have any other animal bones?  ¤No, but why do we need them?  ¤Because the sage said so!'";
 		stayWithOthers1.options.Add ("Can we trust him?");
 		stayWithOthers1.options.Add ("It’s for Ceara. Who knows what’ll happen to her.");
 		stayWithOthers1.ResponseNrs.Add (3);
@@ -1227,7 +1238,8 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst stayWithOthers2 = new DialogueInst ();
 		stayWithOthers2.id = 2;
-		stayWithOthers2.response = "You can help with the fire. Or go find some iron. <Ceara’s mother says.> unless you happen to have some cat’s bones lying around.  ¤Are we really going to kill a cat, Mauge? <another person said.>   ¤What else are we going to do? Do you have any other animal bones?  ¤No, but why do we need them?  ¤Because the sage said so!";
+		stayWithOthers2.thoughts = "";
+		stayWithOthers2.response = "'You can help with the fire. Or go find some iron.' <Ceara’s mother says.> 'Unless you happen to have some cat’s bones lying around.'  ¤'Are we really going to kill a cat, Mauge?'' <another person said.>   ¤'What else are we going to do? Do you have any other animal bones?'  ¤'No, but why do we need them?'  ¤'Because the Sage said so!'";
 		stayWithOthers2.options.Add ("Can we trust him?");
 		stayWithOthers2.options.Add ("It’s for Ceara. Who knows what’ll happen to her.");
 		stayWithOthers2.ResponseNrs.Add (3);
@@ -1236,7 +1248,8 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst stayWithOthers3 = new DialogueInst ();
 		stayWithOthers3.id = 3;
-		stayWithOthers3.response = "Do we have a choice?  ¤No, no. Wait, the girl might be right <Mikal says> The guy just showed up today, right? Just as this stuff starts appearing down south.  ¤Oh please <Mauge says> he’s a Sage, not a sorcerer. ¤So what? ¤Sorcerers can’t even do this if they wanted, much less a Sage <Illij says, the first words from him out here.> ¤What do you know about that? <Mikal says, but it’s obvious that the crowd is already against him there. Everyone knows that Eastern folk know about magic.>";
+		stayWithOthers3.thoughts = "";
+		stayWithOthers3.response = "'Do we have a choice?'  ¤'No, no. Wait, the girl might be right' <Mikal says> 'The guy just showed up today, right? Just as this stuff starts appearing down south.'  ¤'Oh please' <Mauge says> 'he’s a Sage, not a sorcerer.' ¤'So what?' ¤'Sorcerers can’t even do this if they wanted, much less a Sage' <Illij says, the first words from him out here.> ¤'What do you know about that?' <Mikal says, but it’s obvious that the crowd is already against him there. Everyone knows that Eastern folk know about magic.>";
 		stayWithOthers3.options.Add ("[Listen]");
 		stayWithOthers3.options.Add ("What cat, then?");
 		stayWithOthers3.ResponseNrs.Add (6);
@@ -1245,7 +1258,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst stayWithOthers4 = new DialogueInst ();
 		stayWithOthers4.id = 4;
-		stayWithOthers4.response = "Right! <Mauge says> If the Sage says this helps Ceara, we have to. Please.   ¤But whose cat would we kill? <Mikal says> My wife’s? Gerrec’s? Jean’s? Illij’s? Gods no, we ain’t doing any of that.  ¤We have to. Anyone, please… For Ceara…";
+		stayWithOthers4.response = "'Right!' <Mauge says> 'If the Sage says this helps Ceara, we have to. Please.'   ¤'But whose cat would we kill?' <Mikal says> 'My wife’s? Gerrec’s? Jean’s? Illij’s? Gods no, we ain’t doing any of that.'  ¤'We have to. Anyone, please... For Ceara...'";
 		stayWithOthers4.thoughts = "I don’t have a cat. Mom wouldn’t allow it.";
 		stayWithOthers4.options.Add ("[Listen]");
 		stayWithOthers4.ResponseNrs.Add (5);
@@ -1253,28 +1266,32 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst stayWithOthers6 = new DialogueInst ();
 		stayWithOthers6.id = 6;
-		stayWithOthers6.response = "Right. Whose cat would we kill? <Mikal says> My wife’s? Gerrec’s? Jean’s? Gods no, we ain’t doing any of that.  ¤<Mauge looks around at the people> We have to. Anyone, please… For Ceara…";
+		stayWithOthers6.thoughts = "";
+		stayWithOthers6.response = "'Right. Whose cat would we kill?' <Mikal says> 'My wife’s? Gerrec’s? Jean’s? Gods no, we ain’t doing any of that.'  ¤<Mauge looks around at the people> 'We have to. Anyone, please... For Ceara...'";
 		stayWithOthers6.options.Add ("[Listen]");
 		stayWithOthers6.ResponseNrs.Add (5);
 		dialogueContainer.Add (stayWithOthers6);
 
 		DialogueInst stayWithOthers7 = new DialogueInst ();
 		stayWithOthers7.id = 7;
-		stayWithOthers7.response = "Anyway, whose cat would we kill? <Mikal says> My wife’s? Gerrec’s? Jean’s? Gods no, we ain’t doing any of that.  ¤<Mauge looks around at the people> We have to. Anyone, please… For Ceara…";
+		stayWithOthers7.thoughts = "";
+		stayWithOthers7.response = "'Anyway, whose cat would we kill?' <Mikal says> 'My wife’s? Gerrec’s? Jean’s? Gods no, we ain’t doing any of that.'  ¤<Mauge looks around at the people> 'We have to. Anyone, please... For Ceara...'";
 		stayWithOthers7.options.Add ("[Listen]");
 		stayWithOthers7.ResponseNrs.Add (5);
 		dialogueContainer.Add (stayWithOthers7);
 
 		DialogueInst stayWithOthers5 = new DialogueInst ();
 		stayWithOthers5.id = 5;
-		stayWithOthers5.response = "You can take mine <someone says. We all turn around and see Mikal’s wife Perna standing in the corner looking at the rest of us.>   ¤Perna… <Mikal says> What are you doing?   ¤It’s fine, Mikal. She’s old. Ceara needs it.   ¤<Mikal stares at her for a while, stepping closer, beginning to pull a hand to her wife but stopping again.>     ¤Fine.  ¤Thank you, thank you! <Mauge says, rushing over to hug Perna>.";
+		stayWithOthers5.thoughts = "";
+		stayWithOthers5.response = "'You can take mine' <someone says. We all turn around and see Mikal’s wife Perna standing in the corner looking at the rest of us.>   ¤'Perna...' <Mikal says> What are you doing?   ¤'It’s fine, Mikal. She’s old. Ceara needs it.'   ¤<Mikal stares at her for a while, stepping closer, beginning to move a hand to her wife but stopping again.>     ¤'Fine.'  ¤'Thank you, thank you!' <Mauge says, rushing over to hug Perna>.";
 		stayWithOthers5.options.Add ("What else did we need?");
 		stayWithOthers5.ResponseNrs.Add (8);
 		dialogueContainer.Add (stayWithOthers5);
 
 		DialogueInst stayWithOthers8 = new DialogueInst ();
 		stayWithOthers8.id = 8;
-		stayWithOthers8.response = "A compass, right? And a pan.   ¤Iron pan <Illij corrected. That was apparently important.> I can get the compass.   ¤Just a pan, right? I’ll get that <Mauge says and rushes home after thanking Perna once again>.";
+		stayWithOthers8.thoughts = "";
+		stayWithOthers8.response = "'A compass, right? And a pan.'   ¤'Iron pan' <Illij corrected. That was apparently important.> 'I can get the compass.'     ¤'Just a pan, right? I’ll get that' <Mauge says and rushes home after thanking Perna once again>.";
 		stayWithOthers8.options.Add ("[Wait]");
 		stayWithOthers8.ResponseNrs.Add (9);
 		dialogueContainer.Add (stayWithOthers8);
@@ -1295,8 +1312,8 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ritChoice = new DialogueInst ();
 		ritChoice.id = 0;
-		ritChoice.response = "Yeah, I see it too <the Sage says, looking at me staring upwards while people are running away. I’m surprised he hasn’t run too>.";
-		ritChoice.options.Add ("Should we go?");
+		ritChoice.response = "'Yeah, I see it too' <the Sage says, looking at me staring upwards while people are running away. I’m surprised he hasn’t run too>.";
+		ritChoice.options.Add ("Should we run?");
 		ritChoice.options.Add ("What is it?");
 		ritChoice.ResponseNrs.Add (1);
 		ritChoice.ResponseNrs.Add (2);
@@ -1304,7 +1321,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ritChoice1 = new DialogueInst ();
 		ritChoice1.id = 1;
-		ritChoice1.response = "Yes, we should.";
+		ritChoice1.response = "'Yes, we should.'";
 		ritChoice1.options.Add ("To Caudden?");
 		ritChoice1.options.Add ("I want to go north.");
 		ritChoice1.ResponseNrs.Add (3);
@@ -1313,7 +1330,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ritChoice2 = new DialogueInst ();
 		ritChoice2.id = 2;
-		ritChoice2.response = "Something really big. I have never seen a weatherhex be this huge. And I don’t know how it connects to the purple infestation. We need to get away from here before we find out the way your friend did, though.";
+		ritChoice2.response = "'Something really big. I have never seen a weatherhex be this huge. And I don’t know how it connects to the purple infestation. We need to get away from here before we find out the way your friend did, though.'";
 		ritChoice2.options.Add ("To Caudden? You want to go towards it?");
 		ritChoice1.options.Add ("I want to go north.");
 		ritChoice2.ResponseNrs.Add (3);
@@ -1322,7 +1339,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ritChoice3 = new DialogueInst ();
 		ritChoice3.id = 3;
-		ritChoice3.response = "Yes. It's a slim chance, but we need to.";
+		ritChoice3.response = "'Yes. It's a slim chance, but we need to.'";
 		ritChoice3.options.Add ("Ok, let’s go.");
 		ritChoice3.options.Add ("No, I.. I'm going north.");
 		ritChoice3.ResponseNrs.Add (5);
@@ -1331,7 +1348,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ritChoice4 = new DialogueInst ();
 		ritChoice4.id = 4;
-		ritChoice4.response = "You go north then. I’m going to Caudden.";
+		ritChoice4.response = "'You go north then. I’m going to Caudden.'";
 		ritChoice4.options.Add ("Hmm.. ok, nevermind. I'm going with you.");
 		ritChoice4.options.Add ("Good luck");
 		ritChoice4.ResponseNrs.Add (5);
@@ -1543,17 +1560,18 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst searchleave5 = new DialogueInst ();
 		searchleave5.id = 96;
-		searchleave5.response = "There’s something living in there… How can it… What—No_ItC                ¤¤ --- ERROR ---     ¤SIGNAL LOST.  ¤ATTEMPTING REBOOT…              ¤…              ¤Reboot failed. AT---**********     ¤¤Hello. I’m… here?  ¤I made it. Wow. Hello there.  ¤Caution, what you are about to hear is extraordinary. ¤I have survived. There is something else in here. There is something spreading this. I think I have seen what it is but I haven’t been able to get close.  ¤Sorry for hijacking your signal, but I had to get this message out. I hope you find it well. I hope you can save me.";
+		searchleave5.response = "There’s something living in there… How can it… What—No_ItC                ¤¤ --- ERROR ---     ¤SIGNAL LOST.  ¤ATTEMPTING REBOOT…              ¤…              ¤Reboot failed. AT---**********     ¤¤<Hello. I’m… here?  ¤I made it. Wow. Hello there.  ¤Caution, what you are about to hear is extraordinary. ¤I have survived. There is something else in here. There is something spreading this. I think I have seen what it is but I haven’t been able to get close.  ¤Sorry for hijacking your signal, but I had to get this message out. I hope you find it well. I hope you can save me.>";
 		searchleave5.thoughts = "";
+		searchleave5.optionDelay = 10f;
 		searchleave5.options.Add ("Investigate");
 		searchleave5.ResponseNrs.Add (95);
 		dialogueContainer.Add (searchleave5);
 
 		DialogueInst searchleave6 = new DialogueInst ();
 		searchleave6.id = 95;
-		searchleave6.response = "SIGNAL LOST ………………………………………                ¤SIGNAL LOST ………………………………………                ¤SIGNAL LOST ………………………………………                 ¤SIGNAL LOST ………………………………………                                  ¤Probe left transmission area.         ¤Shutting down Natural Language Interface… Done  ¤Exiting search… Done";
+		searchleave6.response = "SIGNAL LOST ………………………………………                ¤SIGNAL LOST ………………………………………                ¤SIGNAL LOST ………………………………………                 ¤SIGNAL LOST ………………………………………                                  ¤¤Probe left transmission area.         ¤Shutting down Natural Language Interface… Done  ¤Exiting search… Done";
 		searchleave6.thoughts = "";
-		searchleave6.options.Add ("Investigate");
+		searchleave6.options.Add ("Terminate Search");
 		searchleave6.ResponseNrs.Add (100);
 		dialogueContainer.Add (searchleave6);
 
@@ -1561,13 +1579,13 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		searchleave7.id = 91;
 		searchleave7.response = "Sending Probe Home... Done.              ¤Shutting down Natural Language Interface… Done  ¤Exiting search… Done";
 		searchleave7.thoughts = "";
-		searchleave7.options.Add ("Investigate");
+		searchleave7.options.Add ("Terminate Search");
 		searchleave7.ResponseNrs.Add (100);
 		dialogueContainer.Add (searchleave7);
 
 		DialogueInst searchEx = new DialogueInst ();
 		searchEx.id = 100;
-		searchEx.response = "Area Search Over.               ¤Uploading Results… Done.    ¤Amount of information: 5.4  ¤Relevance: 78%  ¤Further research possibilities: 2  ¤Score: 8  ¤Expected survivability of Area: 0.4 minutes.  ¤Origin: South.  ¤Spread: North, East.   ¤Area categorized: Hazardous.            ¤¤Thank you.                          ¤¤¤¤                         -- Together, we can stop the spread --";
+		searchEx.response = "Area Search Over.               ¤Uploading Results… Done.    ¤Amount of information: 5.4  ¤Relevance: 78%  ¤Further research possibilities: 2  ¤Score: 8  ¤Expected survivability of Area: 0.4 minutes.  ¤Origin: South.  ¤Spread: North, East.   ¤Area categorized: Hazardous.            ¤¤Thank you.                          ¤¤¤¤                                   [ERAVOLA INVESTIGATION UNIT]¤                                  -- Together, we can stop the spread --";
 		searchEx.thoughts = "";
 		searchEx.options.Add ("Restart");
 		searchEx.options.Add ("Exit");

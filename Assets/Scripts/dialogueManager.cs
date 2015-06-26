@@ -65,7 +65,7 @@ public class dialogueManager : MonoBehaviour {
 
 	public void ExitDialogue(){
 		isDialogue = false;
-		Debug.Log ("exit dialogue");
+		Debug.Log ("Exit dialogue");
 		Destroy (CurDialogueObject);
 		Destroy (response.gameObject);
 		Destroy (thoughts.gameObject);
@@ -190,7 +190,7 @@ public class dialogueManager : MonoBehaviour {
 				else{
 					ExitAmbient ();
 					Debug.Log("is entering new ambient from ambient");
-					Debug.Log(dialogueOptionContainerScript.instance.allDialogues[CurDialogueObject.GetComponent<dialogueProgression> ().dialName].Find (x => x.id == pos).nextToTrigger.name);
+					Debug.Log(ambientVoiceContainer.instance.allAmbients[CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == pos).nextToTrigger.name);
 					EnterAmbient(ambientVoiceContainer.instance.allAmbients[CurDialogueObject.GetComponent<ambientProgression> ().ambientName].Find (x => x.id == pos).nextToTrigger.name,null);
 				}
 			}

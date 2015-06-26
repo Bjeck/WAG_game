@@ -14,7 +14,7 @@ public class glitchText : MonoBehaviour {
 	public float sustainGlitchTimeMax = 0.4f;
 	Text text;
 
-	string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZqwertyuiopåasdfghjklæøzxcvbnm,.-<1234567890+½§!#¤%&/()=?*<>@£$€{[]}'*-/";
+	string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZqwertyuiopåasdfghjklæøzxcvbnm,.-<1234567890+½§!#%&/()=?*<>@£$€{[]}'*-/";
 	List<char> listOfChars = new List<char>();
 
 	// Use this for initialization

@@ -100,31 +100,33 @@ public class BootScript : MonoBehaviour {
 		GlitchManager.instance.StartCoroutine (GlitchManager.instance.GlitchScreen ());
 
 		switch (bootSeq) {
-		case 0:
-			t.textToDisplay = "----- SEQUENCE TERMINATED -----¤Invalid Argument Error: Query exceeds data string count. Exiting…¤…Done.";
-			buttonText.textToDisplay = "[Load Site] ";
-			rollTime = 3f;
-			break;
-		case 1:
-			t.textToDisplay = "Loading process.contamination              ¤Accessing system files           ¤3-8 Ready ¤2-7 Ready ¤1-9 Ready  ¤7-4 Ready     ¤Filling memory banks… … …Done.";
-			buttonText.textToDisplay = "[Access Site] ";
-			rollTime = 5f;
-			break;
-		case 2:
-			t.textToDisplay = "Loading surveySite.sat    ¤Requesting access… Granted. ¤Server ready.        ¤Sending Message  ¤:: Hello ::          ¤…            ¤…         ¤No response from Site.                                   ¤¤Sending Message ¤:: Status(Caudden) ::  ¤Response:    ¤:: Dead ::";
-			rollTime = 8f;
-			break;
-		case 3:
-			t.textToDisplay = "POI Requested… Searching…   ¤1 POI Found...  ¤Name: Sauddoc  ¤Marked of Interest: Eravola Outbreak Reported   ¤Investigate?";
-			rollTime = 4f;
-			break;
-		case 4:
-			t.textToDisplay = "Requesting Access… Access Granted.  ¤Loading POI…  ¤Processing site… … Done.  ¤Loading status… Done. ¤Populating area... Done. 0 Person(s) present  ¤Finding Marks of Relevance… Done.  ¤Loading descriptions… Done.   ¤Loading Natural Language Interface… Done.";
-			rollTime = 4f;
-			break;
-		case 5:
-			ActivateSearchMode();
-			break;
+			case 0:
+				SoundManager.instance.StopAmbients();
+				SoundManager.instance.startProcessSound.Play ();
+				t.textToDisplay = "----- SEQUENCE TERMINATED -----¤Invalid Argument Error: Query exceeds data string count. Exiting…¤…Done.";
+				buttonText.textToDisplay = "[Load Site] ";
+				rollTime = 3f;
+				break;
+			case 1:
+				t.textToDisplay = "Loading process.contamination              ¤Accessing system files           ¤3-8 Ready ¤2-7 Ready ¤1-9 Ready  ¤7-4 Ready     ¤Filling memory banks… … …Done.";
+				buttonText.textToDisplay = "[Access Site] ";
+				rollTime = 5f;
+				break;
+			case 2:
+				t.textToDisplay = "Loading surveySite.sat    ¤Requesting access… Granted. ¤Server ready.        ¤Sending Message  ¤:: Hello ::          ¤…            ¤…         ¤No response from Site.                                   ¤¤Sending Message ¤:: Status(Caudden) ::  ¤Response:    ¤:: Dead ::";
+				rollTime = 8f;
+				break;
+			case 3:
+				t.textToDisplay = "POI Requested… Searching…   ¤1 POI Found...  ¤Name: Sauddoc  ¤Marked of Interest: Eravola Outbreak Reported   ¤Investigate?";
+				rollTime = 4f;
+				break;
+			case 4:
+				t.textToDisplay = "Requesting Access… Access Granted.  ¤Loading POI…  ¤Processing site… … Done.  ¤Loading status… Done. ¤Populating area... Done. 0 Person(s) present  ¤Finding Marks of Relevance… Done.  ¤Loading descriptions… Done.   ¤Loading Natural Language Interface… Done.";
+				rollTime = 4f;
+				break;
+			case 5:
+				ActivateSearchMode();
+				break;
 		}
 
 		if (!inSearchMode) {
@@ -144,6 +146,7 @@ public class BootScript : MonoBehaviour {
 		ClearBootText ();
 		canvasManager.instance.ActivateCanvas (canvasManager.instance.bootCanvas);
 		dialogueManager.instance.EnterDialogue ("search",null);
+		SoundManager.instance.PlayScanningSound();
 	}	
 
 

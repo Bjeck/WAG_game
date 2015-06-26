@@ -18,6 +18,10 @@ public class SoundManager : MonoBehaviour {
 	public AudioSource textGlitchSound;
 	public AudioSource noiseSound;
 	public AudioSource roomSound;
+	public AudioSource messageSound;
+	public AudioSource startProcessSound;
+	public AudioSource shutDownSound;
+	public AudioSource scanningSound;
 
 
 	public AudioSource[] KeyBoardClacks;
@@ -35,6 +39,7 @@ public class SoundManager : MonoBehaviour {
 		DontDestroyOnLoad (gameObject);
 		Ambiences.Add ("inn", ambiences [0]);
 		Ambiences.Add ("village", ambiences [1]);
+		Ambiences.Add ("deadvillage", ambiences [2]);
 	}
 
 	// Use this for initialization
@@ -97,6 +102,27 @@ public class SoundManager : MonoBehaviour {
 		}
 	}
 
+	public void PlayMessageSound(float del){
+		StartCoroutine (messageDel (del));
+	}
+
+	IEnumerator messageDel(float d){
+		while (d>0) {
+			d -= Time.deltaTime;
+			yield return 0;
+		}
+		messageSound.Play ();
+	}
+
+	public void PlayScanningSound(){
+		scanningSound.Play ();
+	}
+
+	public void ShutDownComputer(){
+		ComputerAmbient.Stop ();
+		roomSound.Stop ();
+		shutDownSound.Play ();
+	}
 
 
 	public void PlayAmbient(string s){

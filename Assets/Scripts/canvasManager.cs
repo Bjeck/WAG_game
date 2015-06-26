@@ -60,7 +60,7 @@ public class canvasManager : MonoBehaviour {
 		}
 		curCanvas = c;
 		if (enterDialogueButton != null) {
-			Debug.Log (enterDialogueButton.name + " deactivate");
+	//		Debug.Log (enterDialogueButton.name + " deactivate");
 			Destroy (enterDialogueButton);
 			enterDialogueButton = null;
 		}
@@ -76,7 +76,7 @@ public class canvasManager : MonoBehaviour {
 		dialogueCanvas.gameObject.SetActive (f);
 		curCanvas.gameObject.SetActive (!f);
 		if (!f && enterDialogueButton != null) {
-			Debug.Log (enterDialogueButton.name + " deactivate");
+	//		Debug.Log (enterDialogueButton.name + " deactivate");
 			Destroy (enterDialogueButton);
 			enterDialogueButton = null;
 		}
