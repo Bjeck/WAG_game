@@ -105,7 +105,7 @@ public class ambientVoiceContainer : MonoBehaviour {
 		sageIntr5.id = 4;
 		sageIntr5.response = "";
 		sageIntr5.thoughts = "Great..";
-		sageIntr5.thoughtsSpeed = 0.08f;
+		sageIntr5.thoughtsSpeed = 0.27f;
 		ambientContainer.Add (sageIntr5);
 
 		ambientInst sageIntr6 = new ambientInst ();
@@ -139,7 +139,7 @@ public class ambientVoiceContainer : MonoBehaviour {
 
 		ambientInst pondInt1 = new ambientInst ();
 		pondInt1.id = 1;
-		pondInt1.response = "So, about that pond, huh? <she asks.>";
+		pondInt1.response = "So... about that pond, huh? <she asks.>";
 		pondInt1.thoughtsDelay = 1f;
 		pondInt1.thoughts = "I don’t have to think twice before answering that.";
 		ambientContainer.Add (pondInt1);
@@ -148,7 +148,7 @@ public class ambientVoiceContainer : MonoBehaviour {
 		pondInt2.id = 2;
 		pondInt2.response = "";
 		pondInt2.thoughtsDelay = 1f;
-		pondInt2.thoughts = "The pond’s a bit towards Caudden, which is why we’re generally not allowed to go there. But it also has color-fish and wild, moving plants, and an ancient willowtree that’s great fun to climb.";
+		pondInt2.thoughts = "The pond is a bit towards Caudden, which is why we’re generally not allowed to go there. But it also has color-fish and wild moving-plants, and an ancient willowtree that’s great fun to climb.";
 		ambientContainer.Add (pondInt2);
 
 		ambientInst PondIntEx = new ambientInst ();
@@ -166,7 +166,7 @@ public class ambientVoiceContainer : MonoBehaviour {
 		race.id = 0;
 		race.response = "";
 		race.thoughtsSpeed = 0.01f;
-		race.thoughts = "We both start sprinting before she said anything else. We’re on the south side of the pond, and the trees to the north. We sprint to the left of the shallow water, and I faintly notice movement under the surface.";
+		race.thoughts = "We both start sprinting before she said anything else. We’re on the south side of the pond, and the tree's to the north. We sprint to the left of the shallow water, and I faintly notice movement under the surface.";
 		ambientContainer.Add (race);
 
 		ambientInst race1 = new ambientInst ();
@@ -258,38 +258,38 @@ public class ambientVoiceContainer : MonoBehaviour {
 		ambientInst cursedGoBackToInn = new ambientInst ();
 		cursedGoBackToInn.id = 0;
 		cursedGoBackToInn.response = "";
-		cursedGoBackToInn.thoughts = "As she began moving I got a glance around us. It wasn’t just the flowerpetals right where she had landed. All around the pond, in small, hollow patches of purple, crossed across the plant, as if the rain had left purple marks where it landed.";
+		cursedGoBackToInn.thoughts = "As she begins moving I get a glance around us. It isn't just the flowerpetals right here. All around the pond, in small, hollow patches of purple it is, as if the rain had left purple marks where it landed. I didn't even notice it as strange before.";
 		ambientContainer.Add (cursedGoBackToInn);
 
 		ambientInst cursedGoBackToInn1 = new ambientInst ();
 		cursedGoBackToInn1.id = 1;
 		cursedGoBackToInn1.response = "";
-		cursedGoBackToInn1.thoughts = "We walked back slowly. She could walk fine, except she was walking slowly, and carefully feeling around her body as if it was dangerous to touch. Imagine that, I thought, being afraid of touching your own body.      ¤I asked her several more times if she was okay, but she kept saying nothing else. I couldn’t figure out how to ask anything else.";
+		cursedGoBackToInn1.thoughts = "We walk back slowly. She stumbles every few steps, walking slowly and carefully, feeling her body as if it was dangerous to touch. Imagine that, I think, being afraid of touching your own body.      ¤I ask her several more times if she is okay, but she kept saying nothing. I don't know what else to ask.";
 		ambientContainer.Add (cursedGoBackToInn1);
 
 		ambientInst cursedGoBackToInn2 = new ambientInst ();
 		cursedGoBackToInn2.id = 2;
 		cursedGoBackToInn2.response = "";
-		cursedGoBackToInn2.thoughts = "The clouds were moving funny above us. They twirled and had an odd quality about them. They were too thin, or too fickle.";
+		cursedGoBackToInn2.thoughts = "The clouds are moving crazily above us. They twirl and spin with an odd quality about them. They are too thin, or too fickle.";
 		ambientContainer.Add (cursedGoBackToInn2);
 
 		ambientInst cursedGoBackToInn3 = new ambientInst ();
 		cursedGoBackToInn3.id = 3;
 		cursedGoBackToInn3.response = "";
-		cursedGoBackToInn3.thoughts = "When we came back at the inn, nothing had changed. The entire village was still crammed inside the inn, listening to the words of a stranger. Still, there was no way around it. She needed help. She didn’t even argue against it. Just waited for me to touch the door, afraid to come into contact with anything.";
+		cursedGoBackToInn3.thoughts = "When we come back to the inn, nothing has changed. The entire village is still crammed inside the inn, listening to the words of a stranger. Still, there is no way around it. She needs help. She doesn’t even argue against it. Just waits for me to touch the door, afraid to interact with anything.";
 		ambientContainer.Add (cursedGoBackToInn3);
 
 		ambientInst cursedGoBackToInn4 = new ambientInst ();
 		cursedGoBackToInn4.id = 4;
-		cursedGoBackToInn4.response = "Help! <I shouted when we got in.> She needs help! Ceara's got something!";
-		cursedGoBackToInn4.thoughts = "At the mention of Ceara’s name people started paying attention. I didn’t even notice what the Sage was talking about before I started yelling; that didn’t matter.         ¤The first to come running was Ceara’s mom, and the rest gave us a berth as we entered, quickly seeing the oddness of Ceara’s skin.";
+		cursedGoBackToInn4.response = "Help! <I shout when we got in.> She needs help! Ceara's got something!";
+		cursedGoBackToInn4.thoughts = "At the mention of Ceara’s name people start paying attention. I don’t even notice what the Sage was talking about before I started yelling; that doesn’t matter.         ¤The first to come running was Ceara’s mom, Mauge, and the rest give us a berth as we entered, quickly seeing the oddness of Ceara’s skin.";
 		cursedGoBackToInn4.thoughtsDelay = 1.5f;
 		ambientContainer.Add (cursedGoBackToInn4);
 
 		ambientInst cursedGoBackToInn5 = new ambientInst ();
 		cursedGoBackToInn5.id = 5;
-		cursedGoBackToInn5.response = "Are you alright? <she demanded as she got close. Not waiting for an answer she came close to embrace her daughter.> ¤DON’T <Ceara yelled and flung herself backwards, leaving a mother with the most startled expression I have ever seen.>";
-		cursedGoBackToInn5.thoughts = "The rest of the inn were now watching, most passively, with wide, horrified eyes as the girl who had come in with skin that looked… wrong.";
+		cursedGoBackToInn5.response = "Are you alright? <she demands as she gets close. Not waiting for an answer she comes close to embrace her daughter.> ¤DON’T <Ceara yells and fling herself backwards, leaving a mother with the most startled expression I have ever seen.>";
+		cursedGoBackToInn5.thoughts = "The rest of the inn is now watching, most passively, with wide, horrified eyes as the girl who has come in with skin that looks… wrong.";
 		cursedGoBackToInn5.thoughtsDelay = 4f;
 		ambientContainer.Add (cursedGoBackToInn5);
 		
@@ -308,67 +308,67 @@ public class ambientVoiceContainer : MonoBehaviour {
 		outsideInnList.Add(new ambientInst());
 		outsideInnList [0].id = 0;
 		outsideInnList [0].response = "";
-		outsideInnList [0].thoughts = "I led them outside, the Sage right behind me, and Ceara following carefully, making sure not to touch anyone.    ¤I began walking towards the pond, almost half the village in tow when I looked at the grass.";
+		outsideInnList [0].thoughts = "I lead them outside, the Sage right behind me, and Ceara following carefully, making sure not to touch anyone.    ¤I began walking towards the pond, almost half the village in tow when I look at the grass.";
 		ambientContainer.Add (outsideInnList [0]);
 
 		outsideInnList.Add(new ambientInst());
 		outsideInnList [1].id = 1;
 		outsideInnList [1].response = "";
-		outsideInnList [1].thoughts = "It was spreading up from the pond. Moving with the flowers. I hadn’t noticed it before, so it must have been moving fast. Really fast. I stared, horrified at the new color the tiny pathway had gotten, once leading down to the pond with small tufts of yellow flowers along neatly downtrodden grass.";
+		outsideInnList [1].thoughts = "It is spreading up from the pond. Moving with the flowers. I hadn’t noticed it before, so it must have been moving fast. Really fast. I stare, horrified at the new color the tiny pathway has gotten, once leading down to the pond with small tufts of yellow flowers along neatly downtrodden grass.";
 		ambientContainer.Add (outsideInnList [1]);
 
 		outsideInnList.Add(new ambientInst());
 		outsideInnList [2].id = 2;
-		outsideInnList [2].response = "What the hell…      ¤Was this here before? <the Sage asked, getting a worried expression.>     ¤No <I say.>";
+		outsideInnList [2].response = "What the hell…      ¤Was this here before? <the Sage asks, getting a worried expression.>     ¤No <I say.>";
 		outsideInnList [2].thoughts = "Now, it was covered in purple-green, striped splashes in uneven patterns that made everything worse.";
 		outsideInnList [2].ambDelay = 1.5f;
 		ambientContainer.Add (outsideInnList [2]);
 
 		outsideInnList.Add(new ambientInst());
 		outsideInnList [3].id = 3;
-		outsideInnList [3].response = "Shit. That’s not good.  ¤<He turned around and looked at Ceara again.>   ¤How are you feeling?   ¤Fine, she said again.";
-		outsideInnList [3].thoughts = "I didn’t know what to do.";
+		outsideInnList [3].response = "'Shit. That’s not good.'  ¤<He turns around and looks at Ceara again.>   ¤'How are you feeling?'   ¤'Fine, she said again.'";
+		outsideInnList [3].thoughts = "I don’t know what to do.";
 		outsideInnList [3].thoughtsDelay = 1.5f;
 		ambientContainer.Add (outsideInnList [3]);
 
 		outsideInnList.Add(new ambientInst());
 		outsideInnList [4].id = 4;
-		outsideInnList [4].response = "What is it? Can you fix it? <The mother asked.>";
+		outsideInnList [4].response = "'What is it? Can you fix it?' <The mother asks.>";
 		outsideInnList [4].thoughts = "He didn’t respond for some time, all of us staring at him in incredulity, afraid to go forward and unwilling to go back.";
 		outsideInnList [4].thoughtsDelay = 1.0f;
 		ambientContainer.Add (outsideInnList [4]);
 
 		outsideInnList.Add(new ambientInst());
 		outsideInnList [5].id = 5;
-		outsideInnList [5].response = "It looks like an infestation, a spread of a disease. Never seen something like this spread this fast, though. Nor go from plants to humans.   ¤<He paused again.>      ¤Okay, listen. I’m going to need some equipment. Don’t have anything here, because I didn’t expect to solve a curse here, but I can investigate the nature of this. Unfortunately, I might have to go to Caudden to get specific help.";
+		outsideInnList [5].response = "'It looks like an infestation, a spread of a disease. Never seen something like this spread this fast, though. Nor go from plants to humans.'   ¤<He pauses again.>      ¤'Okay, listen. I’m going to need some equipment. Don’t have anything here, because I didn’t expect to solve a curse here, but I can investigate the nature of this. Unfortunately, I might have to go to Caudden to get specific help.'";
 		outsideInnList [5].thoughts = "";
 		outsideInnList [5].thoughtsDelay = 1.0f;
 		ambientContainer.Add (outsideInnList [5]);
 
 		outsideInnList.Add(new ambientInst());
 		outsideInnList [6].id = 6;
-		outsideInnList [6].response = "With all respect, sir, doesn’t look like we have that kind of time, if it spreads that fast.";
-		outsideInnList [6].thoughts = "It was moving closer. It was hard to see the actual movement, but it now touched some plants it did not before. I’m sure of it.";
+		outsideInnList [6].response = "'It doesn’t look like we have that kind of time, if it spreads that fast... sir'";
+		outsideInnList [6].thoughts = "It is moving closer. It is hard to see the actual movement, but it now touched some plants it had not before. I’m sure of it.";
 		ambientContainer.Add (outsideInnList [6]);
 
 		outsideInnList.Add(new ambientInst());
 		outsideInnList [7].id = 7;
-		outsideInnList [7].response = "What do you need? <Ceara asks.> ¤A compass, fire, bones of a dead animal, preferably a mouse or cat, something made of iron, a casket or pan or something, and a sample of a flower with the infection on it.";
+		outsideInnList [7].response = "'What do you need?' <Ceara asks.> ¤'A compass, fire, bones of a dead animal, preferably a mouse or cat, something made of iron, a casket or pan or something, and a sample of a flower with the infection on it.'";
 		outsideInnList [7].thoughts = "We looked around at each other, considering the list of ingredients.";
 		outsideInnList [7].thoughtsDelay = 3f;
 		ambientContainer.Add (outsideInnList [7]);
 
 		outsideInnList.Add(new ambientInst());
 		outsideInnList [8].id = 8;
-		outsideInnList [8].response = "I can get the flower <Ceara said.> I’m already touched, right? What does it matter if I touch it again?  ¤<The Sage nodded.> Still, I would get some gloves.  ¤She nodded and started moving.";
+		outsideInnList [8].response = "'I can get the flower' <Ceara says.> 'I’m already touched, right? What does it matter if I touch it again?'  ¤<The Sage nods.> 'Still, I would get some gloves.'  ¤<She nods and starts moving.>";
 		outsideInnList [8].thoughts = "I was surprised at how calm Ceara took this. There was almost no hesitation, no fear in her voice.";
 		outsideInnList [8].thoughtsDelay = 3f;
 		ambientContainer.Add (outsideInnList [8]);
 
 		outsideInnList.Add(new ambientInst());
 		outsideInnList [9].id = 9;
-		outsideInnList [9].response = "<Ceara’s mother began looking at the others.> We need a fire! Anyone’s got a dead animal perchance? Or something we can slaughter?";
-		outsideInnList [9].thoughts = "Several voices rose up, started yelling at each other in a frantic language I could only understand if I paid close attention to one of the sounds—the rest were drowning out as noise in a [REDACTED].";
+		outsideInnList [9].response = "<Mauge begins looking at the others.> 'We need a fire! Anyone’s got a dead animal perchance? Or something we can slaughter?'";
+		outsideInnList [9].thoughts = "Several voices rise up, start yelling at each other in a frantic language I can only understand if I pay close attention to one of the sounds—-the rest are drowning out as noise in a [REDACTED].";
 		outsideInnList [9].thoughtsDelay = 1f;
 		ambientContainer.Add (outsideInnList [9]);
 
@@ -386,12 +386,12 @@ public class ambientVoiceContainer : MonoBehaviour {
 		ambientInst cearaRitIntro = new ambientInst ();
 		cearaRitIntro.id = 0;
 		cearaRitIntro.response = "";
-		cearaRitIntro.thoughts = "We returned with the plant to see the rest of the village in disarray. Some were by the roadside, building a small fire, many were standing around in various clumps not doing anything, and two people were crying. The Sage wasn’t there.";
+		cearaRitIntro.thoughts = "We return with the plant to see the rest of the village in disarray. Some are by the roadside, building a small fire, many are standing around in various clumps not doing anything, and two people are crying. The Sage isn’t there.";
 		ambientContainer.Add (cearaRitIntro);
 
 		ambientInst cearaRitIntro1 = new ambientInst ();
 		cearaRitIntro1.id = 1;
-		cearaRitIntro1.response = "Ceara! <Mauge says, rushing to her daughter> Did you get the plant?   ¤Yeah. What’s happening? Did you finish?";
+		cearaRitIntro1.response = "'Ceara!' <Mauge says, rushing to her daughter> 'Did you get the plant?'   ¤'Yeah. What’s happening? Did you finish?'";
 		cearaRitIntro1.thoughts = "The looks of the others said enough. Some glanced up, shaking their head, rustled their feet, crossed their arms, but no one came to help. No one came to ask her if she was okay. Mikal’s wife Perna, who was crying, was watching some of the others hold a dead cat, throat slit.     ¤Oh.";
 		ambientContainer.Add (cearaRitIntro1);
 
@@ -403,7 +403,7 @@ public class ambientVoiceContainer : MonoBehaviour {
 
 		ambientInst cearaRitIntro3 = new ambientInst ();
 		cearaRitIntro3.id = 3;
-		cearaRitIntro3.response = "Do we have everything? <Ceara still doesn’t accept that. I can understand her perfectly well.>  ¤Yeah, we got everything. <Ceara looks back at Perna> You had to— ¤Yes! We had to. Look at it. <She points towards the pond. There is no reason to go down to see the purple anymore. It is close enough that it would hit the first houses soon enough.>";
+		cearaRitIntro3.response = "Do we have everything? <Ceara asks. She sounds worried. There's something crass about her voice.>  ¤Yeah, we got everything. <Ceara looks back at Perna> 'You had to—'¤'Yes! We had to. Look at it.' <She points towards the pond. There is no reason to go down to see the purple anymore. It is close enough that it will hit the first houses soon enough.>";
 		cearaRitIntro3.thoughts = "I look at Ceara. She seems worried. There is something she isn’t telling us.";
 		ambientContainer.Add (cearaRitIntro3);
 
@@ -421,7 +421,7 @@ public class ambientVoiceContainer : MonoBehaviour {
 		ambientInst stayRitIntrow = new ambientInst ();
 		stayRitIntrow.id = 0;
 		stayRitIntrow.response = "";
-		stayRitIntrow.thoughts = "The atmosphere was weird when they left. The Sage wasn’t back either. Ceara was gone, Mauge was gone. Tripping, I was anxious, staring back the way Ceara left, wondering if I should have gone after her. Peopl glare with trepidation to the south, at the purple mess that is slowly moving closer. Maybe some of them are considering if they should run. I wouldn’t blame them.";
+		stayRitIntrow.thoughts = "The atmosphere is weird when they leave. The Sage wasn’t back either. Ceara is gone, Mauge is gone. Perna is gone. Tripping, I'm anxious, staring back the way Ceara left, wondering if I should have gone after her. People glare with trepidation to the south, at the purple mess that is inching closer. Maybe some of them are considering if they should run. I wouldn’t blame them.";
 		ambientContainer.Add (stayRitIntrow);
 
 		ambientInst stayRitIntrow1 = new ambientInst ();
@@ -438,8 +438,8 @@ public class ambientVoiceContainer : MonoBehaviour {
 
 		ambientInst stayRitIntro = new ambientInst ();
 		stayRitIntro.id = 4;
-		stayRitIntro.response = "Hey Tari.  ¤Are you okay? <I settle with.>";
-		stayRitIntro.thoughts = "Ceara returns with a plant in her hand shortly after. I go over to her and thought of fifteen things to say but none of them fit.>";
+		stayRitIntro.response = "'Hey Tari.'         ¤'Are you okay?' <I settle with.>";
+		stayRitIntro.thoughts = "Ceara returns with a plant in her hand shortly after. I go over to her and think of fifteen things to say but none of them fits.>";
 		stayRitIntro.ambDelay = 3f;
 		ambientContainer.Add (stayRitIntro);
 
@@ -451,7 +451,7 @@ public class ambientVoiceContainer : MonoBehaviour {
 
 		ambientInst stayRitIntro2 = new ambientInst ();
 		stayRitIntro2.id = 6;
-		stayRitIntro2.response = "Do we have everything? <She repeats.>  ¤Yeah, we got everything. <Ceara looks at Perna> You had to— ¤Yes! We had to. Look at it. <She points towards the pond. There is no reason to go down to see the purple anymore. It is close enough that it would hit the first houses soon enough.>";
+		stayRitIntro2.response = "Do we have everything? <She repeats.>  ¤Yeah, we got everything. <Ceara looks at Perna> 'You had to—'¤Yes! We had to. Look at it.' <She points towards the pond. There is no reason to go down to see the purple anymore. It is close enough that it will hit the first houses soon enough.>";
 		stayRitIntro2.thoughts = "";
 		ambientContainer.Add (stayRitIntro2);
 

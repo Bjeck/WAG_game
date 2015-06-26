@@ -48,7 +48,7 @@ public class textRoll : MonoBehaviour {
 		//		return true;
 		//	}
 			if(textToDisplay[i] == '<'){
-				text.text += "<color=#0f0f0fff>"+"</color>";
+				text.text += "<color=#1f1f1fff>"+"</color>";
 				isColored = true;
 			}
 			else if(isColored){

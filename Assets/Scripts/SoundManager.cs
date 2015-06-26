@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour {
 	public AudioSource passWordSound;
 	public AudioSource textGlitchSound;
 	public AudioSource noiseSound;
+	public AudioSource roomSound;
 
 
 	public AudioSource[] KeyBoardClacks;
@@ -107,6 +108,12 @@ public class SoundManager : MonoBehaviour {
 		foreach (AudioSource a in Ambiences.Values) {
 			a.Stop();
 		}
+	}
+
+
+
+	public void StopSound(AudioSource s){
+		s.Stop();
 	}
 
 

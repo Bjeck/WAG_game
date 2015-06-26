@@ -200,7 +200,7 @@ public class BootScript : MonoBehaviour {
 			bootCanvas.SetActive(false);
 			ipf.gameObject.SetActive(false);
 			hasBooted = true;
-			SoundManager.instance.ChangeComputerMixerValue("volume",-5f);
+			SoundManager.instance.ChangeMasterMixerValue("volume",-5f);
 			SoundManager.instance.passWordSound.Play();
 			canvasManager.instance.ActivateCanvas(canvasManager.instance.houseCanvas);
 			dialogueManager.instance.EnterDialogue("momIntro", null);

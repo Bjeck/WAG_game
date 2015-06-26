@@ -109,6 +109,10 @@ public class Story : MonoBehaviour {
 		if (dial == "cearaIntro" && pos == 17) {
 			hastalkedToCeara = true;
 		}
+		if(dial == "sageIntro" && pos == 2){
+			GlitchManager.instance.GlitchScreenOnCommand(0.4f);
+			SoundManager.instance.ChangeMasterMixerValue("volume",-10f);
+		}
 		if(dial == "raceChoice" && pos == 0){
 			racedTree = true;
 		}
@@ -133,6 +137,12 @@ public class Story : MonoBehaviour {
 		}
 		if (dial == "cCursed" && pos == 0) {
 			GlitchManager.instance.ChangeGlitchTimings();
+		}
+		if(dial == "cursedGoBackToInn" && pos == 3){
+			SoundManager.instance.PlayAmbient("inn");
+		}
+		if(dial == "cursedGoBackToInn" && pos == 5){
+			SoundManager.instance.StopAmbients();
 		}
 		if(dial == "followCeara" && pos == 8){
 			MC.instance.toldCearaAboutSageBeingWeird = true;
@@ -180,6 +190,9 @@ public class Story : MonoBehaviour {
 		}
 		if (d == "sageIntro") {
 			SoundManager.instance.StopAmbients();
+		}
+		if(d == "pondIntro"){
+			SoundManager.instance.PlayAmbient("village");
 		}
 	}
 
