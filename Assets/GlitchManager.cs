@@ -29,6 +29,7 @@ public class GlitchManager : MonoBehaviour {
 
 	public AudioSource[] noiseSounds;
 	public AudioMixer mixer;
+	public float timeScreenGlitch;
 
 
 	//0.01, 0.02, 0.005, 0.015
@@ -44,32 +45,31 @@ public class GlitchManager : MonoBehaviour {
 
 
 	public void Update(){
-		if (timeToGlitch > 0) {
-			timeToGlitch -= Time.deltaTime;
+		if (timeScreenGlitch > 0) {
+			timeScreenGlitch -= Time.deltaTime;
 		} else {
 			StartCoroutine(GlitchScreen());
 		}
 	}
 
 	public IEnumerator GlitchScreen(){
-		float time;
 		if (firsttime) {
 			glEf.enabled = true;
-			timeToGlitch = UnityEngine.Random.Range (glitchTimeMin, glitchTimeMax);
-			time = 1f;
-			glEf.intensity = glitchIntensity ;
+			timeScreenGlitch = UnityEngine.Random.Range (glitchTimeMin, glitchTimeMax);
+			timeToGlitch = 1f;
+			glEf.intensity = glitchIntensity;
 			firsttime = false;
 		} else {
 			glEf.enabled = true;
-			timeToGlitch = UnityEngine.Random.Range (glitchTimeMin, glitchTimeMax);
-			time = UnityEngine.Random.Range (glitchSustainMin, glitchSustainMax);
+			timeScreenGlitch = UnityEngine.Random.Range (glitchTimeMin, glitchTimeMax);
+			timeToGlitch = UnityEngine.Random.Range (glitchSustainMin, glitchSustainMax);
 			glEf.intensity = glitchIntensity * Random.Range (0.5f, 1.5f);
 		}
 
 		//PlayGlitchSound ();
 		
-		while (time > 0) {
-			time -= Time.deltaTime;
+		while (timeToGlitch > 0) {
+			timeToGlitch -= Time.deltaTime;
 			yield return 0;
 		}
 		glEf.intensity = 0;
@@ -77,7 +77,7 @@ public class GlitchManager : MonoBehaviour {
 		if (BootScript.instance.panel.activeSelf) {
 			BootScript.instance.panel.SetActive(false);
 		}
-		SoundManager.instance.master.SetFloat ("volume", 0);
+		SoundManager.instance.master.SetFloat ("volume", SoundManager.instance.curMasterVolume);
 		foreach (AudioSource a in noiseSounds) {
 			a.Stop();		
 		}
@@ -86,6 +86,10 @@ public class GlitchManager : MonoBehaviour {
 
 	public void GlitchScreenOnCommand(float t){
 		StartCoroutine (GlitchScreenOC (t));
+	}
+
+	public void GlitchScreenOnCommand(float t, float inten){
+		StartCoroutine (GlitchScreenOC (t, inten));
 	}
 
 	IEnumerator GlitchScreenOC(float time){
@@ -101,7 +105,27 @@ public class GlitchManager : MonoBehaviour {
 		}
 		glEf.intensity = 0;
 		glEf.enabled = false;
-		SoundManager.instance.master.SetFloat ("volume", 0);
+		SoundManager.instance.master.SetFloat ("volume", SoundManager.instance.curMasterVolume);
+		foreach (AudioSource a in noiseSounds) {
+			a.Stop();		
+		}
+		yield return 0;
+	}
+
+	IEnumerator GlitchScreenOC(float time, float inten){
+		
+		glEf.enabled = true;
+		glEf.intensity = inten;
+		
+		//PlayGlitchSound ();
+		
+		while (time > 0) {
+			time -= Time.deltaTime;
+			yield return 0;
+		}
+		glEf.intensity = 0;
+		glEf.enabled = false;
+		SoundManager.instance.master.SetFloat ("volume", SoundManager.instance.curMasterVolume);
 		foreach (AudioSource a in noiseSounds) {
 			a.Stop();		
 		}
@@ -134,21 +158,56 @@ public class GlitchManager : MonoBehaviour {
 	}
 
 	public void ChangeGlitchTimings(){ //timeToGlitchMin = 1f; timeToGlitchMax = 4f; sustainGlitchTimeMin = 0.03f; sustainGlitchTimeMax = 0.08f;
-		if (GlitchProgression == 0) {
-			timeToGlitchMin = 1f; timeToGlitchMax = 4f; sustainGlitchTimeMin = 0.03f; sustainGlitchTimeMax = 0.08f; 
+		if (GlitchProgression == 0) {  //START GLITCHING, sage comes
+			timeToGlitchMin = 2f; timeToGlitchMax = 20f; sustainGlitchTimeMin = 0.03f; sustainGlitchTimeMax = 0.08f; 
+			glitchTimeMin = 20f; glitchTimeMax = 70f; glitchSustainMin = 0.1f; glitchSustainMax = 0.4f;
 		}
-		if (GlitchProgression == 1) {
-			timeToGlitchMin = 0.1f; timeToGlitchMax = 4f; sustainGlitchTimeMin = 0.05f; sustainGlitchTimeMax = 0.1f;
+		else if (GlitchProgression == 1) {//WENT TO POND
+			timeToGlitchMin = 2f; timeToGlitchMax = 15f; sustainGlitchTimeMin = 0.02f; sustainGlitchTimeMax = 0.1f;
+			glitchTimeMin = 20f; glitchTimeMax = 60f; glitchSustainMin = 0.1f; glitchSustainMax = 0.4f;
 		}
-		else if(GlitchProgression == 2){
-			timeToGlitchMin = 0.07f; timeToGlitchMax = 3f; sustainGlitchTimeMin = 0.02f; sustainGlitchTimeMax = 0.15f;
+		else if(GlitchProgression == 2){ //C cursed
+			timeToGlitchMin = 1f; timeToGlitchMax = 15f; sustainGlitchTimeMin = 0.02f; sustainGlitchTimeMax = 0.15f;
+			glitchTimeMin = 15f; glitchTimeMax = 50f; glitchSustainMin = 0.1f; glitchSustainMax = 1.0f;
 		}
-		else if(GlitchProgression == 3){
-			timeToGlitchMin = 0.03f; timeToGlitchMax = 1f; sustainGlitchTimeMin = 0.01f; sustainGlitchTimeMax = 0.15f;
+		else if(GlitchProgression == 3){ //ritual
+			timeToGlitchMin = 0.5f; timeToGlitchMax = 10f; sustainGlitchTimeMin = 0.01f; sustainGlitchTimeMax = 0.15f;
+			glitchTimeMin = 10f; glitchTimeMax = 30f; glitchSustainMin = 0.1f; glitchSustainMax = 0.6f;
+		}
+		else if(GlitchProgression == 4){ //ritual go nuts
+			timeToGlitchMin = 0.01f; timeToGlitchMax = 4f; sustainGlitchTimeMin = 0.01f; sustainGlitchTimeMax = 0.15f;
+			glitchTimeMin = 5f; glitchTimeMax = 20f; glitchSustainMin = 0.1f; glitchSustainMax = 0.8f;
+		}
+		else if(GlitchProgression == 5){ //reboot start
+			timeToGlitchMin = 5f; timeToGlitchMax = 20f; sustainGlitchTimeMin = 0.04f; sustainGlitchTimeMax = 0.07f;
+			glitchTimeMin = 10f; glitchTimeMax = 40f; glitchSustainMin = 0.1f; glitchSustainMax = 0.8f;
+		}
+		else if(GlitchProgression == 6){ //search start
+			timeToGlitchMin = 5f; timeToGlitchMax = 20f; sustainGlitchTimeMin = 0.04f; sustainGlitchTimeMax = 0.07f;
+			glitchTimeMin = 10f; glitchTimeMax = 40f; glitchSustainMin = 0.1f; glitchSustainMax = 0.8f;
+		}
+		else if(GlitchProgression == 7){ // search go nuts
+			timeToGlitchMin = 0.01f; timeToGlitchMax = 1.0f; sustainGlitchTimeMin = 0.01f; sustainGlitchTimeMax = 0.5f;
+			glitchTimeMin = 1f; glitchTimeMax = 5f; glitchSustainMin = 0.1f; glitchSustainMax = 1f;
+		}
+		else if(GlitchProgression == 8){ //search end
+			timeToGlitchMin = 100000f; timeToGlitchMax = 100000000000f; sustainGlitchTimeMin = 0.00f; sustainGlitchTimeMax = 0.00f;
+			glitchTimeMin = 1000000f; glitchTimeMax = 1000000000000f; glitchSustainMin = 0.0f; glitchSustainMax = 0.0f;
 		}
 
+		timeScreenGlitch = 0;
 		GlitchProgression++;
 	}
+
+	 //START GLITCHING, sage comes
+	 //WENT TO POND
+	//C cursed
+	//ritual
+	//ritual go nuts
+	//search start
+	// search go nuts
+	//search end
+			
 
 
 	public void PlayGlitchSound(int c){

@@ -22,6 +22,10 @@ public class SoundManager : MonoBehaviour {
 	public AudioSource startProcessSound;
 	public AudioSource shutDownSound;
 	public AudioSource scanningSound;
+	public AudioSource warningSound;
+	public AudioSource hoverSound;
+	public AudioSource workSound;
+	public float curMasterVolume = 0;
 
 
 	public AudioSource[] KeyBoardClacks;
@@ -40,6 +44,8 @@ public class SoundManager : MonoBehaviour {
 		Ambiences.Add ("inn", ambiences [0]);
 		Ambiences.Add ("village", ambiences [1]);
 		Ambiences.Add ("deadvillage", ambiences [2]);
+		Ambiences.Add ("pond", ambiences [3]);
+		Ambiences.Add ("wind", ambiences [4]);
 	}
 
 	// Use this for initialization
@@ -66,6 +72,10 @@ public class SoundManager : MonoBehaviour {
 		OnClickSound.pitch = 1;
 		OnClickSound.pitch += Random.Range (-0.2f, 0.2f);
 		OnClickSound.Play ();
+	}
+
+	public void PlayHoverSound(){
+		hoverSound.Play ();
 	}
 
 	public void PlayBootSound(){

@@ -20,6 +20,7 @@ public class Story : MonoBehaviour {
 	public bool shouldRestart;
 
 	public string StartDial;
+	public GameObject DatabaseButton;
 
 	void Awake()
 	{
@@ -40,7 +41,7 @@ public class Story : MonoBehaviour {
 
 		if(c==canvasManager.instance.villageCanvas){ //IF VILLAGE
 			if(!wentToVillageMorning){
-				dialogueManager.instance.EnterAmbient("firstVillage",null);
+				//dialogueManager.instance.EnterAmbient("firstVillage",null);
 				return;
 			}
 		}
@@ -56,20 +57,20 @@ public class Story : MonoBehaviour {
 			//SHOULD RESTART
 		}
 		if(rebootGo){
-			BootScript.instance.ActivateSearchMode();
+			BootScript.instance.StartReboot();
 			return;
 		}
 		if (c == canvasManager.instance.villageCanvas && ritualStart && !ritualHasStarted) {
 			if(MC.instance.wentWithCearaForGloves){
-				dialogueManager.instance.EnterAmbient("cearaRitIntro",null);
+			//	dialogueManager.instance.EnterAmbient("cearaRitIntro",null);
 			}
 			else{
-				dialogueManager.instance.EnterAmbient("stayRitIntro",null);
+			//	dialogueManager.instance.EnterAmbient("stayRitIntro",null);
 			}
 			return;
 		}
 		if(c==canvasManager.instance.villageCanvas && gotGloves && !ritualStart){
-			dialogueManager.instance.EnterDialogue("cearaAgree",null);
+			//dialogueManager.instance.EnterDialogue("cearaAgree",null);
 			ritualStart = true;
 			return;
 		}
@@ -88,17 +89,18 @@ public class Story : MonoBehaviour {
 		}*/
 		if(c==canvasManager.instance.villageCanvas && wentToInn && !talkedToIllijInInn){
 			Debug.Log("illijIntro");
-			dialogueManager.instance.EnterDialogue("IllijIntro",null);
+			//dialogueManager.instance.EnterDialogue("IllijIntro",null);
 			talkedToIllijInInn = true;
 			return;
 		}
 		if(c==canvasManager.instance.villageCanvas && hastalkedToCeara && !wentToInn){
-			dialogueManager.instance.EnterAmbient("innIntro",null);
+			//dialogueManager.instance.EnterAmbient("innIntro",null);
 			wentToInn = true;
 			return;
 		}
 		if(c==canvasManager.instance.villageCanvas && !hastalkedToCeara){
-			canvasManager.instance.ActivateDialogueButton(c,"cearaIntro", "Say hi to Ceara");
+			//dialogueManager.instance.EnterDialogue("cearaIntro",null);
+			//canvasManager.instance.ActivateDialogueButton(c,"cearaIntro", "Say hi to Ceara");
 			return;
 		}
 		if(c==canvasManager.instance.houseCanvas && !hasTalkedToMomIntro){
@@ -109,6 +111,7 @@ public class Story : MonoBehaviour {
 	}
 
 	public void OnDialogueTrigger(string dial, int pos){
+		ChangeGlitchTimings (dial,pos);
 		if (dial == "momIntro" && pos == 0) {
 			hasTalkedToMomIntro = true;	
 		}
@@ -118,6 +121,10 @@ public class Story : MonoBehaviour {
 		if(dial == "sageIntro" && pos == 2){
 			GlitchManager.instance.GlitchScreenOnCommand(0.4f);
 			SoundManager.instance.ChangeMasterMixerValue("volume",-10f);
+			SoundManager.instance.curMasterVolume = -10f;
+		}
+		if(dial == "sageIntro" && pos == 5){
+			SoundManager.instance.PlayAmbient("inn");
 		}
 		if(dial == "raceChoice" && pos == 0){
 			racedTree = true;
@@ -134,15 +141,8 @@ public class Story : MonoBehaviour {
 		if(dial == "pondIntro" && pos == 0){
 			wentToPond = true;
 		}
-		if(dial == "race" && pos == 0){
-			wentToPond = true;
-			GlitchManager.instance.ChangeGlitchTimings();
-		}
-		if (dial == "pullAmbient" && pos == 4) {
-			GlitchManager.instance.GlitchScreenOnCommand(2f);
-		}
-		if (dial == "cCursed" && pos == 0) {
-			GlitchManager.instance.ChangeGlitchTimings();
+		if (dial == "pullAmbient" && pos == 2) {
+			GlitchManager.instance.GlitchScreenOnCommand(1f);
 		}
 		if(dial == "cursedGoBackToInn" && pos == 3){
 			SoundManager.instance.PlayAmbient("inn");
@@ -167,7 +167,9 @@ public class Story : MonoBehaviour {
 		if((dial == "cearaRitIntro" || dial == "stayRitIntro") && pos == 0){
 			ritualHasStarted = true;
 		}
-
+		if(dial == "ritual" && pos == 15){
+			GlitchManager.instance.GlitchScreenOnCommand(0.5f);
+		}
 		if(dial == "ritChoice" && pos == 5){
 			MC.instance.wentToCaudden = true;
 		}
@@ -180,9 +182,7 @@ public class Story : MonoBehaviour {
 				dialogueOptionContainerScript.instance.allDialogues["search"].Find(x=>x.id==44).altResp.shouldAlter = true;
 			}
 		}
-		if (dial == "search" && pos == 98) {
-			//           ------------------------------      GLITCHING
-		}
+
 		if (dial == "search" && pos == 96) {
 			SoundManager.instance.PlayMessageSound(1f);
 		}
@@ -191,6 +191,7 @@ public class Story : MonoBehaviour {
 		}
 		if (dial == "search" && pos == 95) {
 			SoundManager.instance.StopSound(SoundManager.instance.messageSound);
+			SoundManager.instance.StopAmbients();
 			//       ----------------------------------      GLITCHING
 		}
 
@@ -205,7 +206,7 @@ public class Story : MonoBehaviour {
 
 
 	public void ActivateSounds(string d){
-		if (d == "firstVillage") {
+		if (d == "cearaIntro") {
 			SoundManager.instance.PlayAmbient("village");
 		}
 		if(d == "innIntro"){
@@ -215,14 +216,61 @@ public class Story : MonoBehaviour {
 			SoundManager.instance.StopAmbients();
 		}
 		if(d == "pondIntro"){
-			SoundManager.instance.PlayAmbient("village");
+			SoundManager.instance.PlayAmbient("pond");
 		}
+		if(d == "cursedGoBackToInn"){
+			SoundManager.instance.StopAmbients();
+		}
+		//I Play inn somewhere here. And stop it again.
+
 		if(d == "outsideInn"){
 			SoundManager.instance.PlayAmbient("village");
 		}
 		if(d == "cearaAgree" || d == "cearaRitIntro"){
 			SoundManager.instance.PlayAmbient("village");
 		}
+		if(d == "ritual"){
+			GlitchManager.instance.GlitchScreenOnCommand(0.4f);
+			SoundManager.instance.PlayAmbient("wind");
+		}
+		if (d == "search") {
+			SoundManager.instance.StopSound(SoundManager.instance.roomSound);
+			SoundManager.instance.StopSound(SoundManager.instance.workSound);
+			SoundManager.instance.PlayAmbient("deadvillage");
+		}
+	}
+
+
+
+	public void ChangeGlitchTimings(string dial, int pos){
+		if(dial == "sageIntro" && pos == 2){ //START GLITCHING, sage comes
+			GlitchManager.instance.ChangeGlitchTimings();
+		}
+		if(dial == "race" && pos == 0){ //WENT TO POND
+			GlitchManager.instance.ChangeGlitchTimings();
+		}
+		if (dial == "cCursed" && pos == 0) { //C cursed
+			GlitchManager.instance.ChangeGlitchTimings();
+		}
+		if(dial == "ritual" && pos == 4){ //ritual
+			GlitchManager.instance.ChangeGlitchTimings();
+		}
+		if(dial == "ritual" && pos == 15){ //ritual go nuts
+			GlitchManager.instance.ChangeGlitchTimings();
+		}
+		if((dial == "goesNorth" || dial == "goesToCaudden") && pos == 1){ //reboot start
+			GlitchManager.instance.ChangeGlitchTimings();
+		}
+		if(dial == "search" && pos == 0){ //search start
+			GlitchManager.instance.ChangeGlitchTimings();
+		}
+		if (dial == "search" && pos == 98) { // search go nuts
+			GlitchManager.instance.ChangeGlitchTimings();
+		}
+		if (dial == "search" && pos == 95) { //search end
+			GlitchManager.instance.ChangeGlitchTimings();
+		}
+
 	}
 
 

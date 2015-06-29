@@ -26,6 +26,7 @@ public class BootScript : MonoBehaviour {
 	public bool buttonHasSpawned;
 
 	public bool inSearchMode = false;
+	public bool hasStartedReboot = false;
 
 	//
 	void Awake()
@@ -70,9 +71,11 @@ public class BootScript : MonoBehaviour {
 				}
 				
 				if (buttonShouldSpawn && !buttonHasSpawned) {
-					button.SetActive(true);
-					WriteButtonText();
-					buttonHasSpawned = true;
+					if(hasStartedReboot){
+						button.SetActive(true);
+						WriteButtonText();
+						buttonHasSpawned = true;
+					}
 				}
 			}
 
@@ -97,18 +100,18 @@ public class BootScript : MonoBehaviour {
 		hasBooted = true;
 
 		ClearBootText ();
-		GlitchManager.instance.StartCoroutine (GlitchManager.instance.GlitchScreen ());
+		GlitchManager.instance.GlitchScreenOnCommand (0.4f);
 
 		switch (bootSeq) {
 			case 0:
-				SoundManager.instance.StopAmbients();
-				SoundManager.instance.startProcessSound.Play ();
+				
 				t.textToDisplay = "----- SEQUENCE TERMINATED -----¤Invalid Argument Error: Query exceeds data string count. Exiting…¤…Done.";
 				buttonText.textToDisplay = "[Load Site] ";
 				rollTime = 3f;
 				break;
 			case 1:
-				t.textToDisplay = "Loading process.contamination              ¤Accessing system files           ¤3-8 Ready ¤2-7 Ready ¤1-9 Ready  ¤7-4 Ready     ¤Filling memory banks… … …Done.";
+				SoundManager.instance.startProcessSound.Play ();
+				t.textToDisplay = "Loading process.contamination              ¤Accessing system files           ¤3-8 Ready ¤2-7 Ready ¤1-9 Ready  ¤7-4 Ready     ¤Filling memory banks... ... ...Done.";
 				buttonText.textToDisplay = "[Access Site] ";
 				rollTime = 5f;
 				break;
@@ -117,11 +120,11 @@ public class BootScript : MonoBehaviour {
 				rollTime = 8f;
 				break;
 			case 3:
-				t.textToDisplay = "POI Requested… Searching…   ¤1 POI Found...  ¤Name: Sauddoc  ¤Marked of Interest: Eravola Outbreak Reported   ¤Investigate?";
+				t.textToDisplay = "POI Requested… Searching...   ¤1 POI Found...  ¤Name: Sauddoc Village  ¤Marked of Interest: Eravola Outbreak Reported   ¤Investigate?";
 				rollTime = 4f;
 				break;
 			case 4:
-				t.textToDisplay = "Requesting Access… Access Granted.  ¤Loading POI…  ¤Processing site… … Done.  ¤Loading status… Done. ¤Populating area... Done. 0 Person(s) present  ¤Finding Marks of Relevance… Done.  ¤Loading descriptions… Done.   ¤Loading Natural Language Interface… Done.";
+				t.textToDisplay = "Requesting Access... Access Granted.  ¤Loading POI...  ¤Processing site... ... Done.  ¤Loading status… Done. ¤Checking Population in area... Done. 0 Person(s) present.  ¤Activating Probe... Done.¤Finding Marks of Relevance... Done.  ¤Loading descriptions... Done.   ¤Loading Natural Language Interface... Done.";
 				rollTime = 4f;
 				break;
 			case 5:
@@ -140,6 +143,39 @@ public class BootScript : MonoBehaviour {
 		}	
 	}
 
+	public void StartReboot(){
+		SoundManager.instance.StopAmbients();
+		canvasManager.instance.ActivateCanvas(canvasManager.instance.bootCanvas);
+		GlitchManager.instance.GlitchScreenOnCommand (5f,2f);
+		SoundManager.instance.warningSound.Play ();
+		t.textToDisplay = "";
+		text.text = "";
+		buttonText.gameObject.GetComponent<Text> ().text = "";
+		buttonText.shouldStopRolling = true;
+		buttonText.StopCoroutine(buttonText.RollText());
+		button.SetActive (true);
+		buttonText.del = 0.04f;
+		buttonText.textToDisplay = ": : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : :N: : : :X:T";
+		buttonText.Start();
+		SoundManager.instance.workSound.Play ();
+	}
+
+	IEnumerator waitToReboot(){
+		float t = 5;
+		while (t > 0) {
+			t -= Time.deltaTime;
+			yield return 0;
+		}
+		canvasManager.instance.ActivateCanvas(canvasManager.instance.bootCanvas);
+		BootScript.instance.NextBootWindow();
+	}
+	public void HasClickedBootButton(){
+		hasStartedReboot = true;
+	}
+
+
+
+
 
 	public void ActivateSearchMode(){
 		inSearchMode = true;
@@ -147,6 +183,7 @@ public class BootScript : MonoBehaviour {
 		canvasManager.instance.ActivateCanvas (canvasManager.instance.bootCanvas);
 		dialogueManager.instance.EnterDialogue ("search",null);
 		SoundManager.instance.PlayScanningSound();
+		Story.instance.DatabaseButton.SetActive (false);
 	}	
 
 
@@ -158,6 +195,7 @@ public class BootScript : MonoBehaviour {
 
 
 	public void WriteButtonText(){
+		buttonText.del = 0.05f;
 		buttonText.shouldStopRolling = true;
 		buttonText.StopCoroutine(buttonText.RollText());
 		buttonText.gameObject.GetComponent<Text> ().text = "";
@@ -204,9 +242,10 @@ public class BootScript : MonoBehaviour {
 			ipf.gameObject.SetActive(false);
 			hasBooted = true;
 			SoundManager.instance.ChangeMasterMixerValue("volume",-5f);
+			SoundManager.instance.curMasterVolume = -5f;
 			SoundManager.instance.passWordSound.Play();
-			canvasManager.instance.ActivateCanvas(canvasManager.instance.houseCanvas);
-			dialogueManager.instance.EnterDialogue("momIntro", null);
+			canvasManager.instance.ActivateCanvas(canvasManager.instance.villageCanvas);
+			dialogueManager.instance.EnterDialogue("cearaIntro", null);
 		}
 	}
 }
