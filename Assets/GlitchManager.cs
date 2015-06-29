@@ -50,6 +50,11 @@ public class GlitchManager : MonoBehaviour {
 		} else {
 			StartCoroutine(GlitchScreen());
 		}
+
+		if(Input.GetKey(KeyCode.Escape)){
+			Application.Quit();	
+		}
+		
 	}
 
 	public IEnumerator GlitchScreen(){

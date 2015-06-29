@@ -79,7 +79,7 @@ public class dialogueProgression : MonoBehaviour {
 		
 		curDialogueOptions.transform.SetParent (dialogueManager.instance.dialogueCanvas.transform);
 		curDialogueOptions.GetComponent<RectTransform> ().localScale = Vector3.one;
-		curDialogueOptions.GetComponent<RectTransform> ().anchoredPosition3D = new Vector3(-115,150,0);
+		curDialogueOptions.GetComponent<RectTransform> ().anchoredPosition3D = new Vector3(-150,150,0);
 		
 		
 		List<Button> buttonList = new List<Button> ();

@@ -10,7 +10,6 @@ to make commercial use of the work
 */
 
 using UnityEngine;
-using UnityEditor;
 
 [ExecuteInEditMode]
 [AddComponentMenu("Image Effects/GlitchEffect")]

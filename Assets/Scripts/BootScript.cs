@@ -180,7 +180,7 @@ public class BootScript : MonoBehaviour {
 	public void ActivateSearchMode(){
 		inSearchMode = true;
 		ClearBootText ();
-		canvasManager.instance.ActivateCanvas (canvasManager.instance.bootCanvas);
+		canvasManager.instance.ActivateCanvas (canvasManager.instance.villageCanvas);
 		dialogueManager.instance.EnterDialogue ("search",null);
 		SoundManager.instance.PlayScanningSound();
 		Story.instance.DatabaseButton.SetActive (false);
