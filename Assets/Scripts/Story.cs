@@ -192,6 +192,9 @@ public class Story : MonoBehaviour {
 		if (dial == "search" && pos == 95) {
 			SoundManager.instance.StopSound(SoundManager.instance.messageSound);
 			SoundManager.instance.StopAmbients();
+			canvasManager.instance.ActivateCanvas(canvasManager.instance.bootCanvas);
+			canvasManager.instance.ChangeDialogueCanvas(true);
+			SoundManager.instance.textSound.volume = 0.1f;
 			//       ----------------------------------      GLITCHING
 		}
 

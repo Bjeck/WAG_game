@@ -28,7 +28,7 @@ public class ambientVoiceContainer : MonoBehaviour {
 	//FIRST VILLAGE INTRO
 		ambientInst firstVillage = new ambientInst ();
 		firstVillage.id = 0;
-		firstVillage.response = "'What?' ¤'Yes. He's coming today.'¤'When?' ¤'Don't know. But soon.'";
+		firstVillage.response = "'What?' ¤'Yes. He's coming today.'¤'When?' ¤'Don't know. Soon.'";
 		firstVillage.thoughts = "I live in a small hovel on the outskirts of Caudden City, far enough away that you can’t smell the shit but still close enough that the chimneys line the sky.";
 		firstVillage.thoughtsDelay = 1.5f;
 		ambientContainer.Add (firstVillage);
@@ -168,14 +168,14 @@ public class ambientVoiceContainer : MonoBehaviour {
 		ambientInst race = new ambientInst ();
 		race.id = 0;
 		race.response = "";
-		race.thoughtsSpeed = 0.007f;
+		race.thoughtsSpeed = 0.01f;
 		race.thoughts = "The tree is at the other side of the pond. We start sprinting to the left of the shallow water, and I faintly notice movement under the surface.";
 		ambientContainer.Add (race);
 
 		ambientInst race1 = new ambientInst ();
 		race1.id = 1;
 		race1.response = "";
-		race1.thoughtsSpeed = 0.007f;
+		race1.thoughtsSpeed = 0.008f;
 		race1.thoughts = "My feet feel light and springy on the summer grass, the smell of the waving flowers seething into my nostrils. We’re sidestepping toe to toe, whistling across the pond-side almost soundlessly, as we hear the wind clatter at our ears.";
 		ambientContainer.Add (race1);
 
@@ -236,12 +236,12 @@ public class ambientVoiceContainer : MonoBehaviour {
 		ambientInst pull4 = new ambientInst ();
 		pull4.id = 3;
 		pull4.response = "";
-		pull4.thoughts = "I started climbing down to her after a short while. She wasn’t far away, and it hadn’t been a long fall, but she kept laying there.     ¤‘Ceara?’ I said, looking down at her still body. I hadn’t judged the fall to be that hard.      ¤I slid down the tree as fast as I could, gliding with my feet over the rough surface, hearing it crunch under me.";
+		pull4.thoughts = "I started climbing down to her after a short while. She wasn’t far away, and it hadn’t been a long fall, but she keeps lying there.     ¤‘Ceara?’ I said, looking down at her still body. I hadn’t judged the fall to be that hard.      ¤I slid down the tree as fast as I could, gliding with my feet over the rough surface, hearing it crunch under me.";
 		ambientContainer.Add (pull4);
 
 		ambientInst pull5 = new ambientInst ();
 		pull5.id = 4;
-		pull5.response = "<I approached her slowly.>   ¤Are you okay?";
+		pull5.response = "<I approached her slowly.>   ¤'Are you okay?'";
 		pull5.thoughts = "";
 		ambientContainer.Add (pull5);
 
@@ -265,7 +265,7 @@ public class ambientVoiceContainer : MonoBehaviour {
 		ambientInst cursedGoBackToInn1 = new ambientInst ();
 		cursedGoBackToInn1.id = 1;
 		cursedGoBackToInn1.response = "";
-		cursedGoBackToInn1.thoughts = "We walk back slowly. She stumbles every few steps, walking slowly and carefully, feeling her body as if it was dangerous to touch.      ¤I ask her several more times if she is okay, but she kept saying nothing. ¤I don't know what else to ask.";
+		cursedGoBackToInn1.thoughts = "We walk back slowly. She stumbles every few steps, walking slowly and carefully, feeling her body as if it was dangerous to touch.      ¤I ask her several more times if she is okay, but she keeps saying nothing. ¤I don't know what else to ask.";
 		ambientContainer.Add (cursedGoBackToInn1);
 
 		ambientInst cursedGoBackToInn2 = new ambientInst ();
@@ -315,7 +315,7 @@ public class ambientVoiceContainer : MonoBehaviour {
 		outsideInnList.Add(new ambientInst());
 		outsideInnList [1].id = 1;
 		outsideInnList [1].response = "";
-		outsideInnList [1].thoughts = "It is spreading up from the pond. Moving with the flowers. I hadn’t noticed it before, so it must have been moving fast. Really fast. I stare, horrified at the new color the tiny pathway has gotten, once leading down to the pond with tufts of yellow along downtrodden grass.";
+		outsideInnList [1].thoughts = "It is spreading up from the pond. Moving with the flowers. I hadn’t noticed it before, so it must have been moving fast. Really fast. I stare, horrified at the new color the tiny pathway has gotten, once leading down to the pond with tufts of yellow flowers along downtrodden grass.";
 		ambientContainer.Add (outsideInnList [1]);
 
 		outsideInnList.Add(new ambientInst());
@@ -349,7 +349,7 @@ public class ambientVoiceContainer : MonoBehaviour {
 		outsideInnList.Add(new ambientInst());
 		outsideInnList [6].id = 6;
 		outsideInnList [6].response = "'It doesn’t look like we have that kind of time if it spreads that fast... sir'";
-		outsideInnList [6].thoughts = "It is hard to see the actual movement, but it now touches some plants it had not before. I’m sure of it.";
+		outsideInnList [6].thoughts = "It is hard to see the actual movement, but it now touches some plants it hadn't before. I’m sure of it.";
 		ambientContainer.Add (outsideInnList [6]);
 
 		outsideInnList.Add(new ambientInst());
@@ -473,7 +473,7 @@ public class ambientVoiceContainer : MonoBehaviour {
 		ambientInst ritTrans1 = new ambientInst ();
 		ritTrans1.id = 1;
 		ritTrans1.response = "";
-		ritTrans1.thoughts = "Ceara returns with a plant, looking a little more distant than before. I try talking to her but she doesn't say much. Mauge tries as well but she keeps saying she's fine.";
+		ritTrans1.thoughts = "Ceara returns with a plant, looking more distant than before. I try talking to her but she doesn't say much. Mauge tries as well but she keeps saying she's fine.";
 		ambientContainer.Add (ritTrans1);
 
 		ambientInst ritTrans2 = new ambientInst ();
