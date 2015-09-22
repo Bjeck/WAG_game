@@ -179,7 +179,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		#region cearaHi
 		DialogueInst cearaHi = new DialogueInst ();
 		cearaHi.id = 0;
-		cearaHi.response = "'Hey.'";
+		cearaHi.response = "'Hey, Tari.'";
 		cearaHi.thoughts = "It's Ceara? Why's she not at school yet?";
 		cearaHi.options.Add ("Hey");
 		cearaHi.options.Add ("What are you doing here?");
@@ -258,7 +258,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst c15 = new DialogueInst ();
 		c15.id = 15;
-		c15.response = "'Sure. Was considering sneaking down to the pond or something now that no one's watching, but I guess I'm curious about this fellow, too.'";
+		c15.response = "'Sure. I was considering sneaking down to the pond or something now that no one's watching, but I guess I'm curious about this fellow, too.'";
 		c15.thoughts = "";
 		c15.options.Add ("[Go to the inn]");
 		c15.ResponseNrs.Add (17);
@@ -315,7 +315,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ci32 = new DialogueInst ();
 		ci32.id = 32;
-		ci32.response = "'If it's who I think it is. The description matches, but there are other Sages in the world.'";
+		ci32.response = "'If it's who I think it is. The description matches, but there are other Sages like him in the world.'";
 		ci32.thoughts = "";
 		ci32.options.Add ("Who is he, though. If it is him?");
 		ci32.options.Add ("What's he doing here?");
@@ -376,7 +376,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst ci9 = new DialogueInst ();
 		ci9.id = 9;
-		ci9.response = "'Get in line, then. It's rare to have someone like that here' <Illij says.>  ¤¤'Most of them dart directly into Caudden and never look back' <Ceara says.>   ¤¤'Exactly. This one's staying, which makes him interesting.'";
+		ci9.response = "'Get in line, then. It's rare to see someone like that here' <Illij says.>  ¤¤'Most of them dart directly into Caudden and never look back' <Ceara says.>   ¤¤'Exactly. This one's staying, which makes him interesting.'";
 		ci9.thoughtsDelay = 3f;
 		ci9.thoughts = "";
 		ci9.options.Add ("When's he coming?");
@@ -632,7 +632,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst cCursed10 = new DialogueInst ();
 		cCursed10.id = 10;
-		cCursed10.response = "'...think it was that.'       ¤<She points at a flower just below her. It has... no, the entire flowerbed has the same marks. The same purplish deformation stricken across them as if it was dyed into the fabric of the petals.>";
+		cCursed10.response = "'...think it was those.'       ¤<She points at a flower just below her. It has... no, the entire flowerbed has the same marks. The same purplish deformation stricken across them as if it was dyed into the fabric of the petals.>";
 		cCursed10.thoughts = "It's everywhere...";
 		cCursed10.options.Add ("We have to get back.");
 		cCursed10.ResponseNrs.Add (11);
@@ -668,7 +668,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst cCursed14 = new DialogueInst ();
 		cCursed14.id = 14;
-		cCursed14.response = "'..I don't know.'";
+		cCursed14.response = "'...I don't know.'";
 		cCursed14.thoughts = "God, Ceara... We have to get help here.";
 		cCursed14.options.Add ("Come on. We're leaving. Now.");
 		cCursed14.ResponseNrs.Add (15);
@@ -708,7 +708,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		innCurseIntro1.response = "'Don't give me that bullshit. A fall obviously didn't do this...'";
 		innCurseIntro1.thoughts = "...";
 		innCurseIntro1.options.Add ("I don't know what happened..");
-		innCurseIntro1.options.Add ("She.. touched some plants.. they had the same marks.");
+		innCurseIntro1.options.Add ("She.. touched some plants.");
 		innCurseIntro1.ResponseNrs.Add (3);
 		innCurseIntro1.ResponseNrs.Add (2);
 		dialogueContainer.Add (innCurseIntro1);
@@ -772,7 +772,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		innCurseIntro8.options.Add ("Is she safe?");
 		innCurseIntro8.options.Add ("Will she be okay?");
 		innCurseIntro8.ResponseNrs.Add (9);
-		innCurseIntro8.ResponseNrs.Add (10);
+		innCurseIntro8.ResponseNrs.Add (9);
 		dialogueContainer.Add (innCurseIntro8);
 
 		DialogueInst innCurseIntro9 = new DialogueInst ();
@@ -789,8 +789,8 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		innCurseIntro11.thoughts = "It did smell down by the pond.";
 		innCurseIntro11.options.Add ("Yes. It did smell when it happened.");
 		innCurseIntro11.options.Add ("[Say nothing]");
+		innCurseIntro11.ResponseNrs.Add (11);
 		innCurseIntro11.ResponseNrs.Add (12);
-		innCurseIntro11.ResponseNrs.Add (13);
 		dialogueContainer.Add (innCurseIntro11);
 
 		DialogueInst innCurseIntro12 = new DialogueInst ();
@@ -800,7 +800,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		innCurseIntro12.thoughtsDelay = 1.5f;
 		innCurseIntro12.optionDelay = 2f;
 		innCurseIntro12.options.Add ("..Down by the pond.");
-		innCurseIntro12.ResponseNrs.Add (14);
+		innCurseIntro12.ResponseNrs.Add (13);
 		dialogueContainer.Add (innCurseIntro12);
 
 		DialogueInst innCurseIntro13 = new DialogueInst ();
@@ -810,7 +810,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		innCurseIntro13.thoughtsDelay = 1.5f;
 		innCurseIntro13.optionDelay = 2f;
 		innCurseIntro13.options.Add ("..Down by the pond.");
-		innCurseIntro13.ResponseNrs.Add (14);
+		innCurseIntro13.ResponseNrs.Add (13);
 		dialogueContainer.Add (innCurseIntro13);
 
 		DialogueInst innCurseIntro14 = new DialogueInst ();
@@ -818,7 +818,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		innCurseIntro14.response = "'What? You went to the pond!?' <Ceara's mother immediately bursts out.> 'Why didn't you say so?'";
 		innCurseIntro14.thoughts = "";
 		innCurseIntro14.options.Add ("I...");
-		innCurseIntro14.ResponseNrs.Add (15);
+		innCurseIntro14.ResponseNrs.Add (14);
 		dialogueContainer.Add (innCurseIntro14);
 
 		DialogueInst innCurseIntro15 = new DialogueInst ();
@@ -827,7 +827,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		innCurseIntro15.thoughts = "Oh... Shit";
 		innCurseIntro15.thoughtsDelay = 8f;
 		innCurseIntro15.options.Add ("Yes");
-		innCurseIntro15.ResponseNrs.Add (16);
+		innCurseIntro15.ResponseNrs.Add (15);
 		dialogueContainer.Add (innCurseIntro15);
 
 		DialogueInst innCurseIntro16 = new DialogueInst ();
@@ -835,7 +835,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		innCurseIntro16.response = "'Take me there, right now.'";
 		innCurseIntro16.thoughts = "I hope he can help..";
 		innCurseIntro16.options.Add ("[Start walking]");
-		innCurseIntro16.ResponseNrs.Add (17);
+		innCurseIntro16.ResponseNrs.Add (16);
 		dialogueContainer.Add (innCurseIntro16);
 
 		DialogueInst innCurseIntroExit = new DialogueInst ();
@@ -1017,7 +1017,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst followCeara14 = new DialogueInst ();
 		followCeara14.id = 14;
-		followCeara14.response = "'Me too. Tari...' <she says and stops, looks at me with a wanting look> 'If it doesn’t… please—'";
+		followCeara14.response = "'Me too. Tari...' <she says and stops, looks at me with a wanting look> 'If it doesn’t... please—'";
 		followCeara14.thoughts = "";
 		followCeara14.options.Add ("Stop. Don't worry about it. Let's go. [Leave]");
 		followCeara14.ResponseNrs.Add (16);
@@ -1160,7 +1160,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		DialogueInst ritChoice2 = new DialogueInst ();
 		ritChoice2.id = 2;
 		ritChoice2.thoughts = "";
-		ritChoice2.response = "'Something really big. I have never seen a weatherhex be this huge. And I don’t know how it connects to the purple infestation. We need to get away from here.'";
+		ritChoice2.response = "'Something really big. I have never seen a weatherhex this huge. And I don’t know how it connects to the purple infestation. We need to get away from here.'";
 		ritChoice2.options.Add ("To Caudden? You want to go towards it?");
 		ritChoice2.options.Add ("I want to go north.");
 		ritChoice2.ResponseNrs.Add (3);
@@ -1316,7 +1316,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 		*/
 		DialogueInst searchhouses4 = new DialogueInst ();
 		searchhouses4.id = 335;
-		searchhouses4.response = "The lone house on the hill is different from the rest of them. It’s further away from the main road than most of them, it’s built in a different time, judging by the wood, and it’s built with a different set of tools.       ¤¤Inside, however, you see the most profound differences. Instead of the regular decorum in most houses in this area, there are no golden circles on the walls, no unburnt candles beside the door. A foreigner lived here.       ¤¤A well-kept skeleton lies in the middle of the living room. Male, late thirties. He must have stayed home when he saw the spread, hoping it wouldn’t get in here. It took a while, too, the stone slabs around his house and ceramic oven slowed the onslaught significantly, but it wasn’t enough. Poor guy.";
+		searchhouses4.response = "The lone house on the hill is different from the rest of them. It’s further away from the main road, it’s built in a different time, judging by the wood, and it’s built with a different set of tools.       ¤¤Inside, however, you see the most profound differences. Instead of the regular decorum in most houses in this area, there are no golden circles on the walls, no unburnt candles beside the door. A foreigner lived here.       ¤¤A well-kept skeleton lies in the middle of the living room. Male, late thirties. He must have stayed home when he saw the spread, hoping it wouldn’t get in here. It took a while, too, the stone slabs around his house and ceramic oven slowed the onslaught significantly, but it wasn’t enough. Poor guy.";
 		searchhouses4.thoughts = "";
 		searchhouses4.options.Add ("Go Back");
 		searchhouses4.ResponseNrs.Add (3);
@@ -1398,7 +1398,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst searchleave5 = new DialogueInst ();
 		searchleave5.id = 96;
-		searchleave5.response = "There’s something living in there… How can it… What—No_ItC                ¤¤ --- ERROR ---     ¤SIGNAL LOST.  ¤ATTEMPTING REBOOT…              ¤…              ¤Reboot failed. AT---**********     ¤¤<Hello. I’m… here?  ¤I made it. Wow. Hello there.  ¤Caution, what you are about to hear is extraordinary. ¤I have survived. There is something else in here. There is something spreading this. I think I have seen what it is but I haven’t been able to get close.  ¤Sorry for hijacking your signal, but I had to get this message out. I hope you find it well. I hope you can save me.>";
+		searchleave5.response = "There’s something living in there... How can it... What—No_ItC                ¤¤ --- ERROR ---     ¤SIGNAL LOST.  ¤ATTEMPTING REBOOT...              ¤...              ¤Reboot failed. AT---**********     ¤¤<Hello. I’m... here?  ¤I made it. Wow. H-hello there.  ¤Caution, what you are about to hear is extraordinary. ¤I have survived. There is something else in here. There is something spreading this. I think I have seen it but I haven’t been able to get close.  ¤Sorry for hijacking your signal, but I had to get this message out. I hope you find it well. I hope you can--------->";
 		searchleave5.thoughts = "";
 		searchleave5.optionDelay = 10f;
 		searchleave5.options.Add ("Investigate");
@@ -1407,7 +1407,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst searchleave6 = new DialogueInst ();
 		searchleave6.id = 95;
-		searchleave6.response = "SIGNAL LOST ………………………………………                ¤SIGNAL LOST ………………………………………                ¤SIGNAL LOST ………………………………………                 ¤SIGNAL LOST ………………………………………                                  ¤¤Probe left transmission area.         ¤Shutting down Natural Language Interface… Done  ¤Exiting search… Done";
+		searchleave6.response = "SIGNAL LOST ………………………………………                ¤SIGNAL LOST ………………………………………                ¤SIGNAL LOST ………………………………………                 ¤SIGNAL LOST ………………………………………                                  ¤¤Probe left transmission area.         ¤Shutting down Natural Language Interface... Done  ¤Exiting search... Done";
 		searchleave6.thoughts = "";
 		searchleave6.options.Add ("Terminate Search");
 		searchleave6.ResponseNrs.Add (100);
@@ -1415,7 +1415,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst searchleave7 = new DialogueInst ();
 		searchleave7.id = 91;
-		searchleave7.response = "Sending Probe Home... Done.              ¤Shutting down Natural Language Interface… Done  ¤Exiting search… Done";
+		searchleave7.response = "Sending Probe Home... Done.              ¤Shutting down Natural Language Interface... Done  ¤Exiting search... Done";
 		searchleave7.thoughts = "";
 		searchleave7.options.Add ("Terminate Search");
 		searchleave7.ResponseNrs.Add (100);
@@ -1423,7 +1423,7 @@ public class dialogueOptionContainerScript : MonoBehaviour {
 
 		DialogueInst searchEx = new DialogueInst ();
 		searchEx.id = 100;
-		searchEx.response = "Area Search Over.               ¤Uploading Results… Done.    ¤Amount of information: 5.4  ¤Relevance: 78%  ¤Further research possibilities: 2  ¤Score: 8  ¤Expected survivability of Area: 0.4 minutes.  ¤Origin: South.  ¤Spread: North, East.   ¤Area categorized: Hazardous.            ¤¤Thank you.                          ¤¤¤¤                                   [ERAVOLA INVESTIGATION UNIT]¤                                  -- Together, we can stop the spread --";
+		searchEx.response = "Area Search Over.               ¤Uploading Results... Done.    ¤Amount of information: 5.4  ¤Relevance: 78%  ¤Further research possibilities: 2  ¤Score: 8  ¤Expected survivability of Area: 0.4 minutes.  ¤Origin: South.  ¤Spread: North, East.   ¤Area categorized: Hazardous.            ¤¤Thank you.                          ¤¤¤¤                                   [ERAVOLA INVESTIGATION UNIT]¤                                  -- Together, we can stop the spread --";
 		searchEx.thoughts = "";
 		searchEx.options.Add ("Credits");
 		searchEx.options.Add ("Exit");
