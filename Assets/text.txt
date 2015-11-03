@@ -1,0 +1,5 @@
+<tw-storydata name="test" startnode="1" creator="Twine" creator-version="2.0.8" ifid="732EC46C-1A65-4B41-BCF6-9D7CD5F03BC2" format="Harlowe" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="This is a Title" tags="" position="423,244">This is the text.
+
+[[LINK]]
+
+[[LINK 2|LINK2]]</tw-passagedata><tw-passagedata pid="2" name="LINK" tags="" position="423,394">Text in link 1</tw-passagedata><tw-passagedata pid="3" name="LINK2" tags="" position="573,394">text in link 1</tw-passagedata></tw-storydata>
