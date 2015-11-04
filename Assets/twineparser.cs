@@ -10,6 +10,11 @@ public class twineparser : MonoBehaviour {
 
 	public string textfileName;
 
+	List<string> instances = new List<string>();
+	List<string> elements = new List<string>(); 
+
+	bool firstTime = true;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -25,7 +30,7 @@ public class twineparser : MonoBehaviour {
 	{
 		// Handle any problems that might arise when reading the text
 
-		string line;;
+		string line;
 		line = "";
 		// Create a new StreamReader, tell it which file to read and what encoding the file
 		// was saved as
@@ -39,48 +44,51 @@ public class twineparser : MonoBehaviour {
 		{
 			// While there's lines left in the text file, do this:
 			while(line != null){
+				instances.Clear();
+				elements.Clear();
 				//print("reading line");
 				line = theReader.ReadLine();
 
-				if(line != null){
-					List<string> entries = line.Split(new string[] {"[[[[]]]]"},System.StringSplitOptions.None).ToList();
-					
-					entries.Remove("ID§DIALOGUE§THOUGHTS§thoughtdelay§optiondelay§TRIGGER?§OPTION 1§OPTION 2§OPTION 3§OPTION 4§"); entries.Remove("");
-					
-					
-					print ("COUNT "+entries.Count);
-					//if (entries.Length > 0)
-					//	DoStuff(entries);
-					List<string> elements = new List<string>();
-					foreach(string s in entries){
-						print (s);
-						elements = (s.Split('§').ToList());
-					}
-					
+				if(line != null && !firstTime && line.Substring(0,4) != "SKIP"){
+
+					print ("ENTRIES "+line);
+					elements = (line.Split('§').ToList());
+
+					//TESTING
 					foreach(string s in elements){
-						print (s);
-						//elements.Add(s.Split('§'));
+						print ("ELEMENT "+s);
 					}
-					if(elements.Count > 3){
-						
-						DialogueInst momIntroGreet = new DialogueInst ();
+
+					if(elements.Count > 3){ //arbitrary number
+
+						//ALSO need to figure out if I can now skip the ¤ and just use Newline since it should be able to read that??
+
+						DialogueInst momIntroGreet = new DialogueInst (); //need to figure out what to do with the class name.... shit. Back to lists? xD That would work.
 						momIntroGreet.id = int.Parse(elements[0]);
 						momIntroGreet.response = elements[1];
 						momIntroGreet.thoughts = elements[2];
 						momIntroGreet.thoughtsDelay = float.Parse(elements[3]);
 						momIntroGreet.optionDelay = float.Parse(elements[4]);
-						//momIntroGreet.NextTrigger ("",false); //NEEDS REWORK
-						momIntroGreet.options.Add (elements[6]);
-						momIntroGreet.options.Add(elements[7]);
-						momIntroGreet.options.Add(elements[8]);
-						momIntroGreet.ResponseNrs.Add (1); //NEEDS REWORK
-						momIntroGreet.ResponseNrs.Add (1);
-						momIntroGreet.ResponseNrs.Add (3);
-						
-						print (momIntroGreet.response+" "+momIntroGreet.thoughts+" "+momIntroGreet.thoughtsDelay);
+						if(elements[6] != "NA"){	momIntroGreet.options.Add (elements[6]);	momIntroGreet.ResponseNrs.Add (int.Parse(elements[10]));	}
+						if(elements[7] != "NA"){	momIntroGreet.options.Add (elements[7]);	momIntroGreet.ResponseNrs.Add (int.Parse(elements[11]));	}
+						if(elements[8] != "NA"){	momIntroGreet.options.Add (elements[8]);	momIntroGreet.ResponseNrs.Add (int.Parse(elements[12]));	}
+						if(elements[9] != "NA"){	momIntroGreet.options.Add (elements[9]);	momIntroGreet.ResponseNrs.Add (int.Parse(elements[13]));	}
+						//Next Trigger
+						if(elements[5] != "NNT"){
+							string[] parseNT = elements[5].Split('/');
+							if(parseNT[1] == "D"){
+								momIntroGreet.NextTrigger (parseNT[0],true);
+							}
+							else{
+								momIntroGreet.NextTrigger (parseNT[0],false);
+							}
+						}
+
+						print ("TEST OUTPUT "+momIntroGreet.response+" "+momIntroGreet.thoughts+" "+momIntroGreet.thoughtsDelay);
 					}
-
-
+				}
+				if(firstTime){
+					firstTime = false;
 				}
 			}
 				//

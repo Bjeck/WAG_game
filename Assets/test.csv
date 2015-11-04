@@ -1,2 +1,4 @@
-ID§DIALOGUE§THOUGHTS§thoughtdelay§optiondelay§TRIGGER?§OPTION 1§OPTION 2§OPTION 3§OPTION 4§[[[[]]]]
-0§Morning, sleepyhead'                            ¤ 'Tea's still fresh in the kitchen, if you want'§ ..What's… §2§3.1§0§Hey§Morning§[Grab some Tea]§NA§[[]]
+ID§DIALOGUE§THOUGHTS§thoughtdelay§optiondelay§TRIGGER?§OPTION 1§OPTION 2§OPTION 3§OPTION 4§O1ID§O2ID§O3ID§O4ID§[[[[]]]]
+0§Morning, sleepyhead'                            ¤ 'Tea's still fresh in the kitchen, if you want'§ ..What's… §2§3.1§NNT§Hey§Morning§[Grab some Tea]§NA§1§2§3§§
+1§'Come on, get up. Don't look so sulky. I got up just fine.'     ¤<Mom turns away and begins to work.>§..Damn...§1§1§nextDialName/D§Fine, fine. I'm up.§Any food?§[Grab some tea]§[Walk out of the room]§8§5§3§4§
+SKIP§§§§§§§§§§§§§§
