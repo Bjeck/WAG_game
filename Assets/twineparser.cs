@@ -55,13 +55,15 @@ public class twineparser : MonoBehaviour {
 					elements = (line.Split('§').ToList());
 
 					//TESTING
-					foreach(string s in elements){
-						print ("ELEMENT "+s);
-					}
+					//foreach(string s in elements){
+					//	print ("ELEMENT "+s);
+					//}
 
 					if(elements.Count > 3){ //arbitrary number
 
 						//ALSO need to figure out if I can now skip the ¤ and just use Newline since it should be able to read that??
+
+						//THE alterations. Don't just alter a single part like before. Make an entire new line that's then the altered version. Then I can change options etc as well.
 
 						DialogueInst momIntroGreet = new DialogueInst (); //need to figure out what to do with the class name.... shit. Back to lists? xD That would work.
 						momIntroGreet.id = int.Parse(elements[0]);
